@@ -1,111 +1,311 @@
 fileFormatVersion: 2
 guid: 315d5a49b79ae184c8e33f1f8202727c
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: CYCLOPS_
-    100004: CYCLOPS_ Head
-    100006: CYCLOPS_ L Calf
-    100008: CYCLOPS_ L Clavicle
-    100010: CYCLOPS_ L Finger0
-    100012: CYCLOPS_ L Finger01
-    100014: CYCLOPS_ L Finger02
-    100016: CYCLOPS_ L Finger1
-    100018: CYCLOPS_ L Finger11
-    100020: CYCLOPS_ L Finger12
-    100022: CYCLOPS_ L Finger2
-    100024: CYCLOPS_ L Finger21
-    100026: CYCLOPS_ L Finger22
-    100028: CYCLOPS_ L Finger3
-    100030: CYCLOPS_ L Finger31
-    100032: CYCLOPS_ L Finger32
-    100034: CYCLOPS_ L Foot
-    100036: CYCLOPS_ L Forearm
-    100038: CYCLOPS_ L Hand
-    100040: CYCLOPS_ L Thigh
-    100042: CYCLOPS_ L Toe0
-    100044: CYCLOPS_ L UpperArm
-    100046: CYCLOPS_ Neck
-    100048: CYCLOPS_ Pelvis
-    100050: CYCLOPS_ Ponytail1
-    100052: CYCLOPS_ R Calf
-    100054: CYCLOPS_ R Clavicle
-    100056: CYCLOPS_ R Finger0
-    100058: CYCLOPS_ R Finger01
-    100060: CYCLOPS_ R Finger02
-    100062: CYCLOPS_ R Finger1
-    100064: CYCLOPS_ R Finger11
-    100066: CYCLOPS_ R Finger12
-    100068: CYCLOPS_ R Finger2
-    100070: CYCLOPS_ R Finger21
-    100072: CYCLOPS_ R Finger22
-    100074: CYCLOPS_ R Finger3
-    100076: CYCLOPS_ R Finger31
-    100078: CYCLOPS_ R Finger32
-    100080: CYCLOPS_ R Foot
-    100082: CYCLOPS_ R Forearm
-    100084: CYCLOPS_ R Hand
-    100086: CYCLOPS_ R Thigh
-    100088: CYCLOPS_ R Toe0
-    100090: CYCLOPS_ R UpperArm
-    100092: CYCLOPS_ Spine
-    100094: CYCLOPS_ Spine1
-    100096: ROOT_
-    400000: //RootNode
-    400002: CYCLOPS_
-    400004: CYCLOPS_ Head
-    400006: CYCLOPS_ L Calf
-    400008: CYCLOPS_ L Clavicle
-    400010: CYCLOPS_ L Finger0
-    400012: CYCLOPS_ L Finger01
-    400014: CYCLOPS_ L Finger02
-    400016: CYCLOPS_ L Finger1
-    400018: CYCLOPS_ L Finger11
-    400020: CYCLOPS_ L Finger12
-    400022: CYCLOPS_ L Finger2
-    400024: CYCLOPS_ L Finger21
-    400026: CYCLOPS_ L Finger22
-    400028: CYCLOPS_ L Finger3
-    400030: CYCLOPS_ L Finger31
-    400032: CYCLOPS_ L Finger32
-    400034: CYCLOPS_ L Foot
-    400036: CYCLOPS_ L Forearm
-    400038: CYCLOPS_ L Hand
-    400040: CYCLOPS_ L Thigh
-    400042: CYCLOPS_ L Toe0
-    400044: CYCLOPS_ L UpperArm
-    400046: CYCLOPS_ Neck
-    400048: CYCLOPS_ Pelvis
-    400050: CYCLOPS_ Ponytail1
-    400052: CYCLOPS_ R Calf
-    400054: CYCLOPS_ R Clavicle
-    400056: CYCLOPS_ R Finger0
-    400058: CYCLOPS_ R Finger01
-    400060: CYCLOPS_ R Finger02
-    400062: CYCLOPS_ R Finger1
-    400064: CYCLOPS_ R Finger11
-    400066: CYCLOPS_ R Finger12
-    400068: CYCLOPS_ R Finger2
-    400070: CYCLOPS_ R Finger21
-    400072: CYCLOPS_ R Finger22
-    400074: CYCLOPS_ R Finger3
-    400076: CYCLOPS_ R Finger31
-    400078: CYCLOPS_ R Finger32
-    400080: CYCLOPS_ R Foot
-    400082: CYCLOPS_ R Forearm
-    400084: CYCLOPS_ R Hand
-    400086: CYCLOPS_ R Thigh
-    400088: CYCLOPS_ R Toe0
-    400090: CYCLOPS_ R UpperArm
-    400092: CYCLOPS_ Spine
-    400094: CYCLOPS_ Spine1
-    400096: ROOT_
-    7400000: idleLookAround
-    9500000: //RootNode
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: CYCLOPS_
+  - first:
+      1: 100004
+    second: CYCLOPS_ Head
+  - first:
+      1: 100006
+    second: CYCLOPS_ L Calf
+  - first:
+      1: 100008
+    second: CYCLOPS_ L Clavicle
+  - first:
+      1: 100010
+    second: CYCLOPS_ L Finger0
+  - first:
+      1: 100012
+    second: CYCLOPS_ L Finger01
+  - first:
+      1: 100014
+    second: CYCLOPS_ L Finger02
+  - first:
+      1: 100016
+    second: CYCLOPS_ L Finger1
+  - first:
+      1: 100018
+    second: CYCLOPS_ L Finger11
+  - first:
+      1: 100020
+    second: CYCLOPS_ L Finger12
+  - first:
+      1: 100022
+    second: CYCLOPS_ L Finger2
+  - first:
+      1: 100024
+    second: CYCLOPS_ L Finger21
+  - first:
+      1: 100026
+    second: CYCLOPS_ L Finger22
+  - first:
+      1: 100028
+    second: CYCLOPS_ L Finger3
+  - first:
+      1: 100030
+    second: CYCLOPS_ L Finger31
+  - first:
+      1: 100032
+    second: CYCLOPS_ L Finger32
+  - first:
+      1: 100034
+    second: CYCLOPS_ L Foot
+  - first:
+      1: 100036
+    second: CYCLOPS_ L Forearm
+  - first:
+      1: 100038
+    second: CYCLOPS_ L Hand
+  - first:
+      1: 100040
+    second: CYCLOPS_ L Thigh
+  - first:
+      1: 100042
+    second: CYCLOPS_ L Toe0
+  - first:
+      1: 100044
+    second: CYCLOPS_ L UpperArm
+  - first:
+      1: 100046
+    second: CYCLOPS_ Neck
+  - first:
+      1: 100048
+    second: CYCLOPS_ Pelvis
+  - first:
+      1: 100050
+    second: CYCLOPS_ Ponytail1
+  - first:
+      1: 100052
+    second: CYCLOPS_ R Calf
+  - first:
+      1: 100054
+    second: CYCLOPS_ R Clavicle
+  - first:
+      1: 100056
+    second: CYCLOPS_ R Finger0
+  - first:
+      1: 100058
+    second: CYCLOPS_ R Finger01
+  - first:
+      1: 100060
+    second: CYCLOPS_ R Finger02
+  - first:
+      1: 100062
+    second: CYCLOPS_ R Finger1
+  - first:
+      1: 100064
+    second: CYCLOPS_ R Finger11
+  - first:
+      1: 100066
+    second: CYCLOPS_ R Finger12
+  - first:
+      1: 100068
+    second: CYCLOPS_ R Finger2
+  - first:
+      1: 100070
+    second: CYCLOPS_ R Finger21
+  - first:
+      1: 100072
+    second: CYCLOPS_ R Finger22
+  - first:
+      1: 100074
+    second: CYCLOPS_ R Finger3
+  - first:
+      1: 100076
+    second: CYCLOPS_ R Finger31
+  - first:
+      1: 100078
+    second: CYCLOPS_ R Finger32
+  - first:
+      1: 100080
+    second: CYCLOPS_ R Foot
+  - first:
+      1: 100082
+    second: CYCLOPS_ R Forearm
+  - first:
+      1: 100084
+    second: CYCLOPS_ R Hand
+  - first:
+      1: 100086
+    second: CYCLOPS_ R Thigh
+  - first:
+      1: 100088
+    second: CYCLOPS_ R Toe0
+  - first:
+      1: 100090
+    second: CYCLOPS_ R UpperArm
+  - first:
+      1: 100092
+    second: CYCLOPS_ Spine
+  - first:
+      1: 100094
+    second: CYCLOPS_ Spine1
+  - first:
+      1: 100096
+    second: ROOT_
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: CYCLOPS_
+  - first:
+      4: 400004
+    second: CYCLOPS_ Head
+  - first:
+      4: 400006
+    second: CYCLOPS_ L Calf
+  - first:
+      4: 400008
+    second: CYCLOPS_ L Clavicle
+  - first:
+      4: 400010
+    second: CYCLOPS_ L Finger0
+  - first:
+      4: 400012
+    second: CYCLOPS_ L Finger01
+  - first:
+      4: 400014
+    second: CYCLOPS_ L Finger02
+  - first:
+      4: 400016
+    second: CYCLOPS_ L Finger1
+  - first:
+      4: 400018
+    second: CYCLOPS_ L Finger11
+  - first:
+      4: 400020
+    second: CYCLOPS_ L Finger12
+  - first:
+      4: 400022
+    second: CYCLOPS_ L Finger2
+  - first:
+      4: 400024
+    second: CYCLOPS_ L Finger21
+  - first:
+      4: 400026
+    second: CYCLOPS_ L Finger22
+  - first:
+      4: 400028
+    second: CYCLOPS_ L Finger3
+  - first:
+      4: 400030
+    second: CYCLOPS_ L Finger31
+  - first:
+      4: 400032
+    second: CYCLOPS_ L Finger32
+  - first:
+      4: 400034
+    second: CYCLOPS_ L Foot
+  - first:
+      4: 400036
+    second: CYCLOPS_ L Forearm
+  - first:
+      4: 400038
+    second: CYCLOPS_ L Hand
+  - first:
+      4: 400040
+    second: CYCLOPS_ L Thigh
+  - first:
+      4: 400042
+    second: CYCLOPS_ L Toe0
+  - first:
+      4: 400044
+    second: CYCLOPS_ L UpperArm
+  - first:
+      4: 400046
+    second: CYCLOPS_ Neck
+  - first:
+      4: 400048
+    second: CYCLOPS_ Pelvis
+  - first:
+      4: 400050
+    second: CYCLOPS_ Ponytail1
+  - first:
+      4: 400052
+    second: CYCLOPS_ R Calf
+  - first:
+      4: 400054
+    second: CYCLOPS_ R Clavicle
+  - first:
+      4: 400056
+    second: CYCLOPS_ R Finger0
+  - first:
+      4: 400058
+    second: CYCLOPS_ R Finger01
+  - first:
+      4: 400060
+    second: CYCLOPS_ R Finger02
+  - first:
+      4: 400062
+    second: CYCLOPS_ R Finger1
+  - first:
+      4: 400064
+    second: CYCLOPS_ R Finger11
+  - first:
+      4: 400066
+    second: CYCLOPS_ R Finger12
+  - first:
+      4: 400068
+    second: CYCLOPS_ R Finger2
+  - first:
+      4: 400070
+    second: CYCLOPS_ R Finger21
+  - first:
+      4: 400072
+    second: CYCLOPS_ R Finger22
+  - first:
+      4: 400074
+    second: CYCLOPS_ R Finger3
+  - first:
+      4: 400076
+    second: CYCLOPS_ R Finger31
+  - first:
+      4: 400078
+    second: CYCLOPS_ R Finger32
+  - first:
+      4: 400080
+    second: CYCLOPS_ R Foot
+  - first:
+      4: 400082
+    second: CYCLOPS_ R Forearm
+  - first:
+      4: 400084
+    second: CYCLOPS_ R Hand
+  - first:
+      4: 400086
+    second: CYCLOPS_ R Thigh
+  - first:
+      4: 400088
+    second: CYCLOPS_ R Toe0
+  - first:
+      4: 400090
+    second: CYCLOPS_ R UpperArm
+  - first:
+      4: 400092
+    second: CYCLOPS_ Spine
+  - first:
+      4: 400094
+    second: CYCLOPS_ Spine1
+  - first:
+      4: 400096
+    second: ROOT_
+  - first:
+      74: 7400000
+    second: idleLookAround
+  - first:
+      95: 9500000
+    second: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -114,9 +314,8 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -134,6 +333,7 @@ ModelImporter:
     - serializedVersion: 16
       name: idleLookAround
       takeName: Take 001
+      internalID: 0
       firstFrame: 0
       lastFrame: 300
       wrapMode: 0
@@ -143,7 +343,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -327,25 +527,36 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -354,10 +565,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 1
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -367,14 +578,20 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: ROOT_
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 5154bcfe9fbf8d9418fca71e2ae4cfb2,
     type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
