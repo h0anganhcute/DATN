@@ -4,9 +4,10 @@ using Unity.FPS.Game;
 public class CapsuleDie : MonoBehaviour
 {
     Health mau;
-
+    Animator ani;
     void Start()
     {
+        ani = GetComponent<Animator>();
         mau = GetComponent<Health>();
 
         if (mau != null)
@@ -18,7 +19,12 @@ public class CapsuleDie : MonoBehaviour
     void KhiChet()
     {
         Debug.Log("Capsule chết rồi");
-
-        Destroy(gameObject, 2f); // delay 2 giây
+        ChayAnimationChet();
+        Destroy(gameObject, 5f); // delay 2 giây
+    }
+    void ChayAnimationChet()
+    {
+        ani.SetTrigger("DapXuong");
+        ani.SetTrigger("Die");
     }
 }
