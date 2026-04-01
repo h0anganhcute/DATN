@@ -5,7 +5,7 @@ public class HienVatPham : MonoBehaviour
     [Tooltip("Kéo thả quái vật đang có trên Scene vào đây")]
     [SerializeField] private GameObject quaiVat;
 
-    [Tooltip("Kéo thả Prefab vũ khí (hoặc vật phẩm) vào đây")]
+    [Tooltip("Kéo thả Vũ khí ĐÃ BỊ ẨN trên Scene vào đây")]
     [SerializeField] private GameObject vuKhi;
 
     private Vector3 viTriCuoiCung; // Biến để "nhớ" vị trí của quái vật
@@ -13,7 +13,12 @@ public class HienVatPham : MonoBehaviour
 
     void Start()
     {
-
+        // Có thể code thêm: Tự động ẩn vũ khí ngay từ lúc vào game cho chắc ăn
+        // (Phòng trường hợp mày quên tắt nó bằng tay trong màn hình Unity)
+        if (vuKhi != null)
+        {
+            vuKhi.SetActive(false);
+        }
     }
 
     void Update()
@@ -27,12 +32,19 @@ public class HienVatPham : MonoBehaviour
         // 2. Nếu quaiVat == null (tức là đã bị Destroy) VÀ đồ chưa rớt
         else if (!daRotDo)
         {
-            daRotDo = true; // Chốt hạ là đã rớt đồ rồi, không đẻ thêm nữa
+            daRotDo = true; // Chốt hạ là đã rớt đồ rồi
 
-            // Lôi Prefab vũ khí ra, đặt đúng vào vị trí cuối cùng đã nhớ, góc xoay mặc định (Quaternion.identity)
-            Instantiate(vuKhi, viTriCuoiCung, Quaternion.identity);
+            // Kiểm tra xem vuKhi có bị lỡ tay xóa mất không (để tránh báo lỗi đỏ)
+            if (vuKhi != null)
+            {
+                // Dịch chuyển (teleport) vũ khí tới vị trí quái chết
+                vuKhi.transform.position = viTriCuoiCung;
 
-            // Xong nhiệm vụ thì tự hủy luôn cái script này đi cho nhẹ game
+                // Bật hiển thị vũ khí lên
+                vuKhi.SetActive(true);
+            }
+
+            // Xong nhiệm vụ thì tự hủy cái script này đi
             Destroy(this);
         }
     }

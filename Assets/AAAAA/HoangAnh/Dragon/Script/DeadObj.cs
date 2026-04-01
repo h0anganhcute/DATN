@@ -19,12 +19,12 @@ public class CapsuleDie : MonoBehaviour
     void KhiChet()
     {
         Debug.Log("Capsule chết rồi");
-        ChayAnimationChet();
+        //ChayAnimationChet();
         Destroy(gameObject, 5f); // delay 2 giây
     }
-    void ChayAnimationChet()
-    {
-        ani.SetTrigger("DapXuong");
-        ani.SetTrigger("Die");
-    }
+    //void ChayAnimationChet()
+    //{
+    //    ani.SetTrigger("DapXuong");
+    //    ani.SetTrigger("Die");
+    //}
 }

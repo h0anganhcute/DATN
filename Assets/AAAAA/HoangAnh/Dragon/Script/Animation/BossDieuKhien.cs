@@ -12,7 +12,9 @@ public class BossDieuKhien : MonoBehaviour
 
     public void ChayAnimation()
     {
-        ani.SetTrigger("BayLen");
-        ani.SetTrigger("Baytaicho");
+        ani.SetTrigger("ThucDay");
+        ani.SetTrigger("DungIm");
+        ani.SetTrigger("CatCanh");
+        ani.SetTrigger("BayTaiCho");
     }
 }
