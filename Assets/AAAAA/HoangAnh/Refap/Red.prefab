@@ -965,7 +965,6 @@ Transform:
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8938974567062607384}
   - {fileID: 8393536691917317533}
   - {fileID: 445240}
   - {fileID: 464764}
@@ -4147,74 +4146,6 @@ Transform:
   - {fileID: 413492}
   m_Father: {fileID: 474478}
   m_LocalEulerAnglesHint: {x: 7.323898, y: 4.1613503, z: -24.770582}
---- !u!1 &2084879893018711326
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8938974567062607384}
-  - component: {fileID: 7338865922473594604}
-  - component: {fileID: 8912465368613756211}
-  m_Layer: 0
-  m_Name: DiemCham
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8938974567062607384
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084879893018711326}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.0000000074505797, y: -0, z: -0.10318873, w: 0.9946618}
-  m_LocalPosition: {x: 15.859577, y: -38.16593, z: 0.0000029802322}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 492012}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -11.846}
---- !u!65 &7338865922473594604
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084879893018711326}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 375.80313, y: 95.76168, z: 329.53848}
-  m_Center: {x: -166.82196, y: -128.46619, z: 1.1591835}
---- !u!114 &8912465368613756211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084879893018711326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9b0ce1bb69c96b49a7ac1098a7f5796, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DamageMultiplier: 1
-  SensibilityToSelfdamage: 0.5
 --- !u!1 &2906203877248402836
 GameObject:
   m_ObjectHideFlags: 0
@@ -4423,13 +4354,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5598493840318445804}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000029802319, y: -0, z: 0.591248, w: 0.8064898}
-  m_LocalPosition: {x: -77.799675, y: 106.122765, z: -0.000011920929}
+  m_LocalRotation: {x: 0.0021208224, y: -0.0050093527, z: 0.63297844, w: 0.7741504}
+  m_LocalPosition: {x: -90, y: 87, z: 0.8128047}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 492012}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 72.491}
+  m_LocalEulerAnglesHint: {x: 0.551, y: -0.291, z: 78.54}
 --- !u!136 &4738138134994377867
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4449,10 +4380,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 143.15657
-  m_Height: 632.4163
+  m_Radius: 74.00291
+  m_Height: 284.43314
   m_Direction: 1
-  m_Center: {x: -111.27733, y: 8.888196, z: -2.676512}
+  m_Center: {x: -108.35698, y: 129.85806, z: -2.676522}
 --- !u!114 &1975529281223601943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4465,7 +4396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b0ce1bb69c96b49a7ac1098a7f5796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageMultiplier: 1
+  DamageMultiplier: 0.5
   SensibilityToSelfdamage: 0.5
 --- !u!1 &5927325081810763270
 GameObject:
@@ -4479,7 +4410,7 @@ GameObject:
   - component: {fileID: 6342451742657829001}
   - component: {fileID: 6727150699596830555}
   m_Layer: 0
-  m_Name: VungDau
+  m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4493,13 +4424,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5927325081810763270}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.586552, y: 0.00000017881389, z: 0.00000011920926, w: 0.8099116}
-  m_LocalPosition: {x: -0.00011514383, y: 70.86078, z: 51.31815}
+  m_LocalRotation: {x: 0.6643552, y: -0.013144729, z: 0.03574177, w: 0.74644625}
+  m_LocalPosition: {x: 15.697272, y: 68.980034, z: 70.215385}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 479228}
-  m_LocalEulerAnglesHint: {x: 71.825, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 83.097, y: 13.406, z: 17.375}
 --- !u!136 &6342451742657829001
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4519,10 +4450,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 55.784935
-  m_Height: 279.37943
+  m_Radius: 33.99504
+  m_Height: 224.1938
   m_Direction: 1
-  m_Center: {x: -1.1006123, y: -42.47203, z: 74.57202}
+  m_Center: {x: -15.891806, y: -14.879102, z: 81.57077}
 --- !u!114 &6727150699596830555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4535,7 +4466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b0ce1bb69c96b49a7ac1098a7f5796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageMultiplier: 1
+  DamageMultiplier: 2
   SensibilityToSelfdamage: 0.5
 --- !u!1 &7416481570600351325
 GameObject:
