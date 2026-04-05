@@ -45,12 +45,7 @@ public class BanXaAttack : MonoBehaviour
             if (p != null) nguoiChoi = p.transform;
         }
 
-        // --- ĐỒNG BỘ HÓA TỰ ĐỘNG ---
-        // Ép cái Stopping Distance của NavMesh bằng đúng với Khoảng Cách Bắn mày chỉnh ngoài Inspector
-        if (agent != null)
-        {
-            agent.stoppingDistance = khoangCachBan;
-        }
+        
     }
 
     void Update()
