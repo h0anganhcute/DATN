@@ -48,12 +48,17 @@ public class ChayAttack : MonoBehaviour
 
                 // BẬT LẠI mọi thứ để chuẩn bị rượt tiếp
                 if (Run != null) Run.enabled = true;
-                agent.isStopped = false;
+
+                // --- ĐÃ FIX: CHỈ NHẢ PHANH KHI ĐANG ĐỨNG TRÊN NAVMESH ---
+                if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
+                {
+                    agent.isStopped = false;
+                }
             }
         }
         else
         {
-            // Nếu không đánh, thì check xem Player đã vào vùng Stopping Distance (số 5) chưa?
+            // Nếu không đánh, thì check xem Player đã vào vùng Stopping Distance chưa?
             if (khoangCach <= agent.stoppingDistance)
             {
                 BatDauTanCong();
@@ -69,9 +74,12 @@ public class ChayAttack : MonoBehaviour
         // TẮT kịch bản chạy
         if (Run != null) Run.enabled = false;
 
-        // ĐẠP PHANH NavMesh đứng im ngay lập tức
-        agent.isStopped = true;
-        agent.velocity = Vector3.zero;
+        // --- ĐÃ FIX: CHỈ ĐẠP PHANH KHI ĐANG ĐỨNG TRÊN NAVMESH ---
+        if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
+        {
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero;
+        }
 
         // Gọi Trigger chạy Animation Attack
         ani.SetTrigger("Attack");
