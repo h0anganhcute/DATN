@@ -217,7 +217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   caves:
-  - {fileID: 1479677461}
   - {fileID: 1479677460}
   - {fileID: 1479677459}
   - {fileID: 1479677458}
@@ -225,7 +224,8 @@ MonoBehaviour:
     type: 3}
   enemyType2: {fileID: 6803874659402648087, guid: 5c0cd0509ee6d5146bcee84931886ef9,
     type: 3}
-  enemyType3: {fileID: 0}
+  enemyType3: {fileID: 6479038419360853429, guid: 34e961164b471c849bbce1faa8e5170f,
+    type: 3}
   bossDragon: {fileID: 425083983}
   delayBatBoss: 3
   delayBetweenSpawns: 0.5
@@ -468,7 +468,7 @@ Transform:
   m_GameObject: {fileID: 168920829}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.61948985, z: -0, w: 0.7850047}
-  m_LocalPosition: {x: -1208.7816, y: -178, z: 6897.551}
+  m_LocalPosition: {x: -1791, y: -178, z: 9332}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -554,7 +554,7 @@ Transform:
   m_GameObject: {fileID: 172024672}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.61948985, z: -0, w: 0.7850047}
-  m_LocalPosition: {x: -6285.428, y: -132, z: 3144.597}
+  m_LocalPosition: {x: -5463, y: -132, z: -298}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2825,7 +2825,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_UseGeometry: 1
+  m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
   m_IgnoreNavMeshAgent: 1
@@ -2855,12 +2855,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1479677454}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1479677461 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8837679828594580684, guid: 75d1358951be74d47bc41b97ae6b1c46,
-    type: 3}
-  m_PrefabInstance: {fileID: 1479677454}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1504714787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2876,7 +2870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1504714788
 Transform:
   m_ObjectHideFlags: 0
@@ -4616,7 +4610,7 @@ Transform:
   m_GameObject: {fileID: 1953279260}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.61948985, z: -0, w: 0.7850047}
-  m_LocalPosition: {x: 4386.9624, y: -177, z: 3402.6204}
+  m_LocalPosition: {x: 4555, y: -177, z: -3581}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4797,7 +4791,7 @@ Transform:
   m_GameObject: {fileID: 2050406885}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.61948985, z: -0, w: 0.7850047}
-  m_LocalPosition: {x: 1046.8544, y: -172, z: 11569.906}
+  m_LocalPosition: {x: 715, y: -172, z: 14006}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4939,7 +4933,7 @@ Transform:
   m_GameObject: {fileID: 2090270436}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.61948985, z: -0, w: 0.7850047}
-  m_LocalPosition: {x: -6939.514, y: -179, z: 9537.687}
+  m_LocalPosition: {x: -8302, y: -179, z: 11134}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6813,12 +6807,12 @@ PrefabInstance:
     - target: {fileID: 814417836257332542, guid: 761cdc9e4e883334cbdcea062d0befa7,
         type: 3}
       propertyPath: RotationSpeed
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 814417836257332542, guid: 761cdc9e4e883334cbdcea062d0befa7,
         type: 3}
       propertyPath: MaxSpeedOnGround
-      value: 9
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 814417836257332542, guid: 761cdc9e4e883334cbdcea062d0befa7,
         type: 3}
