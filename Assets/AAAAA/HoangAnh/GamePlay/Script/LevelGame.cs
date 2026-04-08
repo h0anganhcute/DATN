@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic; // Cần cái này để dùng List
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CaveSpawner : MonoBehaviour
@@ -12,6 +12,11 @@ public class CaveSpawner : MonoBehaviour
     public GameObject enemyType2;
     public GameObject enemyType3;
 
+    [Header("Setup Boss (Kéo Boss có sẵn trên map vào đây)")]
+    public GameObject bossDragon;
+    [Tooltip("Thời gian chờ trước khi bật Boss lên (giây)")]
+    public float delayBatBoss = 3f;
+
     [Header("Settings")]
     public float delayBetweenSpawns = 0.5f;
     public float timeBetweenLevels = 3f; // Thời gian chờ giữa các Level
@@ -22,6 +27,12 @@ public class CaveSpawner : MonoBehaviour
 
     void Start()
     {
+        // Phủ đầu cho chắc ăn: Tắt Boss ngay từ đầu lỡ ngoài Scene mày quên tắt
+        if (bossDragon != null)
+        {
+            bossDragon.SetActive(false);
+        }
+
         // Vừa vào game, đợi 3 giây rồi bắt đầu Level 1
         StartCoroutine(AutoGameFlow());
     }
@@ -42,10 +53,25 @@ public class CaveSpawner : MonoBehaviour
             Debug.Log("Đang đợi người chơi quét sạch quái Level " + currentLevel);
             yield return new WaitUntil(() => AllEnemiesDead());
 
-            Debug.Log("Sạch bóng quân thù! Chuẩn bị sang Level tiếp theo...");
+            Debug.Log("Sạch bóng quân thù Level " + currentLevel + " !");
         }
 
-        Debug.Log("CHÚC MỪNG! MÀY ĐÃ VƯỢT QUA TẤT CẢ LEVEL.");
+        // --- HẾT VÒNG LẶP (CLEAR LEVEL 5) -> KỊCH BẢN BẬT BOSS ---
+        Debug.Log("Đã qua 5 ải! Chuẩn bị bật Boss sau " + delayBatBoss + " giây...");
+
+        // Đợi đúng 3 giây
+        yield return new WaitForSeconds(delayBatBoss);
+
+        // Bật công tắc cho con rồng hiện hình
+        if (bossDragon != null)
+        {
+            bossDragon.SetActive(true);
+            Debug.Log("BOSS RỒNG LỬA ĐÃ XUẤT HIỆN!");
+        }
+        else
+        {
+            Debug.LogError("Ê mậy! Quên kéo con Boss Rồng vào ô Boss Dragon kìa!");
+        }
     }
 
     private bool AllEnemiesDead()
@@ -64,29 +90,29 @@ public class CaveSpawner : MonoBehaviour
         switch (level)
         {
             case 1:
-                yield return StartCoroutine(SpawnEnemies(enemyType1, 10));
+                yield return StartCoroutine(SpawnEnemies(enemyType1, 20));
                 break;
             case 2:
-                yield return StartCoroutine(SpawnEnemies(enemyType1, 5));
-                yield return StartCoroutine(SpawnEnemies(enemyType2, 5));
+                yield return StartCoroutine(SpawnEnemies(enemyType1,10));
+                yield return StartCoroutine(SpawnEnemies(enemyType2,10));
                 break;
             case 3:
-                yield return StartCoroutine(SpawnEnemies(enemyType1, 5));
-                yield return StartCoroutine(SpawnEnemies(enemyType2, 5));
-                yield return new WaitForSeconds(10f);
-                yield return StartCoroutine(SpawnEnemies(enemyType3, 5));
+                yield return StartCoroutine(SpawnEnemies(enemyType1, 15));
+                yield return StartCoroutine(SpawnEnemies(enemyType2, 10));
+                yield return new WaitForSeconds(5f);
+                yield return StartCoroutine(SpawnEnemies(enemyType3, 10));
                 break;
             case 4:
-                yield return StartCoroutine(SpawnEnemies(enemyType1, 10));
-                yield return StartCoroutine(SpawnEnemies(enemyType2, 5));
-                yield return new WaitForSeconds(10f);
-                yield return StartCoroutine(SpawnEnemies(enemyType3, 5));
+                yield return StartCoroutine(SpawnEnemies(enemyType1, 15));
+                yield return StartCoroutine(SpawnEnemies(enemyType2, 15));
+                yield return new WaitForSeconds(5f);
+                yield return StartCoroutine(SpawnEnemies(enemyType3, 15));
                 break;
             case 5:
-                yield return StartCoroutine(SpawnEnemies(enemyType1, 10));
-                yield return StartCoroutine(SpawnEnemies(enemyType2, 10));
-                yield return new WaitForSeconds(10f);
-                yield return StartCoroutine(SpawnEnemies(enemyType3, 10));
+                yield return StartCoroutine(SpawnEnemies(enemyType1, 25));
+                yield return StartCoroutine(SpawnEnemies(enemyType2, 25));
+                yield return new WaitForSeconds(5f);
+                yield return StartCoroutine(SpawnEnemies(enemyType3, 20));
                 break;
         }
     }
