@@ -3434,12 +3434,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 855572977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1974964212 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5391986374566301945, guid: 66d579771ab0ab94a92b3411ba179621,
-    type: 3}
-  m_PrefabInstance: {fileID: 157305056}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1974964216 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5391986374566301942, guid: 66d579771ab0ab94a92b3411ba179621,
@@ -3491,7 +3485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quaiVat: {fileID: 0}
-  vuKhi: {fileID: 1974964212}
+  vuKhi: {fileID: 0}
 --- !u!4 &2011116228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 28905003217567913, guid: ecdbb7f81f59b934cb72306019ee7a41,
@@ -5619,9 +5613,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 298744117520805562, guid: 761cdc9e4e883334cbdcea062d0befa7,
         type: 3}
+      propertyPath: StartingWeapons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 298744117520805562, guid: 761cdc9e4e883334cbdcea062d0befa7,
+        type: 3}
       propertyPath: 'StartingWeapons.Array.data[0]'
       value: 
-      objectReference: {fileID: 8323776800172828795, guid: 58eff23fa471199478d79d4c75cccdc0,
+      objectReference: {fileID: 8323776800172828795, guid: 3c474c4d70fcabe45b2fa81406228ff6,
+        type: 3}
+    - target: {fileID: 298744117520805562, guid: 761cdc9e4e883334cbdcea062d0befa7,
+        type: 3}
+      propertyPath: 'StartingWeapons.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8323776800172828795, guid: da071863dcb726c48adea4dd23e8af7a,
         type: 3}
     - target: {fileID: 814417836257332542, guid: 761cdc9e4e883334cbdcea062d0befa7,
         type: 3}
