@@ -90,29 +90,17 @@ public class CaveSpawner : MonoBehaviour
         switch (level)
         {
             case 1:
-                yield return StartCoroutine(SpawnEnemies(enemyType1, 20));
+                yield return StartCoroutine(SpawnEnemies(enemyType1, 30));
                 break;
             case 2:
-                yield return StartCoroutine(SpawnEnemies(enemyType1,10));
-                yield return StartCoroutine(SpawnEnemies(enemyType2,10));
+                yield return StartCoroutine(SpawnEnemies(enemyType1,30));
+                yield return StartCoroutine(SpawnEnemies(enemyType2,30));
                 break;
             case 3:
-                yield return StartCoroutine(SpawnEnemies(enemyType1, 15));
-                yield return StartCoroutine(SpawnEnemies(enemyType2, 10));
-                yield return new WaitForSeconds(5f);
-                yield return StartCoroutine(SpawnEnemies(enemyType3, 10));
-                break;
-            case 4:
-                yield return StartCoroutine(SpawnEnemies(enemyType1, 15));
-                yield return StartCoroutine(SpawnEnemies(enemyType2, 15));
-                yield return new WaitForSeconds(5f);
-                yield return StartCoroutine(SpawnEnemies(enemyType3, 15));
-                break;
-            case 5:
                 yield return StartCoroutine(SpawnEnemies(enemyType1, 25));
                 yield return StartCoroutine(SpawnEnemies(enemyType2, 25));
                 yield return new WaitForSeconds(5f);
-                yield return StartCoroutine(SpawnEnemies(enemyType3, 20));
+                yield return StartCoroutine(SpawnEnemies(enemyType3, 25));
                 break;
         }
     }
