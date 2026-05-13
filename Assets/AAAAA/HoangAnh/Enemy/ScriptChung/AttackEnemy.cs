@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Unity.FPS.Game; // Bắt buộc phải gọi thư viện này để nhận diện được lớp Damageable
 
-public class GaySatThuong : MonoBehaviour
+public class AttackEnemy : MonoBehaviour
 {
     [Header("Cài đặt Sát thương")]
     [Tooltip("Lượng máu sẽ trừ của mục tiêu")]
