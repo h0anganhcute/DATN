@@ -32,7 +32,7 @@ public class DragonBay : MonoBehaviour
 
         if (danhSachDiem.Length != 5)
         {
-            Debug.LogError("Ê mậy! Kéo chưa đủ 5 điểm kìa!");
+            Debug.LogError("Kéo chưa đủ 5 điểm kìa!");
             return;
         }
 

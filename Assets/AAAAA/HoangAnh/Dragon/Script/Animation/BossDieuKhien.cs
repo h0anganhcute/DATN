@@ -4,6 +4,7 @@ using System.Collections;
 public class BossDieuKhien : MonoBehaviour
 {
     Animator ani;
+    BoxCollider box;
 
     [Header("Kết nối Script")]
     [Tooltip("Kéo cái Script 'RunBay' của con rồng vào ô này")]
@@ -12,7 +13,7 @@ public class BossDieuKhien : MonoBehaviour
     void Start()
     {
         ani = GetComponent<Animator>();
-
+        box = GetComponent<BoxCollider>();
         // 1. Khóa chân con rồng lại, không cho nó đi bậy
         if (DragonBay != null)
         {
@@ -44,6 +45,7 @@ public class BossDieuKhien : MonoBehaviour
         if (DragonBay != null)
         {
             DragonBay.enabled = true;
+            box.enabled = false; 
             Debug.Log("Boss đã chuyển sang trạng thái Bay. Tiến lên!");
         }
     }
