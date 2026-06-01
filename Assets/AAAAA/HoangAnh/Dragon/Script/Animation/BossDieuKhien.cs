@@ -6,24 +6,19 @@ public class BossDieuKhien : MonoBehaviour
     Animator ani;
     BoxCollider box;
 
-    [Header("Kết nối Script")]
+
     [Tooltip("Kéo cái Script 'RunBay' của con rồng vào ô này")]
-    public MonoBehaviour DragonBay;
 
     void Start()
     {
         ani = GetComponent<Animator>();
         box = GetComponent<BoxCollider>();
         // 1. Khóa chân con rồng lại, không cho nó đi bậy
-        if (DragonBay != null)
-        {
-            DragonBay.enabled = false;
-        }
+
 
         // 2. Bắt đầu kịch bản
         StartCoroutine(KichBanBatDau());
     }
-
     IEnumerator KichBanBatDau()
     {
         // Gọi lệnh nhồi 1 đống Trigger để cho thằng Animator bắt đầu tự chuyển đổi trạng thái
@@ -39,17 +34,7 @@ public class BossDieuKhien : MonoBehaviour
         {
             yield return null;
         }
-
-        // Thoát được vòng lặp ở trên nghĩa là nó ĐÃ CHÍNH THỨC BƯỚC VÀO TRẠNG THÁI "Bay"
-        // 3. DIỄN XONG RỒI! Bật Script cho nó bay đi phá làng phá xóm
-        if (DragonBay != null)
-        {
-            DragonBay.enabled = true;
-            box.enabled = false; 
-            Debug.Log("Boss đã chuyển sang trạng thái Bay. Tiến lên!");
-        }
     }
-
     public void ChayAnimation()
     {
         ani.SetTrigger("ThucDay");
