@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class DanLua : MonoBehaviour
+public class FireBullet : MonoBehaviour
 {
     [Header("Cài đặt Viên Đạn")]
     public float tocDo = 15f;
