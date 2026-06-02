@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Unity.FPS.Game;
 
-public class CapsuleDie : MonoBehaviour
+public class DieDragon : MonoBehaviour
 {
     Health mau;
     Animator ani;
@@ -18,13 +18,7 @@ public class CapsuleDie : MonoBehaviour
 
     void KhiChet()
     {
-        Debug.Log("Capsule chết rồi");
-        //ChayAnimationChet();
+        Debug.Log("Boss is died");
         Destroy(gameObject, 5f); // delay 2 giây
     }
-    //void ChayAnimationChet()
-    //{
-    //    ani.SetTrigger("DapXuong");
-    //    ani.SetTrigger("Die");
-    //}
 }
