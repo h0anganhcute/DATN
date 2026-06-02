@@ -31,7 +31,7 @@ namespace Unity.FPS.Game
         public bool GameIsEnding { get; private set; }
 
         float m_TimeLoadEndGameScene;
-        string m_SceneToLoad;
+        string LostScene;
 
         void Awake()
         {
@@ -56,7 +56,7 @@ namespace Unity.FPS.Game
                 // See if it's time to load the end scene (after the delay)
                 if (Time.time >= m_TimeLoadEndGameScene)
                 {
-                    SceneManager.LoadScene(m_SceneToLoad);
+                    SceneManager.LoadScene(LostScene);
                     GameIsEnding = false;
                 }
             }
@@ -76,7 +76,7 @@ namespace Unity.FPS.Game
             EndGameFadeCanvasGroup.gameObject.SetActive(true);
             if (win)
             {
-                m_SceneToLoad = WinSceneName;
+                LostScene = WinSceneName;
                 m_TimeLoadEndGameScene = Time.time + EndSceneLoadDelay + DelayBeforeFadeToBlack;
 
                 // play a sound on win
@@ -101,7 +101,7 @@ namespace Unity.FPS.Game
             }
             else
             {
-                m_SceneToLoad = LoseSceneName;
+                LostScene = LoseSceneName;
                 m_TimeLoadEndGameScene = Time.time + EndSceneLoadDelay;
             }
         }
