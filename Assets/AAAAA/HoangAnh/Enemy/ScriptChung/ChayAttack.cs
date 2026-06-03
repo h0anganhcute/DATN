@@ -65,7 +65,6 @@ public class ChayAttack : MonoBehaviour
             }
         }
     }
-
     void BatDauTanCong()
     {
         dangTanCong = true;
@@ -80,7 +79,6 @@ public class ChayAttack : MonoBehaviour
             agent.isStopped = true;
             agent.velocity = Vector3.zero;
         }
-
         // Gọi Trigger chạy Animation Attack
         ani.SetTrigger("Attack");
     }
