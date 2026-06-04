@@ -2,7 +2,7 @@
 
 public class DragonController : MonoBehaviour
 {
-    private Skill1 skill_1;
+    private Skill skill_1;
     Transform player;
     // Biến dùng để đếm thời gian
     private float timer = 0f;
@@ -12,7 +12,7 @@ public class DragonController : MonoBehaviour
     public float cooldownTime = 3f;
     private void Start()
     {
-        skill_1 = GetComponent<Skill1>();
+        skill_1 = GetComponent<Skill>();
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
         {
@@ -44,7 +44,7 @@ public class DragonController : MonoBehaviour
     {
         if (skill_1 != null)
         {
-            skill_1.CastSkill();
+            skill_1.CastSkill1();
         }
     }
 }
