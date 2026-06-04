@@ -1,21 +1,21 @@
 ﻿using UnityEngine;
 
-public class Skill1 : MonoBehaviour
+public class Skill : MonoBehaviour
 {
-    Animator ani;
+
+    private Animator ani;
     void Start()
     {
-        ani = GetComponent<Animator>();
-       
+        ani = GetComponent<Animator>();       
     }
-
-    // Tạo một hàm public để DragonController có thể gọi được
-    public void CastSkill()
+    //Skill 1: Flame Attack
+    public void CastSkill1()
     {
-        // 1. Kích hoạt Animation
         ani.SetTrigger("FlameAttack");
+    }
+    //Skill 2: Ice Attack
+    public void CastSkill2()
+    {
 
-        // 2. Xoay mặt về phía Player
-       
     }
 }
