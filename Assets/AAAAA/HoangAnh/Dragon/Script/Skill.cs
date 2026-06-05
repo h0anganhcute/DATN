@@ -6,28 +6,17 @@ using UnityEngine.AI;
 public class Skill : MonoBehaviour
 {
     private Animator ani;
-    private DashSkill dashSkill;
-    private RunEnemy runEnemy;
-
+    private BanXaAttack banXaAttack;
     void Start()
     {
         ani = GetComponent<Animator>();
-        dashSkill = GetComponent<DashSkill>();
-
-        // Bắt buộc phải có dòng này để tìm thấy Script RunEnemy
-        runEnemy = GetComponent<RunEnemy>();
+        banXaAttack = GetComponent<BanXaAttack>();
     }
 
     void Update()
     {
         // KIỂM TRA LIÊN TỤC: Nếu script RunEnemy đang bật thì bắt buộc tắt DashSkill
-        if (runEnemy != null && dashSkill != null)
-        {
-            if (runEnemy.enabled == true)
-            {
-                dashSkill.enabled = false;
-            }
-        }
+        
     }
 
     //Skill 1: Flame Attack
@@ -42,6 +31,15 @@ public class Skill : MonoBehaviour
         ani.SetTrigger("TakeOff");
         ani.SetTrigger("FlyGlide");
         ani.SetTrigger("Land");
-        dashSkill.enabled = true;
+    }
+    public void Skill3()
+    {
+        ani.SetTrigger("ClawAttack");
+    }
+    public IEnumerator Skill4()
+    {
+        banXaAttack.enabled = true;
+        yield return new WaitForSeconds(1.5f);
+        banXaAttack.enabled = false;
     }
 }
