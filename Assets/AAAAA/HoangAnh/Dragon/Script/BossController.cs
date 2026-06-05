@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class DragonController : MonoBehaviour
 {
@@ -30,17 +30,21 @@ public class DragonController : MonoBehaviour
             {
                 UseSkill_1();
                 chieuTiepTheo = 2; // Tăng lên 2
+                Invoke("EnableRunEnemy", 3f);
+                timer = 0f;    
+                
             }
             else if (chieuTiepTheo == 2)
             {
                 UseSkill_2();
                 chieuTiepTheo = 1; // Reset về 1 để xoay vòng
+                Invoke("EnableRunEnemy", 3f);
+                timer = 0f;
             }
 
             // Giả sử có chiêu 3 thì viết thêm:
             // else if (chieuTiepTheo == 3) { UseSkill_3(); chieuTiepTheo = 1; }
-            Invoke("EnableRunEnemy", 3f);
-            timer = 0f;
+            
         }
     }
 
