@@ -33,6 +33,10 @@ public class BulletBoss : MonoBehaviour
             Debug.LogWarning("Chưa tìm thấy vật thể nào có tag là 'PointAttack' trên bản đồ!");
         }
     }
+    public void Update()
+    {
+        Shoot();
+    }
 
     // Bạn có thể gọi hàm Shoot() này ở bất cứ đâu (Ví dụ: Animation Event hoặc Script khác)
     public void Shoot()
@@ -56,7 +60,7 @@ public class BulletBoss : MonoBehaviour
             if (rbDan != null)
             {
                 // Dùng velocity để đẩy đạn bay theo hướng chỉ định với tốc độ speed
-                rbDan.velocity = huongBay * speed;
+                rbDan.linearVelocity = huongBay * speed;
             }
             else
             {
