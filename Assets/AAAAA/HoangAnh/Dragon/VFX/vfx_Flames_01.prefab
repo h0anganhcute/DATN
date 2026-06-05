@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5127977263636177824}
   - component: {fileID: 7863647618807698067}
   - component: {fileID: 8342074712417068090}
+  - component: {fileID: 4576125852864041659}
   m_Layer: 0
   m_Name: vfx_Flames_01
   m_TagString: Untagged
@@ -4878,7 +4879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   luongSatThuong: 50
   laSatThuongNo: 0
-  bienMatKhiCham: 1
+  bienMatKhiCham: 0
 --- !u!135 &8342074712417068090
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4894,12 +4895,25 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.8428655
-  m_Center: {x: 0, y: -0.055006027, z: 1.1928434}
+  m_Radius: 0.7065829
+  m_Center: {x: -0.040650845, y: 0.024907589, z: 0.48388046}
+--- !u!114 &4576125852864041659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8793510976239746625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e900915e9cb832547be4fa0e87e2f3f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 10
 --- !u!1 &9064956068904258685
 GameObject:
   m_ObjectHideFlags: 0

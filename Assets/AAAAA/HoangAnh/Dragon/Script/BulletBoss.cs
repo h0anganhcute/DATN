@@ -33,12 +33,7 @@ public class BulletBoss : MonoBehaviour
             Debug.LogWarning("Chưa tìm thấy vật thể nào có tag là 'PointAttack' trên bản đồ!");
         }
     }
-    public void Update()
-    {
-        Shoot();
-    }
 
-    // Bạn có thể gọi hàm Shoot() này ở bất cứ đâu (Ví dụ: Animation Event hoặc Script khác)
     public void Shoot()
     {
         // Kiểm tra xem đã có đủ đạn prefab, điểm bắn và mục tiêu chưa

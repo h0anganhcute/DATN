@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class Skill : MonoBehaviour
 {
     private Animator ani;
-    private BulletBoss bulletBoss;
 
     [Header("====== KỸ NĂNG 5 (AFTERSHOCK) ======")]
     public GameObject Aftershock;
@@ -20,7 +19,6 @@ public class Skill : MonoBehaviour
     void Start()
     {
         ani = GetComponent<Animator>();
-        bulletBoss = GetComponent<BulletBoss>();
     }
 
     void Update()
@@ -70,12 +68,6 @@ public class Skill : MonoBehaviour
         }
     }
 
-    public IEnumerator EnableBullet()
-    {
-        bulletBoss.enabled = true;
-        yield return new WaitForSeconds(0.1f);
-        bulletBoss.enabled = false;
-    }
 
     // HÀM NÀY GIÚP VẼ RA MỘT VÒNG TRÒN MÀU ĐỎ TRONG CỬA SỔ SCENE
     // Nó chỉ hiện khi bạn nhấp chuột chọn con Boss, giúp bạn căn chỉnh thông số Offset cực dễ
