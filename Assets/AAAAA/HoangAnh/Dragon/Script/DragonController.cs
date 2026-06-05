@@ -47,8 +47,6 @@ public class DragonController : MonoBehaviour
             yield return new WaitForSeconds(cooldownTime);
 
             yield return StartCoroutine(UseSkill4()); 
-
-            yield return new WaitForSeconds(cooldownTime);
         }
     }
 
