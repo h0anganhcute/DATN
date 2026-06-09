@@ -28,7 +28,8 @@ namespace Unity.FPS.Game
     [RequireComponent(typeof(AudioSource))]
     public class WeaponController : MonoBehaviour
     {
-        [Header("Information")] [Tooltip("The name that will be displayed in the UI for this weapon")]
+        [Header("Information")]
+        [Tooltip("The name that will be displayed in the UI for this weapon")]
         public string WeaponName;
 
         [Tooltip("The image that will be displayed in the UI for this weapon")]
@@ -47,7 +48,8 @@ namespace Unity.FPS.Game
         [Tooltip("Tip of the weapon, where the projectiles are shot")]
         public Transform WeaponMuzzle;
 
-        [Header("Shoot Parameters")] [Tooltip("The type of weapon wil affect how it shoots")]
+        [Header("Shoot Parameters")]
+        [Tooltip("The type of weapon wil affect how it shoots")]
         public WeaponShootType ShootType;
 
         [Tooltip("The projectile prefab")] public ProjectileBase ProjectilePrefab;
@@ -61,10 +63,12 @@ namespace Unity.FPS.Game
         [Tooltip("Amount of bullets per shot")]
         public int BulletsPerShot = 1;
 
-        [Tooltip("Force that will push back the weapon after each shot")] [Range(0f, 2f)]
+        [Tooltip("Force that will push back the weapon after each shot")]
+        [Range(0f, 2f)]
         public float RecoilForce = 1;
 
-        [Tooltip("Ratio of the default FOV that this weapon applies while aiming")] [Range(0f, 1f)]
+        [Tooltip("Ratio of the default FOV that this weapon applies while aiming")]
+        [Range(0f, 1f)]
         public float AimZoomRatio = 1f;
 
         [Tooltip("Translation to apply to weapon arm when aiming with this weapon")]
@@ -76,7 +80,7 @@ namespace Unity.FPS.Game
         [Tooltip("Has physical clip on the weapon and ammo shells are ejected when firing")]
         public bool HasPhysicalBullets = false;
         [Tooltip("Number of bullets in a clip")]
-        public int ClipSize = 300; // Đạn nè jdvhsjdòvsdjkfhkjsdhfksdhfjksdhfjksdhfjksdhjf
+        public int ClipSize = 300;
         [Tooltip("Bullet Shell Casing")]
         public GameObject ShellCasing;
         [Tooltip("Weapon Ejection Port for physical ammo")]
@@ -92,7 +96,7 @@ namespace Unity.FPS.Game
         public float AmmoReloadDelay = 2f;
 
         [Tooltip("Maximum amount of ammo in the gun")]
-        public int MaxAmmo = 300; // Đạn Nè sfhjigsjkhdfjksdhfjksdhfjksdhfjksdhjkfhsdkjfhkjsdf
+        public int MaxAmmo = 300;
 
         [Header("Charging parameters (charging weapons only)")]
         [Tooltip("Trigger a shot when maximum charge is reached")]
@@ -107,7 +111,7 @@ namespace Unity.FPS.Game
         [Tooltip("Additional ammo used when charge reaches its maximum")]
         public float AmmoUsageRateWhileCharging = 1f;
 
-        [Header("Audio & Visual")] 
+        [Header("Audio & Visual")]
         [Tooltip("Optional weapon animator for OnShoot animations")]
         public Animator WeaponAnimator;
 
@@ -167,7 +171,9 @@ namespace Unity.FPS.Game
         {
             m_CurrentAmmo = MaxAmmo;
             m_CarriedPhysicalBullets = HasPhysicalBullets ? ClipSize : 0;
-            m_LastMuzzlePosition = WeaponMuzzle.position;
+
+            if (WeaponMuzzle != null)
+                m_LastMuzzlePosition = WeaponMuzzle.position;
 
             m_ShootAudioSource = GetComponent<AudioSource>();
             DebugUtility.HandleErrorIfNullGetComponent<AudioSource, WeaponController>(m_ShootAudioSource, this,
@@ -183,7 +189,7 @@ namespace Unity.FPS.Game
                 m_ContinuousShootAudioSource.loop = true;
             }
 
-            if (HasPhysicalBullets)
+            if (HasPhysicalBullets && ShellCasing != null)
             {
                 m_PhysicalAmmoPool = new Queue<Rigidbody>(ShellPoolSize);
 
@@ -200,6 +206,8 @@ namespace Unity.FPS.Game
 
         void ShootShell()
         {
+            if (m_PhysicalAmmoPool == null || m_PhysicalAmmoPool.Count == 0 || EjectionPort == null) return;
+
             Rigidbody nextShell = m_PhysicalAmmoPool.Dequeue();
 
             nextShell.transform.position = EjectionPort.transform.position;
@@ -240,7 +248,7 @@ namespace Unity.FPS.Game
             UpdateCharge();
             UpdateContinuousShootSound();
 
-            if (Time.deltaTime > 0)
+            if (Time.deltaTime > 0 && WeaponMuzzle != null)
             {
                 MuzzleWorldVelocity = (WeaponMuzzle.position - m_LastMuzzlePosition) / Time.deltaTime;
                 m_LastMuzzlePosition = WeaponMuzzle.position;
@@ -249,14 +257,17 @@ namespace Unity.FPS.Game
 
         void UpdateAmmo()
         {
+            // Nếu là vũ khí cận chiến (Kiếm), giữ tỉ lệ đạn luôn đầy 100% để giao diện UI không báo hết đạn
+            if (WeaponName.Contains("Sword"))
+            {
+                CurrentAmmoRatio = 1f;
+                return;
+            }
+
             if (AutomaticReload && m_LastTimeShot + AmmoReloadDelay < Time.time && m_CurrentAmmo < MaxAmmo && !IsCharging)
             {
-                // reloads weapon over time
                 m_CurrentAmmo += AmmoReloadRate * Time.deltaTime;
-
-                // limits ammo to max value
                 m_CurrentAmmo = Mathf.Clamp(m_CurrentAmmo, 0, MaxAmmo);
-
                 IsCooling = true;
             }
             else
@@ -282,7 +293,6 @@ namespace Unity.FPS.Game
                 {
                     float chargeLeft = 1f - CurrentCharge;
 
-                    // Calculate how much charge ratio to add this frame
                     float chargeAdded = 0f;
                     if (MaxChargeDuration <= 0f)
                     {
@@ -295,14 +305,10 @@ namespace Unity.FPS.Game
 
                     chargeAdded = Mathf.Clamp(chargeAdded, 0f, chargeLeft);
 
-                    // See if we can actually add this charge
                     float ammoThisChargeWouldRequire = chargeAdded * AmmoUsageRateWhileCharging;
                     if (ammoThisChargeWouldRequire <= m_CurrentAmmo)
                     {
-                        // Use ammo based on charge added
                         UseAmmo(ammoThisChargeWouldRequire);
-
-                        // set current charge ratio
                         CurrentCharge = Mathf.Clamp01(CurrentCharge + chargeAdded);
                     }
                 }
@@ -344,6 +350,8 @@ namespace Unity.FPS.Game
 
         public void UseAmmo(float amount)
         {
+            if (WeaponName.Contains("Sword")) return; // Kiếm không dùng đạn
+
             m_CurrentAmmo = Mathf.Clamp(m_CurrentAmmo - amount, 0f, MaxAmmo);
             m_CarriedPhysicalBullets -= Mathf.RoundToInt(amount);
             m_CarriedPhysicalBullets = Mathf.Clamp(m_CarriedPhysicalBullets, 0, MaxAmmo);
@@ -377,7 +385,6 @@ namespace Unity.FPS.Game
                         TryBeginCharge();
                     }
 
-                    // Check if we released charge or if the weapon shoot autmatically when it's fully charged
                     if (inputUp || (AutomaticReleaseOnCharged && CurrentCharge >= 1f))
                     {
                         return TryReleaseCharge();
@@ -392,6 +399,33 @@ namespace Unity.FPS.Game
 
         bool TryShoot()
         {
+            // KHU VỰC XỬ LÝ RIÊNG CHO KIẾM (CẬN CHIẾN)
+            if (WeaponName.Contains("Sword"))
+            {
+                if (m_LastTimeShot + DelayBetweenShots < Time.time)
+                {
+                    m_LastTimeShot = Time.time;
+
+                    // Phát âm thanh vung kiếm (nếu được cài đặt trong ô ShootSfx)
+                    if (ShootSfx && !UseContinuousShootSound)
+                    {
+                        m_ShootAudioSource.PlayOneShot(ShootSfx);
+                    }
+
+                    // Kích hoạt animation chém tự làm nếu có
+                    if (WeaponAnimator)
+                    {
+                        WeaponAnimator.SetTrigger(k_AnimAttackParameter);
+                    }
+
+                    OnShoot?.Invoke();
+                    OnShootProcessed?.Invoke();
+                    return true; // Trả về true để PlayerWeaponsManager biết đòn đánh hợp lệ
+                }
+                return false;
+            }
+
+            // LOGIC BẮN SÚNG GỐC CỦA GAME (Giữ nguyên cho các loại súng khác)
             if (m_CurrentAmmo >= 1f
                 && m_LastTimeShot + DelayBetweenShots < Time.time)
             {
@@ -439,11 +473,12 @@ namespace Unity.FPS.Game
 
         void HandleShoot()
         {
+            if (WeaponMuzzle == null || ProjectilePrefab == null) return;
+
             int bulletsPerShotFinal = ShootType == WeaponShootType.Charge
                 ? Mathf.CeilToInt(CurrentCharge * BulletsPerShot)
                 : BulletsPerShot;
 
-            // spawn all bullets with random direction
             for (int i = 0; i < bulletsPerShotFinal; i++)
             {
                 Vector3 shotDirection = GetShotDirectionWithinSpread(WeaponMuzzle);
@@ -452,12 +487,10 @@ namespace Unity.FPS.Game
                 newProjectile.Shoot(this);
             }
 
-            // muzzle flash
             if (MuzzleFlashPrefab != null)
             {
                 GameObject muzzleFlashInstance = Instantiate(MuzzleFlashPrefab, WeaponMuzzle.position,
                     WeaponMuzzle.rotation, WeaponMuzzle.transform);
-                // Unparent the muzzleFlashInstance
                 if (UnparentMuzzleFlash)
                 {
                     muzzleFlashInstance.transform.SetParent(null);
@@ -474,13 +507,11 @@ namespace Unity.FPS.Game
 
             m_LastTimeShot = Time.time;
 
-            // play shoot SFX
             if (ShootSfx && !UseContinuousShootSound)
             {
                 m_ShootAudioSource.PlayOneShot(ShootSfx);
             }
 
-            // Trigger attack animation if there is any
             if (WeaponAnimator)
             {
                 WeaponAnimator.SetTrigger(k_AnimAttackParameter);
