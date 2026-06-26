@@ -23,9 +23,13 @@ public class TeammateMove : MonoBehaviour
     // Timer giúp AI không bị "cà giật" do thay đổi điểm đến liên tục
     private float updatePathTimer = 0f;
     private float updatePathInterval = 0.5f;
+    private Animator ani; // Biến Animator
 
     void Start()
     {
+        // Lấy Animator
+        ani = GetComponent<Animator>();
+
         agent = GetComponent<NavMeshAgent>();
         if (agent == null)
         {
@@ -40,6 +44,16 @@ public class TeammateMove : MonoBehaviour
 
     void Update()
     {
+        // === THÊM MỚI: CẬP NHẬT ANIMATION CHẠY/ĐỨNG ===
+        // agent.velocity.sqrMagnitude > 0.1f nghĩa là vận tốc di chuyển đang lớn hơn 0
+        bool isMoving = agent.velocity.sqrMagnitude > 0.1f;
+
+        if (ani != null) // Đảm bảo đã có Animator
+        {
+            ani.SetBool("Run", isMoving); // Truyền trạng thái di chuyển (true/false) vào Animator
+        }
+        // ===============================================
+
         nearestDragon = FindNearestDragon();
 
         // Không có rồng -> Đứng yên và ngắm bắn
