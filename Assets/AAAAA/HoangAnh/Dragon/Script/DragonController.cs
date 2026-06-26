@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI; // Bắt buộc phải có dòng này để gọi được NavMeshAgent
 
 public class DragonController : MonoBehaviour
 {
@@ -12,11 +13,13 @@ public class DragonController : MonoBehaviour
     [Header("Thời gian đứng im khi tung chiêu")]
     public float skillDuration = 3f;
 
-    private TargerBoss targetBoss;
+    // Khai báo NavMeshAgent
+    private NavMeshAgent navMeshAgent;
 
     private void Start()
     {
-        targetBoss = GetComponent<TargerBoss>();
+        // Lấy component NavMeshAgent trên cùng GameObject
+        navMeshAgent = GetComponent<NavMeshAgent>();
         skill = GetComponent<Skill>();
 
         // Gọi Coroutine để bắt đầu vòng lặp kỹ năng
@@ -30,53 +33,61 @@ public class DragonController : MonoBehaviour
         {
             // ================== LƯỢT SKILL 1 ==================
             yield return new WaitForSeconds(cooldownTime);
-
-            // THÊM "yield return" VÀO ĐÂY ĐỂ VÒNG LẶP CHỜ USESKILL1 CHẠY XONG
             yield return StartCoroutine(UseSkill1());
 
             // ================== LƯỢT SKILL 2 ==================
             yield return new WaitForSeconds(cooldownTime);
-
-            // THÊM "yield return" VÀO ĐÂY ĐỂ VÒNG LẶP CHỜ USESKILL2 CHẠY XONG
             yield return StartCoroutine(UseSkill2());
+
             // ================== LƯỢT SKILL 3 ==================
             yield return new WaitForSeconds(cooldownTime);
-
             yield return StartCoroutine(UseSkill3());
 
+            // ================== LƯỢT SKILL 4 ==================
             yield return new WaitForSeconds(cooldownTime);
-
-            yield return StartCoroutine(UseSkill4()); 
+            yield return StartCoroutine(UseSkill4());
         }
     }
 
     private IEnumerator UseSkill1()
     {
-        targetBoss.enabled = false;
+        // Dừng NavMeshAgent di chuyển khi tung chiêu
+        if (navMeshAgent != null) navMeshAgent.isStopped = true;
+
         skill.Skill1();
         yield return new WaitForSeconds(skillDuration);
-        targetBoss.enabled = true;
+
+        // Cho phép NavMeshAgent tiếp tục di chuyển sau khi dùng xong chiêu
+        if (navMeshAgent != null) navMeshAgent.isStopped = false;
     }
 
     private IEnumerator UseSkill2()
     {
-        targetBoss.enabled = false;
+        if (navMeshAgent != null) navMeshAgent.isStopped = true;
+
         skill.Skill2();
         yield return new WaitForSeconds(skillDuration);
-        targetBoss.enabled = true;
+
+        if (navMeshAgent != null) navMeshAgent.isStopped = false;
     }
+
     private IEnumerator UseSkill3()
     {
-        targetBoss.enabled = false;
+        if (navMeshAgent != null) navMeshAgent.isStopped = true;
+
         skill.Skill3();
         yield return new WaitForSeconds(skillDuration);
-        targetBoss.enabled = true;
+
+        if (navMeshAgent != null) navMeshAgent.isStopped = false;
     }
+
     private IEnumerator UseSkill4()
     {
-        targetBoss.enabled = false;
+        if (navMeshAgent != null) navMeshAgent.isStopped = true;
+
         skill.Skill4();
         yield return new WaitForSeconds(skillDuration);
-        targetBoss.enabled = true;
+
+        if (navMeshAgent != null) navMeshAgent.isStopped = false;
     }
 }
