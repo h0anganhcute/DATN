@@ -548,7 +548,7 @@ Transform:
   m_GameObject: {fileID: 104925821}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -316, y: 0, z: -445}
+  m_LocalPosition: {x: -127, y: 0, z: -212}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1392,8 +1392,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949a09ff7d05890429ab8055f99ee7ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  safeDistance: 20
-  fleeMultiplier: 3.02
+  safeDistance: 35.5
+  fleeMultiplier: 1.83
   rotationSpeed: 10
 --- !u!1 &394014229
 GameObject:
@@ -1888,7 +1888,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8989c54f82bd7614887cda9e0c2b160f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.8
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8989c54f82bd7614887cda9e0c2b160f,
         type: 3}
@@ -10791,6 +10791,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8501928517461362306, guid: a94b45559f269ae47ac8fdbeb1af83ab,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501928517461362306, guid: a94b45559f269ae47ac8fdbeb1af83ab,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501928517461362306, guid: a94b45559f269ae47ac8fdbeb1af83ab,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501928517461362306, guid: a94b45559f269ae47ac8fdbeb1af83ab,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 49.22
       objectReference: {fileID: 0}
@@ -10903,6 +10918,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -3.508686
+      objectReference: {fileID: 0}
+    - target: {fileID: 9138294312091897522, guid: a94b45559f269ae47ac8fdbeb1af83ab,
+        type: 3}
+      propertyPath: m_Height
+      value: 5.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 9138294312091897522, guid: a94b45559f269ae47ac8fdbeb1af83ab,
+        type: 3}
+      propertyPath: m_Radius
+      value: 6.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 9138294312091897522, guid: a94b45559f269ae47ac8fdbeb1af83ab,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9156663161594485169, guid: a94b45559f269ae47ac8fdbeb1af83ab,
         type: 3}
