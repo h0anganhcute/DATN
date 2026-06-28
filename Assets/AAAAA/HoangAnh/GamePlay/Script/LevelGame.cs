@@ -70,7 +70,7 @@ public class CaveSpawner : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Ê mậy! Quên kéo con Boss Rồng vào ô Boss Dragon kìa!");
+            Debug.LogError("Chưa kéo boss vào!");
         }
     }
 
@@ -90,17 +90,17 @@ public class CaveSpawner : MonoBehaviour
         switch (level)
         {
             case 1:
-                yield return StartCoroutine(SpawnEnemies(enemyType1, 30));
+                yield return StartCoroutine(SpawnEnemies(enemyType1, 5));
                 break;
             case 2:
-                yield return StartCoroutine(SpawnEnemies(enemyType1,30));
-                yield return StartCoroutine(SpawnEnemies(enemyType2,30));
+                yield return StartCoroutine(SpawnEnemies(enemyType1,5));
+                yield return StartCoroutine(SpawnEnemies(enemyType2,5));
                 break;
             case 3:
-                yield return StartCoroutine(SpawnEnemies(enemyType1, 25));
-                yield return StartCoroutine(SpawnEnemies(enemyType2, 25));
+                yield return StartCoroutine(SpawnEnemies(enemyType1, 5));
+                yield return StartCoroutine(SpawnEnemies(enemyType2, 5));
                 yield return new WaitForSeconds(5f);
-                yield return StartCoroutine(SpawnEnemies(enemyType3, 25));
+                yield return StartCoroutine(SpawnEnemies(enemyType3, 10));
                 break;
         }
     }

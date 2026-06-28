@@ -9,7 +9,8 @@ public class BulletAll : MonoBehaviour
     [Header("Cài đặt Đạn")]
     public float speed = 20f; // Tốc độ bay của đạn
 
-    private Transform mucTieuCuaDan; // Lưu xem viên đạn quyết định bay đuổi theo ai
+    // Thay vì lưu mục tiêu để đuổi theo, ta chỉ lưu "Hướng bay cố định" lúc vừa sinh ra
+    private Vector3 huongBayCoDinh;
 
     void Start()
     {
@@ -25,8 +26,26 @@ public class BulletAll : MonoBehaviour
             if (timNguoiChoi2 != null) nguoiChoi2 = timNguoiChoi2.transform;
         }
 
-        // 2. Phân tích góc ngắm để biết Boss đang bắn ai
-        mucTieuCuaDan = TuDongNhanDienMucTieu();
+        // 2. Phân tích góc ngắm để tìm ra kẻ địch đang bị nhắm tới lúc bóp cò
+        Transform mucTieuCuaDan = TuDongNhanDienMucTieu();
+
+        // 3. CHỐT HƯỚNG BAY NGAY LÚC VỪA SINH RA ĐẠN
+        if (mucTieuCuaDan != null)
+        {
+            // Lấy vị trí giữa thân người chơi
+            Vector3 viTriBan = new Vector3(mucTieuCuaDan.position.x, mucTieuCuaDan.position.y + 1f, mucTieuCuaDan.position.z);
+
+            // Tính toán hướng từ nòng súng tới người chơi và LƯU LẠI VÀO BIẾN CỐ ĐỊNH
+            huongBayCoDinh = (viTriBan - transform.position).normalized;
+
+            // Xoay đầu viên đạn nhìn thẳng về hướng đó 1 lần duy nhất
+            transform.forward = huongBayCoDinh;
+        }
+        else
+        {
+            // Nếu không tìm thấy ai, cứ bay thẳng theo hướng mặt định của nòng súng
+            huongBayCoDinh = transform.forward;
+        }
     }
 
     // Hàm thông minh giúp viên đạn xác định mục tiêu lúc vừa sinh ra
@@ -43,7 +62,7 @@ public class BulletAll : MonoBehaviour
         Vector3 huongToiP2 = (nguoiChoi2.position - transform.position).normalized;
         float gocLechP2 = Vector3.Angle(transform.forward, huongToiP2);
 
-        // Góc nào nhỏ hơn (đứng gần hướng nòng súng hơn) thì đuổi theo người đó
+        // Góc nào nhỏ hơn (đứng gần hướng nòng súng hơn) thì xác định là người đó
         if (gocLechP1 < gocLechP2)
         {
             return nguoiChoi;
@@ -56,17 +75,8 @@ public class BulletAll : MonoBehaviour
 
     void Update()
     {
-        // 3. Đạn liên tục cập nhật vị trí để bay đuổi theo mục tiêu
-        if (mucTieuCuaDan != null)
-        {
-            // Lấy vị trí giữa thân người chơi để đạn bay vào người (chứ không bay xuống chân)
-            Vector3 viTriBan = new Vector3(mucTieuCuaDan.position.x, mucTieuCuaDan.position.y + 1f, mucTieuCuaDan.position.z);
-
-            // Xoay đầu viên đạn nhìn về phía mục tiêu
-            transform.LookAt(viTriBan);
-
-            // Bay từ vị trí hiện tại của đạn tới vị trí người chơi với tốc độ speed
-            transform.position = Vector3.MoveTowards(transform.position, viTriBan, speed * Time.deltaTime);
-        }
+        // 4. Đạn cứ thế bay thẳng theo cái hướng đã chốt ở Start, 
+        // Dù người chơi có chạy đi chỗ khác thì đạn vẫn không rẽ hướng.
+        transform.position += huongBayCoDinh * speed * Time.deltaTime;
     }
 }
