@@ -504,7 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingWeapons:
-  - {fileID: 8323776800172828795, guid: b318fabc73446b746a1005cede0c4ceb, type: 3}
+  - {fileID: 8323776800172828795, guid: e6f6c10a4aef9574d9df288282997bb9, type: 3}
   WeaponCamera: {fileID: 2286125971047457827}
   WeaponParentSocket: {fileID: 3891163784698469781}
   DefaultWeaponPosition: {fileID: 4354021110288562838}
@@ -524,6 +524,14 @@ MonoBehaviour:
   FpsWeaponLayer:
     serializedVersion: 2
     m_Bits: 1024
+  MeleeWeaponKeyword: Sword
+  MeleeDamage: 50
+  MeleeAttackRange: 2.5
+  MeleeAttackRate: 0.4
+  MeleeHittableLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  MeleeSwingSpeed: 16
 --- !u!114 &783424908873546082
 MonoBehaviour:
   m_ObjectHideFlags: 0
