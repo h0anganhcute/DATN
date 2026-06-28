@@ -20,7 +20,7 @@ public class Player2Controller : MonoBehaviour
     }
     private IEnumerator SitDown()
     {
-        yield return new WaitForSeconds(1f);
+        
         ani.SetTrigger("Sit");
         yield return new WaitForSeconds(1f);
         playerController.enabled = true;
