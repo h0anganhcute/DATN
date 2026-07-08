@@ -4643,8 +4643,8 @@ GameObject:
   - component: {fileID: 9138294312091897522}
   - component: {fileID: 5615349618269666792}
   - component: {fileID: 6079814480688924507}
-  - component: {fileID: 6508618543297868210}
   - component: {fileID: 8299110408521602395}
+  - component: {fileID: 1640383100265400287}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: Untagged
@@ -4797,19 +4797,6 @@ MonoBehaviour:
     type: 3}
   offsetSkill5: {x: 0.52, y: -0.5, z: 0}
   banKinhVongTron: 5.21
---- !u!114 &6508618543297868210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8096239089289585235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90a2ed61a4a98a94996163a710135f99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tocDo: 5
 --- !u!114 &8299110408521602395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4825,6 +4812,20 @@ MonoBehaviour:
   speed: 5
   refapBullet: {fileID: 8793510976239746625, guid: 8fa5143051527e949b0ae174c8430414,
     type: 3}
+--- !u!114 &1640383100265400287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8096239089289585235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c22bd70ffda1b9443b057ad1051042f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nguoiChoi: {fileID: 0}
+  tocDo: 3.5
 --- !u!1 &8160843141795867005
 GameObject:
   m_ObjectHideFlags: 0
