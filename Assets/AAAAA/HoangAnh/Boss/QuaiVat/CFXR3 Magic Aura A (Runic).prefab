@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1318935079978438871}
   m_Layer: 0
   m_Name: Runes small
-  m_TagString: Untagged
+  m_TagString: VongSang
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4916,7 +4916,7 @@ GameObject:
   - component: {fileID: 7893921968227561089}
   m_Layer: 0
   m_Name: Runes
-  m_TagString: Untagged
+  m_TagString: VongSang
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9819,7 +9819,7 @@ GameObject:
   - component: {fileID: 3280519133223516629}
   m_Layer: 0
   m_Name: Rays
-  m_TagString: Untagged
+  m_TagString: VongSang
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19665,7 +19665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988ef7dcf985e2941ac37223f1a343a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 30
   boom: {fileID: 8710951057489587885}
 --- !u!65 &1971427747146356
 BoxCollider:
@@ -19701,7 +19701,7 @@ GameObject:
   - component: {fileID: 6101691611719478317}
   m_Layer: 0
   m_Name: Point Light
-  m_TagString: Untagged
+  m_TagString: VongSang
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19820,17 +19820,17 @@ PrefabInstance:
     - target: {fileID: 4593184484909914551, guid: 2e1e9506f5904a64b81744324fb7cd50,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.25
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4593184484909914551, guid: 2e1e9506f5904a64b81744324fb7cd50,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4593184484909914551, guid: 2e1e9506f5904a64b81744324fb7cd50,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.25
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4593184484909914551, guid: 2e1e9506f5904a64b81744324fb7cd50,
         type: 3}
@@ -19917,14 +19917,30 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5284293681801663133, guid: 2e1e9506f5904a64b81744324fb7cd50,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.5291163
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284293681801663133, guid: 2e1e9506f5904a64b81744324fb7cd50,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.024353066
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284293681801663133, guid: 2e1e9506f5904a64b81744324fb7cd50,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.24402523
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284293681801663133, guid: 2e1e9506f5904a64b81744324fb7cd50,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.03728906
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4593184484909914552, guid: 2e1e9506f5904a64b81744324fb7cd50,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5946797379137685569}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e1e9506f5904a64b81744324fb7cd50, type: 3}
 --- !u!4 &8710951057489587874 stripped
 Transform:
@@ -19938,24 +19954,3 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5142485296350164757}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &5946797379137685569
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8710951057489587885}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2.3742485
-  m_Center: {x: 0.006030321, y: 0.9689549, z: -0.033656478}

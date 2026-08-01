@@ -16,6 +16,7 @@ public class VongSangTarget : MonoBehaviour
         {
             player = playerObj.transform;
         }
+        
     }
 
     // Update is called once per frame
@@ -35,11 +36,15 @@ public class VongSangTarget : MonoBehaviour
         {
             // Khi chạm vào Player thì đánh dấu là đã dừng lại, không đuổi theo nữa
             isStopped = true;
+            // Tìm TẤT CẢ object có tag "VongSang" và ẩn từng cái một
+            System.Array.ForEach(GameObject.FindGameObjectsWithTag("VongSang"), vs => vs.SetActive(false));
             Invoke("phatno", 0.2f); // Gọi hàm phatno sau 0.2 giây
+            Destroy(gameObject, 1.5f); // Hủy Vòng Sáng sau 1 giây
         }
     }
     void phatno()
     {
         boom.SetActive(true);
     }
+    
 }
