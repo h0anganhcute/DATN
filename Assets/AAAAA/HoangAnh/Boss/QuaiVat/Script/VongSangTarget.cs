@@ -5,6 +5,7 @@ public class VongSangTarget : MonoBehaviour
     public float speed = 20f;
     Transform player;
     bool isStopped = false; // Biến kiểm tra xem đã dừng lại chưa
+    public GameObject boom;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +35,11 @@ public class VongSangTarget : MonoBehaviour
         {
             // Khi chạm vào Player thì đánh dấu là đã dừng lại, không đuổi theo nữa
             isStopped = true;
+            Invoke("phatno", 0.2f); // Gọi hàm phatno sau 0.2 giây
         }
+    }
+    void phatno()
+    {
+        boom.SetActive(true);
     }
 }

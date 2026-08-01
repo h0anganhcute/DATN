@@ -108,10 +108,7 @@ public class SkillQuaiVat : MonoBehaviour
         ani.SetTrigger("Boom");
 
         // Clone VongSang ra tại vị trí và góc quay của Quái Vật
-        if (VongSang != null)
-        {
-            Instantiate(VongSang, transform.position, transform.rotation);
-        }
+        Invoke("CloneVongSang", 1.5f); // Gọi hàm CloneVongSang sau 1 giây để đồng bộ với animation
 
         // Tắt di chuyển của NavMeshAgent khi dùng skill
         if (navAgent != null)
@@ -128,6 +125,13 @@ public class SkillQuaiVat : MonoBehaviour
         {
             navAgent.enabled = true;
             navAgent.isStopped = false;
+        }
+    }
+    void CloneVongSang()
+    {
+        if (VongSang != null)
+        {
+            Instantiate(VongSang, transform.position, transform.rotation);
         }
     }
 }
