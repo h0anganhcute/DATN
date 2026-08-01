@@ -14664,6 +14664,8 @@ GameObject:
   - component: {fileID: 3280519133390621004}
   - component: {fileID: 3280519133390621041}
   - component: {fileID: 7049655784377003906}
+  - component: {fileID: 7873805603078345898}
+  - component: {fileID: 1971427747146356}
   m_Layer: 0
   m_Name: CFXR3 Magic Aura A (Runic)
   m_TagString: Untagged
@@ -19650,6 +19652,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09bf668955295ce4e95ee2fb1a02202a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7873805603078345898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3280519133390621005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988ef7dcf985e2941ac37223f1a343a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+--- !u!65 &1971427747146356
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3280519133390621005}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5607454, y: 0.7312155, z: 0.4639411}
+  m_Center: {x: 0.010312478, y: 0.36381596, z: -0.0025010905}
 --- !u!1 &3280519133430969738
 GameObject:
   m_ObjectHideFlags: 0
@@ -19693,7 +19729,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.99215686, g: 0.81830066, b: 0.47058818, a: 1}
-  m_Intensity: 0
+  m_Intensity: 13.481019
   m_Range: 4
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

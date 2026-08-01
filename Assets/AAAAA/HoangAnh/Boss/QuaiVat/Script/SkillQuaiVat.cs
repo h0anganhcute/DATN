@@ -4,6 +4,7 @@ using Unity.FPS.Game;
 
 public class SkillQuaiVat : MonoBehaviour
 {
+    public GameObject VongSang; // Kéo thả Prefab Vòng sáng vào đây trong Inspector
     Animator ani;
     Health health;
     NavMeshAgent navAgent; // Khai báo NavMeshAgent
@@ -105,6 +106,12 @@ public class SkillQuaiVat : MonoBehaviour
     void Skill1()
     {
         ani.SetTrigger("Boom");
+
+        // Clone VongSang ra tại vị trí và góc quay của Quái Vật
+        if (VongSang != null)
+        {
+            Instantiate(VongSang, transform.position, transform.rotation);
+        }
 
         // Tắt di chuyển của NavMeshAgent khi dùng skill
         if (navAgent != null)
