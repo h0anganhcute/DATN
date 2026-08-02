@@ -6,6 +6,8 @@ public class ControlQuaiVat : MonoBehaviour
     StartBoss startBoss;
     TargetBoss1 targetBoss1;
     Animator ani;
+    public GameObject cameraBoss;
+    public GameObject cameraPlayer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,5 +33,9 @@ public class ControlQuaiVat : MonoBehaviour
     public void BatDauTarget()
     {
         targetBoss1.enabled = true;
+    }
+    public void TatCamera()
+    {
+               cameraBoss.SetActive(false);
     }
 }
