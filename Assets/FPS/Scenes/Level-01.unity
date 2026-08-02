@@ -617,6 +617,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94c6e57ed8ae4d42ba5740d98d72d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2624672185481736465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8096239089289585235, guid: a94b45559f269ae47ac8fdbeb1af83ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 4518195059209229038}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2729281212887052390
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,6 +2148,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChonQuai
       objectReference: {fileID: 0}
+    - target: {fileID: 878648520119812983, guid: 0bc7ae9ea91487541af02b3e5d3f68ca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3717766079939888297, guid: 0bc7ae9ea91487541af02b3e5d3f68ca,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2242,6 +2253,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8187767955128943244, guid: 0bc7ae9ea91487541af02b3e5d3f68ca,
+        type: 3}
+      propertyPath: Dragon
+      value: 
+      objectReference: {fileID: 2624672185481736465}
+    - target: {fileID: 8187767955128943244, guid: 0bc7ae9ea91487541af02b3e5d3f68ca,
+        type: 3}
+      propertyPath: QuaiVat
+      value: 
+      objectReference: {fileID: 2035128875}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4220,6 +4241,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 11.231134
       objectReference: {fileID: 0}
+    - target: {fileID: 3726209476021605892, guid: 64c6b7d6fb9da9c4381786eae576464a,
+        type: 3}
+      propertyPath: m_Text
+      value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726209476021605892, guid: 64c6b7d6fb9da9c4381786eae576464a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 3757448367688976205, guid: 64c6b7d6fb9da9c4381786eae576464a,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -4264,6 +4295,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 14.661571
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079591280221598720, guid: 64c6b7d6fb9da9c4381786eae576464a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 81.209
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079591280221598720, guid: 64c6b7d6fb9da9c4381786eae576464a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 40.741
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079591280221598720, guid: 64c6b7d6fb9da9c4381786eae576464a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 430.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079591280221598720, guid: 64c6b7d6fb9da9c4381786eae576464a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 470.82
       objectReference: {fileID: 0}
     - target: {fileID: 4399150531205923930, guid: 64c6b7d6fb9da9c4381786eae576464a,
         type: 3}
@@ -4568,7 +4619,7 @@ PrefabInstance:
     - target: {fileID: 7099994115881625102, guid: 64c6b7d6fb9da9c4381786eae576464a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7365751253379546403, guid: 64c6b7d6fb9da9c4381786eae576464a,
         type: 3}
