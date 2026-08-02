@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8757021938072983784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7784722780420932481}
+  - component: {fileID: 7002774104293830375}
+  m_Layer: 0
+  m_Name: XuatHienQuai
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7784722780420932481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757021938072983784}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.7029352, y: -4.8106894, z: 102.19534}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7002774104293830375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757021938072983784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6454e1a34ff0d4f40949c85eddcda906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  enemyType1: {fileID: 7459742472095153546, guid: 921ae2c46a4da0d4fa24de3bdad34884,
+    type: 3}
+  enemyType2: {fileID: 6803874659402648087, guid: 5c0cd0509ee6d5146bcee84931886ef9,
+    type: 3}
+  enemyType3: {fileID: 6479038419360853429, guid: 34e961164b471c849bbce1faa8e5170f,
+    type: 3}
+  bossDragon: {fileID: 0}
+  delayBatBoss: 3
+  delayBetweenSpawns: 0.2
+  timeBetweenLevels: 3

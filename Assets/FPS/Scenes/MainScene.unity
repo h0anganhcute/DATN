@@ -126,64 +126,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2729281213748808806}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &97336016
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 97336018}
-  - component: {fileID: 97336017}
-  m_Layer: 0
-  m_Name: XuatHienQuai
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &97336017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97336016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6454e1a34ff0d4f40949c85eddcda906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  caves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  enemyType1: {fileID: 7459742472095153546, guid: 921ae2c46a4da0d4fa24de3bdad34884,
-    type: 3}
-  enemyType2: {fileID: 6803874659402648087, guid: 5c0cd0509ee6d5146bcee84931886ef9,
-    type: 3}
-  enemyType3: {fileID: 6479038419360853429, guid: 34e961164b471c849bbce1faa8e5170f,
-    type: 3}
-  bossDragon: {fileID: 0}
-  delayBatBoss: 3
-  delayBetweenSpawns: 0.2
-  timeBetweenLevels: 3
---- !u!4 &97336018
+--- !u!4 &97336018 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7784722780420932481, guid: 05ca7b9863b10a546bdc5cc420ac2a4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6777041336648779345}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97336016}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7029352, y: -4.8106894, z: 102.19534}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 370096774}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &126223703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2620131183356007199, guid: d40ae884302b6684a8b3b6f3d55a71ba,
@@ -2874,6 +2822,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c996b53e9f849234393d1e90f68d1679, type: 3}
+--- !u!1001 &6777041336648779345
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 370096774}
+    m_Modifications:
+    - target: {fileID: 7784722780420932481, guid: 05ca7b9863b10a546bdc5cc420ac2a4e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.7029352
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784722780420932481, guid: 05ca7b9863b10a546bdc5cc420ac2a4e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.8106894
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784722780420932481, guid: 05ca7b9863b10a546bdc5cc420ac2a4e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 102.19534
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784722780420932481, guid: 05ca7b9863b10a546bdc5cc420ac2a4e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784722780420932481, guid: 05ca7b9863b10a546bdc5cc420ac2a4e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784722780420932481, guid: 05ca7b9863b10a546bdc5cc420ac2a4e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784722780420932481, guid: 05ca7b9863b10a546bdc5cc420ac2a4e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784722780420932481, guid: 05ca7b9863b10a546bdc5cc420ac2a4e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784722780420932481, guid: 05ca7b9863b10a546bdc5cc420ac2a4e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784722780420932481, guid: 05ca7b9863b10a546bdc5cc420ac2a4e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757021938072983784, guid: 05ca7b9863b10a546bdc5cc420ac2a4e,
+        type: 3}
+      propertyPath: m_Name
+      value: XuatHienQuai
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 05ca7b9863b10a546bdc5cc420ac2a4e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
