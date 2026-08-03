@@ -52,42 +52,42 @@ public class DragonController : MonoBehaviour
     private IEnumerator UseSkill1()
     {
         // Dừng NavMeshAgent di chuyển khi tung chiêu
-        if (navMeshAgent != null) navMeshAgent.isStopped = true;
+       navMeshAgent.enabled = false;
 
         skill.Skill1();
         yield return new WaitForSeconds(skillDuration);
 
         // Cho phép NavMeshAgent tiếp tục di chuyển sau khi dùng xong chiêu
-        if (navMeshAgent != null) navMeshAgent.isStopped = false;
+        navMeshAgent.enabled = true;
     }
 
     private IEnumerator UseSkill2()
     {
-        if (navMeshAgent != null) navMeshAgent.isStopped = true;
+        navMeshAgent.enabled = false;
 
         skill.Skill2();
         yield return new WaitForSeconds(skillDuration);
 
-        if (navMeshAgent != null) navMeshAgent.isStopped = false;
+        navMeshAgent.enabled = true;
     }
 
     private IEnumerator UseSkill3()
     {
-        if (navMeshAgent != null) navMeshAgent.isStopped = true;
+        navMeshAgent.enabled = false;
 
         skill.Skill3();
         yield return new WaitForSeconds(skillDuration);
 
-        if (navMeshAgent != null) navMeshAgent.isStopped = false;
+        navMeshAgent.enabled = true;
     }
 
     private IEnumerator UseSkill4()
     {
-        if (navMeshAgent != null) navMeshAgent.isStopped = true;
+        navMeshAgent.enabled = false;
 
         skill.Skill4();
         yield return new WaitForSeconds(skillDuration);
 
-        if (navMeshAgent != null) navMeshAgent.isStopped = false;
+        navMeshAgent.enabled = true;
     }
 }

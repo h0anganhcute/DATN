@@ -6,12 +6,18 @@ public class MenuBoss : MonoBehaviour
     public GameObject QuaiVat;
     public GameObject Dragon;
 
-    // Biến cờ (flag) để đảm bảo người chơi chỉ được chọn Boss 1 lần duy nhất
+    // Biến cờ (flag) để đảm bảo người chơi chỉ được chọn Boss ở menu 1 lần duy nhất
     private bool daChonBoss = false;
+
+    // --- CÁC BIẾN MỚI THÊM ---
+    // Biến lưu lại xem người chơi đã chọn Boss nào lúc đầu (1: Quái vật, 2: Rồng)
+    private int bossDaChon = 0;
+    // Biến cờ để đảm bảo việc bật boss thứ 2 chỉ diễn ra 1 lần duy nhất, không lặp lại
+    private bool bossThuHaiDaDuocGoi = false;
 
     void Start()
     {
-        // (Tùy chọn) Ẩn quái vật và rồng lúc mới vào game để chắc chắn chúng chưa xuất hiện
+        // Ẩn quái vật và rồng lúc mới vào game để chắc chắn chúng chưa xuất hiện
         if (QuaiVat != null) QuaiVat.SetActive(false);
         if (Dragon != null) Dragon.SetActive(false);
 
@@ -21,26 +27,45 @@ public class MenuBoss : MonoBehaviour
 
     void Update()
     {
-        // Điều kiện: Chỉ nhận nút bấm khi MenuBoss đang hiển thị VÀ chưa chọn Boss lần nào
+        // ---------------------------------------------------------
+        // PHẦN 1: CHỌN BOSS TỪ MENU
+        // Chỉ nhận nút bấm khi MenuBoss đang hiển thị VÀ chưa chọn Boss lần nào
         if (menuBoss.activeInHierarchy && !daChonBoss)
         {
-            // Nếu người dùng nhấn phím Q
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                daChonBoss = true;       // Đặt cờ thành true khóa lại, không cho bấm nữa
-                QuaiVat.SetActive(true); // Bật Quái Vật
+                daChonBoss = true;       // Khóa chọn menu
+                bossDaChon = 1;          // Ghi nhớ là đã chọn Quái Vật
 
-                // Tắt Menu Boss đi sau khi chọn xong
+                if (QuaiVat != null) QuaiVat.SetActive(true); // Bật Quái Vật
                 menuBoss.SetActive(false);
             }
-            // Nếu người dùng nhấn phím E
             else if (Input.GetKeyDown(KeyCode.E))
             {
-                daChonBoss = true;       // Đặt cờ thành true khóa lại, không cho bấm nữa
-                Dragon.SetActive(true);  // Bật Rồng
+                daChonBoss = true;       // Khóa chọn menu
+                bossDaChon = 2;          // Ghi nhớ là đã chọn Rồng
 
-                // Tắt Menu Boss đi sau khi chọn xong
+                if (Dragon != null) Dragon.SetActive(true);  // Bật Rồng
                 menuBoss.SetActive(false);
+            }
+        }
+
+        // ---------------------------------------------------------
+        // PHẦN 2: KIỂM TRA BOSS CHẾT ĐỂ GỌI BOSS CÒN LẠI SAU 5 GIÂY
+        // Chỉ chạy nếu đã chọn boss đầu tiên rồi VÀ boss thứ 2 chưa được gọi
+        if (daChonBoss == true && bossThuHaiDaDuocGoi == false)
+        {
+            // Trường hợp 1: Ban đầu chọn Quái Vật (Q), và Quái Vật đã bị Destroy
+            if (bossDaChon == 1 && QuaiVat == null)
+            {
+                bossThuHaiDaDuocGoi = true; // Lập tức khóa cờ lại để Frame sau không chạy nữa
+                Invoke("BatRong", 5f);      // Chờ 5 giây rồi gọi hàm Bật Rồng
+            }
+            // Trường hợp 2: Ban đầu chọn Rồng (E), và Rồng đã bị Destroy
+            else if (bossDaChon == 2 && Dragon == null)
+            {
+                bossThuHaiDaDuocGoi = true; // Lập tức khóa cờ lại để Frame sau không chạy nữa
+                Invoke("BatQuaiVat", 5f);   // Chờ 5 giây rồi gọi hàm Bật Quái Vật
             }
         }
     }
@@ -48,5 +73,24 @@ public class MenuBoss : MonoBehaviour
     void HienMenuBoss()
     {
         menuBoss.SetActive(true);
+    }
+
+    // --- CÁC HÀM MỚI THÊM ĐỂ INVOKE SAU 5 GIÂY ---
+    void BatRong()
+    {
+        // Chắc chắn Rồng chưa bị ai Destroy mất trước khi bật
+        if (Dragon != null)
+        {
+            Dragon.SetActive(true);
+        }
+    }
+
+    void BatQuaiVat()
+    {
+        // Chắc chắn Quái Vật chưa bị ai Destroy mất trước khi bật
+        if (QuaiVat != null)
+        {
+            QuaiVat.SetActive(true);
+        }
     }
 }

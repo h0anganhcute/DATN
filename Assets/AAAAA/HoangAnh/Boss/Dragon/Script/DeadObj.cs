@@ -1,58 +1,54 @@
 ﻿using UnityEngine;
-using Unity.FPS.Game;
-using UnityEngine.AI; // Bắt buộc phải có dòng này để gọi NavMeshAgent
+using UnityEngine.AI;
+using Unity.FPS.Game; // Thêm dòng này để gọi được script Health
 
 public class DieDragon : MonoBehaviour
 {
-    private Health mau;
-    private Animator ani;
-    private TargerBoss targerBoss;
-    private DragonController dragonController;
-    private Skill skill;
-    private BulletBoss bulletBoss;
-    private NavMeshAgent navAgent; // Thêm biến chứa NavMeshAgent
+    NavMeshAgent navAgent;
+    TargerBoss targerBoss;
+    Skill skill;
+    BulletBoss bulletBoss;
+    DragonController dragonController;
+    Animator ani;
+
+    Health mau; // Thêm biến chứa script Health
+    bool isDead = false; // Biến đánh dấu để đảm bảo code chết chỉ chạy đúng 1 lần
 
     void Start()
     {
-        ani = GetComponent<Animator>();
-        mau = GetComponent<Health>();
+        navAgent = GetComponent<NavMeshAgent>();
         targerBoss = GetComponent<TargerBoss>();
-        dragonController = GetComponent<DragonController>();
         skill = GetComponent<Skill>();
         bulletBoss = GetComponent<BulletBoss>();
-        navAgent = GetComponent<NavMeshAgent>(); // Tìm component NavMeshAgent
+        dragonController = GetComponent<DragonController>();
+        ani = GetComponent<Animator>();
 
-        // Ở Start, CHỈ đăng ký: "Khi nào hết máu thì hãy gọi hàm KhiChet nhé!"
-        if (mau != null)
-        {
-            mau.OnDie += KhiChet;
-        }
+        mau = GetComponent<Health>(); // Lấy script Health
     }
 
-    // Hàm này sẽ tự động được gọi khi Health thông báo máu đã về 0
-    void KhiChet()
+    void Update()
     {
-        Debug.Log("Boss is died");
-
-        // 1. Chạy hoạt ảnh chết
-        if (ani != null)
+        // Kiểm tra nếu boss có script Health, máu <= 0 và chưa bị đánh dấu là đã chết
+        if (mau != null && mau.CurrentHealth <= 0 && isDead == false)
         {
-            ani.SetTrigger("Die");
+            isDead = true; // Lập tức đánh dấu là đã chết để Frame sau không chạy lại các lệnh bên dưới nữa
+
+            Debug.Log("Boss is died");
+
+            // Tắt NavMeshAgent (ngừng di chuyển)
+            if (navAgent != null) navAgent.enabled = false;
+
+            // Tắt các Script hành vi, tấn công
+            if (targerBoss != null) targerBoss.enabled = false;
+            if (skill != null) skill.enabled = false;
+            if (bulletBoss != null) bulletBoss.enabled = false;
+            if (dragonController != null) dragonController.enabled = false;
+
+            // Gọi Animation chết
+            if (ani != null) ani.SetTrigger("Die");
+
+            // Hủy Game Object boss sau 5 giây
+            Destroy(gameObject, 5f);
         }
-
-        // 2. TẮT TÌM ĐƯỜNG NGAY LẬP TỨC (Boss sẽ ngừng trượt/di chuyển)
-        if (navAgent != null)
-        {
-            navAgent.enabled = false;
-        }
-
-        // 3. Tắt toàn bộ AI và kỹ năng để boss nằm im
-        if (targerBoss != null) targerBoss.enabled = false;
-        if (dragonController != null) dragonController.enabled = false;
-        if (skill != null) skill.enabled = false;
-        if (bulletBoss != null) bulletBoss.enabled = false;
-
-        // 4. Chờ 5 giây cho boss diễn xong cảnh chết rồi xóa xác khỏi bản đồ
-        Destroy(gameObject, 5f);
     }
 }
