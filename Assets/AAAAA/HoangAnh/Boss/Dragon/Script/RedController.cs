@@ -8,9 +8,8 @@ public class RedController : MonoBehaviour
     Health health;
     Animator ani;
     public Transform player;
-
+    public GameObject cameraBoss;
     public float turnSpeed = 10f;
-
     private bool triggered80 = false;
     private bool triggered60 = false;
     private bool triggered40 = false;
@@ -21,6 +20,7 @@ public class RedController : MonoBehaviour
         runRedDragon = GetComponent<RunRedDragon>();
         health = GetComponent<Health>();
         ani = GetComponent<Animator>();
+        ani.SetTrigger("Start");
     }
 
     void Update()
@@ -119,5 +119,9 @@ public class RedController : MonoBehaviour
     public void BatLaiDiChuyen()
     {
         runRedDragon.enabled = true;
+    }
+    public void TatCamera()
+    {
+        cameraBoss.SetActive(false); 
     }
 }
