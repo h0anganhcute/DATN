@@ -1175,6 +1175,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 878959442326153238}
+    - targetCorrespondingSourceObject: {fileID: -290750445479886849, guid: 715e2354765030c4497a8941156416f9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1265757945486409145}
   m_SourcePrefab: {fileID: 100100000, guid: 715e2354765030c4497a8941156416f9, type: 3}
 --- !u!1 &652475807360260155 stripped
 GameObject:
@@ -1238,12 +1242,26 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.27304867, y: 0.38967976, z: 0.28637567}
   m_Center: {x: 0.013373469, y: 0.16622435, z: 0.025627317}
+--- !u!114 &1265757945486409145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566789590014207136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b0ce1bb69c96b49a7ac1098a7f5796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageMultiplier: 0
+  SensibilityToSelfdamage: 0.5
 --- !u!1 &2349878844704892290 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3542885339558904099, guid: 715e2354765030c4497a8941156416f9,
@@ -1324,7 +1342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b0ce1bb69c96b49a7ac1098a7f5796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageMultiplier: 1
+  DamageMultiplier: 0
   SensibilityToSelfdamage: 0.5
 --- !u!1 &4905792110486706527 stripped
 GameObject:
@@ -1365,7 +1383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b0ce1bb69c96b49a7ac1098a7f5796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageMultiplier: 1
+  DamageMultiplier: 0
   SensibilityToSelfdamage: 0.5
 --- !u!1 &6378287894232534548 stripped
 GameObject:
@@ -1406,7 +1424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b0ce1bb69c96b49a7ac1098a7f5796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageMultiplier: 1
+  DamageMultiplier: 0
   SensibilityToSelfdamage: 0.5
 --- !u!1 &7099994115881625102 stripped
 GameObject:
