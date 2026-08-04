@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class MenuBoss : MonoBehaviour
 {
     public GameObject menuBoss;
     public GameObject QuaiVat;
     public GameObject Dragon;
+    public GameObject Boss;
+    public GameObject panelCanhBao;
 
     // Biến cờ (flag) để đảm bảo người chơi chỉ được chọn Boss ở menu 1 lần duy nhất
     private bool daChonBoss = false;
@@ -14,6 +16,8 @@ public class MenuBoss : MonoBehaviour
     private int bossDaChon = 0;
     // Biến cờ để đảm bảo việc bật boss thứ 2 chỉ diễn ra 1 lần duy nhất, không lặp lại
     private bool bossThuHaiDaDuocGoi = false;
+    // Biến cờ để đảm bảo việc bật Boss cuối cùng chỉ diễn ra 1 lần
+    private bool bossCuoiCungDaDuocGoi = false;
 
     void Start()
     {
@@ -68,6 +72,18 @@ public class MenuBoss : MonoBehaviour
                 Invoke("BatQuaiVat", 5f);   // Chờ 5 giây rồi gọi hàm Bật Quái Vật
             }
         }
+
+        // ---------------------------------------------------------
+        // PHẦN 3: KIỂM TRA NẾU CẢ 2 BOSS ĐỀU BỊ DESTROY ĐỂ GỌI BOSS CUỐI
+        if (daChonBoss == true && bossCuoiCungDaDuocGoi == false)
+        {
+            if (QuaiVat == null && Dragon == null)
+            {
+                bossCuoiCungDaDuocGoi = true; // Lập tức khóa cờ lại để tránh Invoke nhiều lần
+                Invoke("BatPanelCanhBao", 5f);
+                Invoke("BatBossCuoi", 7f);    // 5 giây bật panel + 2 giây sau đó bật boss = 7 giây
+            }
+        }
     }
 
     void HienMenuBoss()
@@ -91,6 +107,22 @@ public class MenuBoss : MonoBehaviour
         if (QuaiVat != null)
         {
             QuaiVat.SetActive(true);
+        }
+    }
+
+    void BatPanelCanhBao()
+    {
+        if (panelCanhBao != null)
+        {
+            panelCanhBao.SetActive(true);
+        }
+    }
+
+    void BatBossCuoi()
+    {
+        if (Boss != null)
+        {
+            Boss.SetActive(true);
         }
     }
 }
