@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.AI; // Gọi thư viện AI để dùng NavMesh
 
 public class RunEnemy : MonoBehaviour
@@ -9,6 +9,9 @@ public class RunEnemy : MonoBehaviour
 
     [Header("Cài đặt Di chuyển")]
     public float tocDo = 3.5f;            // Tốc độ di chuyển của kẻ địch
+
+    [Header("Cài đặt Tấn công")]
+    public float khoangCachTanCong = 2.0f; // Khoảng cách để quái bắt đầu tấn công
 
     // Biến này đóng vai trò là "bộ não" giúp kẻ địch tự tìm đường và né vật cản
     private NavMeshAgent aiDiChuyen;
@@ -21,6 +24,8 @@ public class RunEnemy : MonoBehaviour
 
         // Gán tốc độ di chuyển
         aiDiChuyen.speed = tocDo;
+        // Đặt khoảng cách dừng lại của NavMeshAgent bằng với khoảng cách tấn công
+        aiDiChuyen.stoppingDistance = khoangCachTanCong;
 
         // Nếu bạn quên chưa kéo Player vào ô Nguoi Choi, code sẽ tự tìm vật thể có tag "Player"
         if (nguoiChoi == null)
@@ -38,10 +43,21 @@ public class RunEnemy : MonoBehaviour
         // Kiểm tra xem đã có mục tiêu (nguoiChoi) chưa và Kẻ địch có đang đứng trên vùng di chuyển (NavMesh) không
         if (nguoiChoi != null && aiDiChuyen.isOnNavMesh)
         {
-            ani.SetTrigger("Run");
             // Ra lệnh cho bộ não AI liên tục đi đến vị trí hiện tại của Người chơi.
             // NavMeshAgent sẽ TỰ ĐỘNG tính toán đường đi để né các vật cản trên bản đồ.
             aiDiChuyen.SetDestination(nguoiChoi.position);
+
+            // Kiểm tra xem quái đã đến gần mục tiêu chưa (nhỏ hơn hoặc bằng stoppingDistance)
+            if (!aiDiChuyen.pathPending && aiDiChuyen.remainingDistance <= aiDiChuyen.stoppingDistance)
+            {
+                // Đã tới nơi -> Tấn công
+                ani.SetTrigger("Attack");
+            }
+            else
+            {
+                // Chưa tới nơi -> Tiếp tục chạy
+                ani.SetTrigger("Run");
+            }
         }
     }
 }

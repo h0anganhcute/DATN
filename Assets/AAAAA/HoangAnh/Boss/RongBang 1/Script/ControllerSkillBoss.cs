@@ -49,7 +49,9 @@ public class ControllerSkillBoss : MonoBehaviour
         else if (healthRatio <= 0.6f && !triggered60)
         {
             triggered60 = true;
-            //Chưa điền Skill
+            ani.SetTrigger("BayAttack2");
+            ani.SetTrigger("Attack2");
+            ani.SetTrigger("DownAttack2");
         }
         else if (healthRatio <= 0.5f && !triggered50)
         {
@@ -71,7 +73,7 @@ public class ControllerSkillBoss : MonoBehaviour
         else if (healthRatio <= 0.2f && !triggered20)
         {
             triggered20 = true;
-            //Chưa điền Skill
+            ani.SetTrigger("Attack3");
         }
         else if (healthRatio <= 0.1f && !triggered10)
         {

@@ -5,7 +5,11 @@ public class SkillAOE : MonoBehaviour
 {
     public GameObject aoe;
     public Terrain terrain; // Reference to the Terrain component
-    
+    public GameObject viTriCloneEnemy;
+    public GameObject enemyClone;
+    public GameObject enemyClone2;
+    public GameObject enemyClone3;
+    public float soLuongEnemy = 30f;
     [Header("Cài đặt AOE")]
     [Tooltip("Số lượng AOE được tạo ra")]
     public int soLuongAoe = 15;
@@ -33,7 +37,42 @@ public class SkillAOE : MonoBehaviour
     {
         
     }
-
+    public void GoiEnemy1()
+    {
+        if (viTriCloneEnemy == null || enemyClone == null)
+        {
+            Debug.LogWarning("Chưa gán viTriCloneEnemy hoặc enemyClone trong Inspector!");
+            return;
+        }
+        for (int i = 0; i < soLuongEnemy; i++)
+        {
+            Instantiate(enemyClone, viTriCloneEnemy.transform.position, Quaternion.identity);
+        }
+    }
+    public void GoiEnemy2()
+    {
+        if (viTriCloneEnemy == null || enemyClone2 == null)
+        {
+            Debug.LogWarning("Chưa gán viTriCloneEnemy hoặc enemyClone trong Inspector!");
+            return;
+        }
+        for (int i = 0; i < soLuongEnemy; i++)
+        {
+            Instantiate(enemyClone2, viTriCloneEnemy.transform.position, Quaternion.identity);
+        }
+    }
+    public void GoiEnemy3()
+    {
+        if (viTriCloneEnemy == null || enemyClone3 == null)
+        {
+            Debug.LogWarning("Chưa gán viTriCloneEnemy hoặc enemyClone trong Inspector!");
+            return;
+        }
+        for (int i = 0; i < soLuongEnemy; i++)
+        {
+            Instantiate(enemyClone3, viTriCloneEnemy.transform.position, Quaternion.identity);
+        }
+    }
     public void GoiAoe()
     {
         if (aoe == null)
