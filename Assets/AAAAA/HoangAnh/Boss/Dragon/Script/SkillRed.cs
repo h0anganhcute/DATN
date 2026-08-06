@@ -1,14 +1,27 @@
 ﻿using System.Collections;
 using Unity.FPS.Game;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SkillRed : MonoBehaviour
 {
     public GameObject diemBan;      // Vị trí xuất phát của đạn
     public GameObject bulletPrefab; // Prefab viên đạn
     public Transform player;        // Mục tiêu bắn tới
-
+    public float thoiGianBan = 0.3f; // Thời gian giữa các lần bắn
     public float bulletSpeed = 20f; // Tốc độ bay của đạn
+    public void Start()
+    {
+        // Nếu chưa gán player, tự tìm Player trong scene
+        if (player == null)
+        {
+            GameObject timPlayer = GameObject.FindGameObjectWithTag("Player");
+            if (timPlayer != null)
+            {
+                player = timPlayer.transform;
+            }
+        }
+    }
 
     public void Skill1()
     {
@@ -57,7 +70,7 @@ public class SkillRed : MonoBehaviour
             rb.linearVelocity = direction * bulletSpeed;
 
             // 5. Chờ 0.3s rồi bắn viên tiếp theo
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(thoiGianBan);
         }
     }
 }

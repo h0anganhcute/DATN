@@ -179,4 +179,8 @@ public class SkillAOE : MonoBehaviour
             Debug.LogWarning($"Chỉ có thể tạo {spawnedCount}/{soLuongAoe} AOE. Hãy thử GIẢM khoảng cách tối thiểu, hoặc TĂNG kích thước khu vực spawn.");
         }
     }
+    public void MoCong()
+    {
+        viTriCloneEnemy.SetActive(true);
+    }
 }
