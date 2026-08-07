@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
@@ -6,7 +6,7 @@ public class MomRun : MonoBehaviour
 {
     private NavMeshAgent navMeshAgent;
     Animator ani;
-
+    public GameObject ChuyenScene;
     [Tooltip("Kéo thả GameObject chứa bảng thoại của Mom vào đây")]
     public GameObject thoaiMom;
     [Tooltip("Kéo thả GameObject chứa bảng thoại của Con Trai vào đây")]
@@ -97,7 +97,7 @@ public class MomRun : MonoBehaviour
                 ani.SetBool("Run", true);
             }
         }
-        // TRẠNG THÁI 4: ĐANG ĐI VỀ NHÀ
+        // TRẠNG THÁI 4: ĐANG ĐI VỀ 
         else if (trangThaiHienTai == TrangThai.DangDiVe)
         {
             if (DaDenDichChua())
@@ -114,7 +114,13 @@ public class MomRun : MonoBehaviour
                     thoaiConTrai2.SetActive(true);
                 }
 
-                Debug.Log("Đã quay về vị trí ban đầu thành công và bật thoaiConTrai2!");
+                // Bật GameObject ChuyenScene khi đã quay về vị trí ban đầu
+                if (ChuyenScene != null)
+                {
+                    ChuyenScene.SetActive(true);
+                }
+
+                Debug.Log("Đã quay về vị trí ban đầu thành công và bật thoaiConTrai2 cùng ChuyenScene!");
             }
         }
     }
