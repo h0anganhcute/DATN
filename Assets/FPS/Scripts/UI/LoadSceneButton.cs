@@ -8,7 +8,7 @@ namespace Unity.FPS.UI
 {
     public class LoadSceneButton : MonoBehaviour
     {
-        private string SceneName = "Level-01";
+        public string SceneName = "Level-01";
 
         private InputAction m_SubmitAction;
         
