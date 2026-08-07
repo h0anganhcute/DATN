@@ -1,53 +1,73 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DoorOpen : MonoBehaviour
 {
-    [Header("C�i ??t C?a")]
+    [Header("Cài Đặt Cửa")]
+    [Tooltip("Kéo thả GameObject hình ảnh cánh cửa vào đây")]
+    public Transform doorMesh; // THÊM BIẾN NÀY ĐỂ TÁCH BIỆT CÁNH CỬA VÀ TRIGGER
+
     public float moveDistance = 2f;
     public float moveSpeed = 5f;
 
     private Vector3 closedPosition;
     private Vector3 openPosition;
 
-    private bool isOpen = false;       // C?a ?ang m? hay ?�ng?
-    private bool isPlayerNear = false; // Ng??i ch?i c� ?ang ? g?n c?a kh�ng?
+    private bool isOpen = false;
+    private bool isPlayerNear = false;
 
     void Start()
     {
-        closedPosition = transform.position;
-
-        // C?a di chuy?n theo tr?c Z
-        openPosition = closedPosition + transform.forward * moveDistance;
+        // Nếu đã gán doorMesh thì mới lấy vị trí
+        if (doorMesh != null)
+        {
+            closedPosition = doorMesh.position;
+            // Tính toán vị trí mở dựa trên trục Z của cánh cửa
+            openPosition = closedPosition + doorMesh.forward * moveDistance;
+        }
+        else
+        {
+            Debug.LogError("Vui lòng kéo thả cánh cửa vào ô Door Mesh trong Inspector!");
+        }
     }
 
     void Update()
     {
-        // Ki?m tra n?u ng??i ch?i ?ang ? g?n V� b?m ph�m E
+        if (doorMesh == null) return; // Nếu quên chưa gán cánh cửa thì không làm gì cả để tránh lỗi
+
+        // Kiểm tra nếu người chơi đang ở gần VÀ bấm phím E
         if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
         {
-            isOpen = !isOpen; // ??o ng??c tr?ng th�i m?/?�ng
+            isOpen = !isOpen; // Đảo ngược trạng thái mở/đóng
         }
 
-        // C?a t? ??ng di chuy?n ??n v? tr� ?�ch m??t m�
+        // Cửa tự động di chuyển đến vị trí đích mượt mà
         Vector3 targetPosition = isOpen ? openPosition : closedPosition;
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+        // CHÚ Ý: Bây giờ chúng ta chỉ di chuyển doorMesh, còn vùng Trigger vẫn đứng im tại chỗ
+        doorMesh.position = Vector3.MoveTowards(doorMesh.position, targetPosition, moveSpeed * Time.deltaTime);
     }
 
-    // Khi ng??i ch?i b??c v�o v�ng Trigger
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerNear = true; // Cho ph�p b?m E
+            isPlayerNear = true;
+        }
+        else if (other.CompareTag("Mom"))
+        {
+            isOpen = true;
         }
     }
 
-    // Khi ng??i ch?i b??c ra kh?i v�ng Trigger
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerNear = false; // Kh�ng cho ph�p b?m E n?a
+            isPlayerNear = false;
+        }
+        else if (other.CompareTag("Mom"))
+        {
+            isOpen = false;
         }
     }
 }
