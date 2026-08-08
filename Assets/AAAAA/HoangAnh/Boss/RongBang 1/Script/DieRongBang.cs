@@ -7,7 +7,7 @@ public class DieRongBang : MonoBehaviour
     RongBangController rongBangController;
     ControllerSkillBoss controllerSkillBoss;
     Animator ani;
-
+    public GameObject Cong;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,5 +32,12 @@ public class DieRongBang : MonoBehaviour
             // Chạy animation Die
             if (ani != null) ani.SetTrigger("Die");
         }
+    }
+    public void MoCong()
+    {
+             
+        
+            Cong.SetActive(true);
+        
     }
 }
