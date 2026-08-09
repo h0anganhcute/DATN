@@ -9,14 +9,14 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Sunset4
   m_Shader: {fileID: 4800000, guid: eb3c6fb598ded4c71b8968e1c40a3b4d, type: 3}
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 2100000, guid: 7ed994c1997814049b44c36a823bba6c, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _HORIZONLINEBLENDMODE_LERP
   - _SUNHALOBLENDMODE_ADD
   - _VIEW_FINAL
-  m_LightmapFlags: 0
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -32,16 +32,12 @@ Material:
     - _HorizonLineContribution: 0
     - _HorizonLineExponent: 15
     - _SkyGradientExponent: 2.45
-    - _SunDiscContribution: 1
     - _SunDiscExponent: 4992.1
     - _SunDiscExponentSize: 12000
     - _SunDiscMultiplier: 453
     - _SunDiscMultiplierSharpness: 1200
-    - _SunHaloBlendMode: 0
     - _SunHaloContribution: 1
     - _SunHaloExponent: 152
-    - _View: 0
-    - __dirty: 0
     m_Colors:
     - _HorizonLineColor: {r: 0.854902, g: 0.8267749, b: 0.77647066, a: 1}
     - _SkyGradientBottom: {r: 1, g: 0.54317427, b: 0.35283017, a: 1}
