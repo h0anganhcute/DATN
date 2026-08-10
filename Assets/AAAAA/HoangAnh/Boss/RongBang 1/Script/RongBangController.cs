@@ -4,6 +4,7 @@ public class RongBangController : MonoBehaviour
 {
     Animator ani;
     public GameObject followBoss;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
