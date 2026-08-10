@@ -10,6 +10,8 @@ public class SkillRed : MonoBehaviour
     public Transform player;        // Mục tiêu bắn tới
     public float thoiGianBan = 0.3f; // Thời gian giữa các lần bắn
     public float bulletSpeed = 20f; // Tốc độ bay của đạn
+    public float thoiGianDesTroy = 5f;
+    public float SoLuongDan = 10f;
     public void Start()
     {
         // Nếu chưa gán player, tự tìm Player trong scene
@@ -32,7 +34,7 @@ public class SkillRed : MonoBehaviour
     private IEnumerator FireBulletsRoutine()
     {
         // Vòng lặp bắn 10 viên
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < SoLuongDan; i++)
         {
             if (player == null || bulletPrefab == null || diemBan == null)
             {
@@ -43,7 +45,7 @@ public class SkillRed : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, diemBan.transform.position, Quaternion.identity);
 
             // 2. Lập lịch tự động phá huỷ viên đạn này sau 5 giây
-            Destroy(bullet, 5f);
+            Destroy(bullet, thoiGianDesTroy);
 
             // 3. Tính toán hướng bắn. 
             // Lưu ý: Tôi cộng thêm Vector3.up * 1f để tâm ngắm nhích lên giữa thân người chơi

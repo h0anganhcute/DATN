@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using Unity.FPS.Game; // Bắt buộc phải gọi thư viện này để nhận diện được lớp Damageable
 
 public class AttackEnemy : MonoBehaviour
