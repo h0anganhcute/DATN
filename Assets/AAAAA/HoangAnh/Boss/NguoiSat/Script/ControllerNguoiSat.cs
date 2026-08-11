@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.FPS.Game;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,30 +9,80 @@ public class ControllerNguoiSat : MonoBehaviour
     RunNguoiSat run;
     NavMeshAgent AI;
     Animator ani;
+    Health bossHealth;
     bool ChoPhep = true;
+    private bool triggered90 = false;
+    private bool triggered80 = false;
+    private bool triggered70 = false;
+    private bool triggered60 = false;
+    private bool triggered50 = false;
+    private bool triggered40 = false;
+    private bool triggered30 = false;
+    private bool triggered20 = false;
+    private bool triggered10 = false;
     void Start()
     {
         AI = GetComponent<NavMeshAgent>();
         run = GetComponent<RunNguoiSat>();
         ani = GetComponent<Animator>();
-
-        StartCoroutine(TungSkill1());
+        bossHealth = GetComponent<Health>();
     }
 
     void Update()
     {
-        
-    }
+        if (bossHealth == null) return;
 
-    private IEnumerator TungSkill1()
-    {
-        while (true)
+        float healthRatio = bossHealth.CurrentHealth / bossHealth.MaxHealth;
+
+        if (healthRatio <= 0.9f && !triggered90)
         {
-            yield return new WaitForSeconds(3f);
+            triggered90 = true;
             ani.SetTrigger("Skill1");
-            yield return new WaitForSeconds(9f);
+            
+        }
+        else if (healthRatio <= 0.8f && !triggered80)
+        {
+            triggered80 = true;
+            ani.SetTrigger("Skill2");
+        }
+        else if (healthRatio <= 0.7f && !triggered70)
+        {
+            triggered70 = true;
+            ani.SetTrigger("Skill1");
+        }
+        else if (healthRatio <= 0.6f && !triggered60)
+        {
+            triggered60 = true;
+            ani.SetTrigger("Skill2");
+        }
+        else if (healthRatio <= 0.5f && !triggered50)
+        {
+            triggered50 = true;
+            ani.SetTrigger("Skill1");
+        }
+        else if (healthRatio <= 0.4f && !triggered40)
+        {
+            triggered40 = true;
+            ani.SetTrigger("Skill2");
+        }
+        else if (healthRatio <= 0.3f && !triggered30)
+        {
+            triggered30 = true;
+            ani.SetTrigger("Skill1");
+        }
+        else if (healthRatio <= 0.2f && !triggered20)
+        {
+            triggered20 = true;
+            ani.SetTrigger("Skill2");
+        }
+        else if (healthRatio <= 0.1f && !triggered10)
+        {
+            triggered10 = true;
+            ani.SetTrigger("Skill1");
         }
     }
+
+    
 
     public void TatDiChuyen()
     {
