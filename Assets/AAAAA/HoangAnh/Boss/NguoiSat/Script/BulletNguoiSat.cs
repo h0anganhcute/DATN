@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
 public class BulletNguoiSat : MonoBehaviour
@@ -31,8 +31,9 @@ public class BulletNguoiSat : MonoBehaviour
             Vector3 direction = diemBan.transform.right;
 
             // 2. Sinh ra viên đạn tại vị trí của diemBan
-            // Dùng Quaternion.LookRotation để viên đạn quay mặt về hướng đang bay tới (trục X)
-            GameObject bullet = Instantiate(bulletPrefab, diemBan.transform.position, Quaternion.LookRotation(direction));
+            // Dùng Quaternion.LookRotation để viên đạn quay mặt về hướng đang bay tới (trục X), xoay luân phiên 50 và -50 độ ở trục Z
+            float zRotation = (i % 2 == 0) ? 50f : -50f;
+            GameObject bullet = Instantiate(bulletPrefab, diemBan.transform.position, Quaternion.LookRotation(direction) * Quaternion.Euler(0, 0, zRotation));
 
             // 3. Lập lịch tự động phá huỷ viên đạn này sau vài giây (thoiGianDesTroy)
             Destroy(bullet, thoiGianDesTroy);
