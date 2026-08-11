@@ -9777,6 +9777,8 @@ GameObject:
   - component: {fileID: 5135655739932955482}
   - component: {fileID: 6013317033843827723}
   - component: {fileID: 1667045297642010080}
+  - component: {fileID: 916025173941958157}
+  - component: {fileID: 1215262387779690017}
   m_Layer: 0
   m_Name: Crystals front attack
   m_TagString: Untagged
@@ -14675,6 +14677,42 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!65 &916025173941958157
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3156866507962234106}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.803971, y: 5.879294, z: 8.973364}
+  m_Center: {x: 7.110569, y: 2.0888813, z: 0.03815873}
+--- !u!114 &1215262387779690017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3156866507962234106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09f3ebf914447248937763a1da119a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  luongSatThuong: 50
+  laSatThuongNo: 0
+  bienMatKhiCham: 0
 --- !u!1 &4423714665294014839
 GameObject:
   m_ObjectHideFlags: 0
