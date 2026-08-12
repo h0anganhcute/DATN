@@ -14,6 +14,7 @@ public class RedController : MonoBehaviour
     private bool triggered60 = false;
     private bool triggered40 = false;
     private bool triggered20 = false;
+    public AudioSource sTart;
 
     void Start()
     {
@@ -123,5 +124,9 @@ public class RedController : MonoBehaviour
     public void TatCamera()
     {
         cameraBoss.SetActive(false); 
+    }
+    public void AudioStart()
+    {
+        sTart.Play();
     }
 }

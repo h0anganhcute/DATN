@@ -9,6 +9,7 @@ public class ControlQuaiVat : MonoBehaviour
     public GameObject cameraBoss;
     public AudioSource Attack1;
     public AudioSource Attack2;
+    public AudioSource Die;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,5 +49,9 @@ public class ControlQuaiVat : MonoBehaviour
     public void AudioAttack2()
     {
         Attack2.Play();
+    }
+    public void AudioDie()
+    {
+        Die.Play();
     }
 }
