@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using UnityEditor;
+using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 

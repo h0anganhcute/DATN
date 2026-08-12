@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 using System.IO;
@@ -82,7 +83,7 @@ namespace MonoLimbo
             EditorGUILayout.HelpBox(
                 "1. Create a material using the 'Simple Fake Volume Fog' shader.\n" +
                 "2. Adjust Fog Color, Fog Density, and World Scale.\n" +
-                "3. Apply to any mesh — no UVs required!",
+                "3. Apply to any mesh â€” no UVs required!",
                 MessageType.Info
             );
 
@@ -143,3 +144,4 @@ namespace MonoLimbo
         }
     }
 }
+#endif
