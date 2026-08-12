@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class BossPhaseController : MonoBehaviour
 {
@@ -20,6 +20,7 @@ public class BossPhaseController : MonoBehaviour
     [Header("===== GLOBAL VOLUME =====")]
     [SerializeField] private GameObject globalVolumePhase1;
     [SerializeField] private GameObject globalVolumePhase2;
+    public GameObject Boss;
 
     private bool phase2Started = false;
 
@@ -100,7 +101,7 @@ public class BossPhaseController : MonoBehaviour
     // TEST: nhấn P để chuyển Phase 2
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Boss != null && Boss.activeInHierarchy)
         {
             ChangeToPhase2();
         }
