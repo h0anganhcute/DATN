@@ -7,6 +7,8 @@ public class ControlQuaiVat : MonoBehaviour
     TargetBoss1 targetBoss1;
     Animator ani;
     public GameObject cameraBoss;
+    public AudioSource Attack1;
+    public AudioSource Attack2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,5 +40,13 @@ public class ControlQuaiVat : MonoBehaviour
     public void TatCamera()
     {
                cameraBoss.SetActive(false);
+    }
+    public void AudioAttack1()
+    {
+        Attack1.Play();
+    }
+    public void AudioAttack2()
+    {
+        Attack2.Play();
     }
 }
