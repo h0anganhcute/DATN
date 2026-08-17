@@ -10,7 +10,7 @@ public class ControllerNguoiSat : MonoBehaviour
     NavMeshAgent AI;
     Animator ani;
     Health bossHealth;
-    bool ChoPhep = true;
+    
     private bool triggered90 = false;
     private bool triggered80 = false;
     private bool triggered70 = false;
@@ -58,31 +58,40 @@ public class ControllerNguoiSat : MonoBehaviour
         else if (healthRatio <= 0.5f && !triggered50)
         {
             triggered50 = true;
-            ani.SetTrigger("Skill1");
+            AI.speed = 8.5f;
         }
         else if (healthRatio <= 0.4f && !triggered40)
         {
             triggered40 = true;
-            ani.SetTrigger("Skill2");
+            ani.SetTrigger("Skill3");
         }
         else if (healthRatio <= 0.3f && !triggered30)
         {
             triggered30 = true;
-            ani.SetTrigger("Skill1");
+            ani.SetTrigger("Skill4");
         }
         else if (healthRatio <= 0.2f && !triggered20)
         {
             triggered20 = true;
-            ani.SetTrigger("Skill2");
+            ani.SetTrigger("Skill3");
         }
         else if (healthRatio <= 0.1f && !triggered10)
         {
             triggered10 = true;
-            ani.SetTrigger("Skill1");
+            ani.SetTrigger("Skill4");
         }
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (bossHealth != null && (bossHealth.CurrentHealth / bossHealth.MaxHealth) <= 0.5f)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                ani.SetTrigger("Attack");
+            }
+        }
+    }
 
     public void TatDiChuyen()
     {
