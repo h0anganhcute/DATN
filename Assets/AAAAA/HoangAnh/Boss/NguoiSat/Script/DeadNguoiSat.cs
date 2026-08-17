@@ -8,6 +8,7 @@ public class DeadNguoiSat : MonoBehaviour
     Animator ani;
     public GameObject Lion;
     public GameObject viTriXuatHien;
+    BoxCollider box;
     // Thêm cờ đánh dấu đã chết để không chạy lặp lại logic trong Update
     private bool isDead = false;
 
@@ -16,6 +17,7 @@ public class DeadNguoiSat : MonoBehaviour
         health = GetComponent<Health>();
         controller = GetComponent<ControllerNguoiSat>();
         ani = GetComponent<Animator>();
+        box = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -41,6 +43,7 @@ public class DeadNguoiSat : MonoBehaviour
         if (ani != null)
         {
             ani.SetTrigger("Die");
+            box.enabled = false;
         }
 
         // Tắt component controller
@@ -48,6 +51,9 @@ public class DeadNguoiSat : MonoBehaviour
         {
             controller.enabled = false;
         }
+
+        // Hủy Boss sau 6 giây
+        Destroy(gameObject, 10f);
     }
     public void TrieuHoiLion()
     {
