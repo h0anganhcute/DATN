@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.FPS.Game;
 using UnityEngine;
@@ -10,7 +10,7 @@ public class ControllerNguoiSat : MonoBehaviour
     NavMeshAgent AI;
     Animator ani;
     Health bossHealth;
-    
+
     private bool triggered90 = false;
     private bool triggered80 = false;
     private bool triggered70 = false;
@@ -38,7 +38,7 @@ public class ControllerNguoiSat : MonoBehaviour
         {
             triggered90 = true;
             ani.SetTrigger("Skill1");
-            
+
         }
         else if (healthRatio <= 0.8f && !triggered80)
         {
@@ -103,5 +103,5 @@ public class ControllerNguoiSat : MonoBehaviour
     {
         AI.enabled = true;
         run.enabled = true;
-    }
+    } 
 }
