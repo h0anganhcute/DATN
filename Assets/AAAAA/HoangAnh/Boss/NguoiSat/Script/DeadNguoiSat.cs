@@ -54,7 +54,8 @@ public class DeadNguoiSat : MonoBehaviour
         if (Lion != null && viTriXuatHien != null)
         {
             Lion.transform.position = viTriXuatHien.transform.position;
-            Lion.transform.rotation = viTriXuatHien.transform.rotation;
+            // Đặt hướng mặt của Lion (trục Z) trùng với hướng trục X của viTriXuatHien
+            Lion.transform.forward = viTriXuatHien.transform.right;
         }
         if (Lion != null)
         {
