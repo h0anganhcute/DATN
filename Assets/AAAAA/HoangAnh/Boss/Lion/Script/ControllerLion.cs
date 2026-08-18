@@ -11,6 +11,9 @@ public class ControllerLion : MonoBehaviour
     Animator ani;
     Health bossHealth;
 
+    public float ThoiGianDelayAnimation = 6f;
+    public float ThoiGianDelayAnimation2 = 6f;
+
     private bool triggered90 = false;
     private bool triggered80 = false;
     private bool triggered70 = false;
@@ -37,18 +40,21 @@ public class ControllerLion : MonoBehaviour
         if (healthRatio <= 0.9f && !triggered90)
         {
             triggered90 = true;
-            ani.SetTrigger("Skill1");
+            ani.SetTrigger("DonTho");
+            ani.SetTrigger("ChuiLen");
 
         }
         else if (healthRatio <= 0.8f && !triggered80)
         {
             triggered80 = true;
-            ani.SetTrigger("Skill2");
+            ani.SetTrigger("DonTho");
+            ani.SetTrigger("ChuiLen");
         }
         else if (healthRatio <= 0.7f && !triggered70)
         {
             triggered70 = true;
-            ani.SetTrigger("Skill1");
+            ani.SetTrigger("DonTho");
+            ani.SetTrigger("ChuiLen");
         }
         else if (healthRatio <= 0.6f && !triggered60)
         {
@@ -58,7 +64,7 @@ public class ControllerLion : MonoBehaviour
         else if (healthRatio <= 0.5f && !triggered50)
         {
             triggered50 = true;
-            AI.speed = 8.5f;
+            
         }
         else if (healthRatio <= 0.4f && !triggered40)
         {
@@ -104,4 +110,25 @@ public class ControllerLion : MonoBehaviour
         AI.enabled = true;
         run.enabled = true;
     }
+    public void tangToc()
+    {
+               AI.speed = 15f;
+    }
+    public void giamToc()
+    {
+        AI.speed = 0.1f;
+    }
+    public IEnumerator StopAnimation()
+    {
+        ani.enabled = false;
+        yield return new WaitForSeconds(ThoiGianDelayAnimation);
+        ani.enabled = true;
+    }
+    public IEnumerator StopAnimation2()
+    {
+        ani.enabled = false;
+        yield return new WaitForSeconds(ThoiGianDelayAnimation2);
+        ani.enabled = true;
+    }
+
 }
