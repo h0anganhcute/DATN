@@ -40,9 +40,10 @@ public class ControllerLion : MonoBehaviour
         if (healthRatio <= 0.9f && !triggered90)
         {
             triggered90 = true;
-            ani.SetTrigger("DonTho");
-            ani.SetTrigger("ChuiLen");
-
+            
+            ani.SetTrigger("Skill2");
+            ani.SetTrigger("GongSkill2");
+            ani.SetTrigger("XaSkill2");
         }
         else if (healthRatio <= 0.8f && !triggered80)
         {
@@ -53,8 +54,7 @@ public class ControllerLion : MonoBehaviour
         else if (healthRatio <= 0.7f && !triggered70)
         {
             triggered70 = true;
-            ani.SetTrigger("DonTho");
-            ani.SetTrigger("ChuiLen");
+            
         }
         else if (healthRatio <= 0.6f && !triggered60)
         {
