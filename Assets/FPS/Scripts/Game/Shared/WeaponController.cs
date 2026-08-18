@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -59,6 +59,10 @@ namespace Unity.FPS.Game
 
         [Tooltip("Angle for the cone in which the bullets will be shot randomly (0 means no spread at all)")]
         public float BulletSpreadAngle = 0f;
+
+        [Tooltip("Multiplier for bullet spread when aiming (e.g. 0.1 for 10% spread when aiming)")]
+        [Range(0f, 1f)]
+        public float AimSpreadMultiplier = 0.1f;
 
         [Tooltip("Amount of bullets per shot")]
         public int BulletsPerShot = 1;
@@ -162,6 +166,8 @@ namespace Unity.FPS.Game
         AudioSource m_ShootAudioSource;
 
         public bool IsReloading { get; private set; }
+
+        [HideInInspector] public bool isAiming;
 
         const string k_AnimAttackParameter = "Attack";
 
@@ -523,7 +529,9 @@ namespace Unity.FPS.Game
 
         public Vector3 GetShotDirectionWithinSpread(Transform shootTransform)
         {
-            float spreadAngleRatio = BulletSpreadAngle / 180f;
+            float currentSpreadAngle = isAiming ? (BulletSpreadAngle * AimSpreadMultiplier) : BulletSpreadAngle;
+            
+            float spreadAngleRatio = currentSpreadAngle / 180f;
             Vector3 spreadWorldDirection = Vector3.Slerp(shootTransform.forward, UnityEngine.Random.insideUnitSphere,
                 spreadAngleRatio);
 

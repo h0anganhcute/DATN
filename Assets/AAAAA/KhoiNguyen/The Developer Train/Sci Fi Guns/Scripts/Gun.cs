@@ -16,6 +16,12 @@ namespace TheDeveloperTrain.SciFiGuns
         [SerializeField] private float laserDuration = 0.05f;
         [SerializeField] private float damage = 10f;
 
+        [Header("Spread Settings")]
+        [Tooltip("Góc tỏa đạn khi bắn thường (không nhắm)")]
+        [SerializeField] private float defaultSpreadAngle = 5f;
+        [Tooltip("Hệ số tỏa đạn khi nhắm (Ví dụ 0.1 tức là độ tỏa đạn chỉ còn 10% so với bình thường)")]
+        [SerializeField] private float aimSpreadMultiplier = 0.1f;
+
         public GunStats stats;
 
         [HideInInspector] public int currentBulletCount;
@@ -67,11 +73,26 @@ namespace TheDeveloperTrain.SciFiGuns
             laserLine.enabled = true;
 
             Vector3 start = muzzleTransform.position;
-            Vector3 end = start + muzzleTransform.forward * laserDistance;
+            
+            // Check if player is aiming
+            var weaponsManager = GetComponentInParent<Unity.FPS.Gameplay.PlayerWeaponsManager>();
+            bool isAiming = weaponsManager != null && weaponsManager.IsAiming;
+
+            // Calculate current spread angle
+            float currentSpread = isAiming ? (defaultSpreadAngle * aimSpreadMultiplier) : defaultSpreadAngle;
+            
+            Vector3 shootDirection = muzzleTransform.forward;
+            if (currentSpread > 0f)
+            {
+                float spreadRatio = currentSpread / 180f;
+                shootDirection = Vector3.Slerp(shootDirection, UnityEngine.Random.insideUnitSphere, spreadRatio);
+            }
+
+            Vector3 end = start + shootDirection * laserDistance;
 
             RaycastHit hit;
 
-            if (Physics.Raycast(start, muzzleTransform.forward, out hit, laserDistance))
+            if (Physics.Raycast(start, shootDirection, out hit, laserDistance))
             {
                 end = hit.point;
 
