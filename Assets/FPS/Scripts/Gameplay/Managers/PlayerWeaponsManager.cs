@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Unity.FPS.Game;
 using UnityEngine;
 using UnityEngine.Events;
@@ -54,6 +54,12 @@ namespace Unity.FPS.Gameplay
 
         [Tooltip("Maximum distance the recoil can affect the weapon")]
         public float MaxRecoilDistance = 0.5f;
+
+        [Tooltip("Multiplier applied to recoil force when aiming (e.g. 0.5 for half recoil)")]
+        public float AimRecoilMultiplier = 0.5f;
+
+        [Tooltip("Cường độ giật camera khi bắn không ngắm")]
+        public float CameraShakeIntensity = 150f;
 
         [Tooltip("How fast the weapon goes back to its original position after the recoil is finished")]
         public float RecoilRestitutionSharpness = 10f;
@@ -194,6 +200,7 @@ namespace Unity.FPS.Gameplay
                     }
 
                     IsAiming = m_InputHandler.GetAimInputHeld();
+                    if (activeWeapon != null) activeWeapon.isAiming = IsAiming;
 
                     bool hasFired = activeWeapon.HandleShootInputs(
                         m_InputHandler.GetFireInputDown(),
@@ -202,8 +209,14 @@ namespace Unity.FPS.Gameplay
 
                     if (hasFired)
                     {
-                        m_AccumulatedRecoil += Vector3.back * activeWeapon.RecoilForce;
+                        float recoilMultiplier = IsAiming ? AimRecoilMultiplier : 1f;
+                        m_AccumulatedRecoil += Vector3.back * activeWeapon.RecoilForce * recoilMultiplier;
                         m_AccumulatedRecoil = Vector3.ClampMagnitude(m_AccumulatedRecoil, MaxRecoilDistance);
+
+                        if (!IsAiming)
+                        {
+                            m_PlayerCharacterController.AddCameraShake(CameraShakeIntensity);
+                        }
                     }
                 }
             }

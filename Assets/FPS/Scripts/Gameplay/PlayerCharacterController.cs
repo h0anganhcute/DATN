@@ -1,4 +1,4 @@
-﻿using Unity.FPS.Game;
+using Unity.FPS.Game;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -182,6 +182,23 @@ namespace Unity.FPS.Gameplay
         Vector3 m_DashDirection;
         float m_DashTimer;
         float m_LastDashTime = -999f;
+
+        // ============================================================
+        // CAMERA SHAKE VARIABLES
+        // ============================================================
+
+        Vector3 m_CameraShakeOffset;
+        Vector3 m_CameraShakeVelocity;
+
+        public void AddCameraShake(float intensity)
+        {
+            // Trong Unity, xoay quanh trục X theo giá trị âm sẽ khiến camera ngẩng lên trên.
+            // Có thể thêm một chút xíu rung ngang (Y) để chân thực hơn, nhưng chủ yếu là giật lên trên.
+            m_CameraShakeVelocity += new Vector3(
+                -intensity,
+                Random.Range(-intensity, intensity) * 0.05f, 
+                0f);
+        }
 
         // ============================================================
         // CONSTANTS
@@ -381,11 +398,18 @@ namespace Unity.FPS.Gameplay
                     -89f,
                     89f);
 
+            // ========================================================
+            // CAMERA SHAKE UPDATE
+            // ========================================================
+            m_CameraShakeOffset = Vector3.Lerp(m_CameraShakeOffset, Vector3.zero, Time.deltaTime * 10f);
+            m_CameraShakeVelocity = Vector3.Lerp(m_CameraShakeVelocity, Vector3.zero, Time.deltaTime * 20f);
+            m_CameraShakeOffset += m_CameraShakeVelocity * Time.deltaTime;
+
             PlayerCamera.transform.localEulerAngles =
                 new Vector3(
                     m_CameraVerticalAngle,
                     0f,
-                    0f);
+                    0f) + m_CameraShakeOffset;
 
             // ========================================================
             // SHIFT DASH

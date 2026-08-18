@@ -13,6 +13,9 @@ namespace TheDeveloperTrain.SciFiGuns
         [Tooltip("If true, recoil offsets stack per shot. Otherwise, each shot resets recoil.")]
         public bool stackRecoil = false;
 
+        [Tooltip("Multiplier applied to recoil when aiming")]
+        public float aimRecoilMultiplier = 0.5f;
+
         private Vector3 targetPositionOffset = Vector3.zero;
         private Quaternion targetRotationOffset = Quaternion.identity;
 
@@ -28,6 +31,7 @@ namespace TheDeveloperTrain.SciFiGuns
         private Quaternion originalRotation;
 
         private Gun gun;
+        private Unity.FPS.Gameplay.PlayerWeaponsManager weaponsManager;
 
         private void Start()
         {
@@ -37,6 +41,8 @@ namespace TheDeveloperTrain.SciFiGuns
             gun = GetComponent<Gun>();
             if (gun != null)
                 gun.onBulletShot += StartRecoil;
+                
+            weaponsManager = GetComponentInParent<Unity.FPS.Gameplay.PlayerWeaponsManager>();
         }
 
         private void Update()
@@ -78,14 +84,16 @@ namespace TheDeveloperTrain.SciFiGuns
         {
             float sideJoltDirection = handedness == Handedness.Left ? -1f : 1f;
 
+            float multiplier = (weaponsManager != null && weaponsManager.IsAiming) ? aimRecoilMultiplier : 1f;
+
             // Position offset
-            Vector3 newPosOffset = -Vector3.forward * profile.movementAmplitude;
+            Vector3 newPosOffset = -Vector3.forward * profile.movementAmplitude * multiplier;
 
             // Rotation offset
             Quaternion newRotOffset = Quaternion.Euler(
-                -profile.rotationAmplitude,
-                Random.Range(0.25f, 0.5f) * profile.rotationAmplitude * sideJoltDirection,
-                Random.Range(-0.2f, 0.2f) * profile.rotationAmplitude * sideJoltDirection
+                -profile.rotationAmplitude * multiplier,
+                Random.Range(0.25f, 0.5f) * profile.rotationAmplitude * sideJoltDirection * multiplier,
+                Random.Range(-0.2f, 0.2f) * profile.rotationAmplitude * sideJoltDirection * multiplier
             );
 
             // Apply or stack
