@@ -2448,6 +2448,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3187023571045962473}
+  - component: {fileID: 8647672525142103557}
+  - component: {fileID: 3158511526734041175}
   m_Layer: 0
   m_Name: bip001-spine1
   m_TagString: Untagged
@@ -2471,6 +2473,41 @@ Transform:
   - {fileID: 4669861473633630689}
   m_Father: {fileID: 8079417836446477235}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8647672525142103557
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8700089501871740483}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.649193, y: 3.0748978, z: 3.5414343}
+  m_Center: {x: -1.2476172, y: -0.25802547, z: 0.35472873}
+--- !u!114 &3158511526734041175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8700089501871740483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b0ce1bb69c96b49a7ac1098a7f5796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageMultiplier: 1
+  SensibilityToSelfdamage: 0.5
 --- !u!1 &8780518927697657835
 GameObject:
   m_ObjectHideFlags: 0
