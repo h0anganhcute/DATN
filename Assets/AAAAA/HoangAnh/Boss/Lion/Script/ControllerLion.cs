@@ -11,7 +11,7 @@ public class ControllerLion : MonoBehaviour
     NavMeshAgent AI;
     Animator ani;
     Health bossHealth;
-
+    MenuSkill menuSkill;
     public Health playerHeal;
 
     public float ThoiGianDelayAnimation = 6f;
@@ -27,6 +27,7 @@ public class ControllerLion : MonoBehaviour
         run = GetComponent<RunLion>();
         ani = GetComponent<Animator>();
         bossHealth = GetComponent<Health>();
+        menuSkill = GetComponent<MenuSkill>();
 
     }
 
@@ -36,18 +37,19 @@ public class ControllerLion : MonoBehaviour
 
         float healthRatio = bossHealth.CurrentHealth / bossHealth.MaxHealth;
 
-        if (healthRatio <= 0.7f && !triggered70)
+        if (healthRatio <= 0.9f && !triggered70)
         {
             triggered70 = true;
+            menuSkill.enabled = false;
             ani.SetTrigger("Skill2");
             ani.SetTrigger("GongSkill2");
         }
         else if (healthRatio <= 0.3f && !triggered30)
         {
             triggered30 = true;
+            menuSkill.enabled = false;
             ani.SetTrigger("Skill2");
             ani.SetTrigger("GongSkill2");
-
         }
     }
 
