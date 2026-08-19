@@ -43,7 +43,12 @@ public class ControllerLion : MonoBehaviour
             
             ani.SetTrigger("Skill2");
             ani.SetTrigger("GongSkill2");
-            ani.SetTrigger("XaSkill2");
+            ani.SetTrigger("Te");
+            ani.SetTrigger("Loop");
+            ani.SetTrigger("Loop1");
+            ani.SetTrigger("Loop2");
+            ani.SetTrigger("Loop3");
+            ani.SetTrigger("ThucDay");
         }
         else if (healthRatio <= 0.8f && !triggered80)
         {
