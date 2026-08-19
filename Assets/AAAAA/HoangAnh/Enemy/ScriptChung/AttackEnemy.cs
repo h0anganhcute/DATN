@@ -1,5 +1,6 @@
 using UnityEngine;
-using Unity.FPS.Game; // Bắt buộc phải gọi thư viện này để nhận diện được lớp Damageable
+using Unity.FPS.Game;
+using Unity.VisualScripting; // Bắt buộc phải gọi thư viện này để nhận diện được lớp Damageable
 
 public class AttackEnemy : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class AttackEnemy : MonoBehaviour
     // --- TRƯỜNG HỢP 1: VA CHẠM XUYÊN QUA (Collider được tích Is Trigger) ---
     // Ví dụ: Lửa, Khí độc, Vùng nổ, hoặc Đạn bay xuyên mục tiêu
     private void OnTriggerEnter(Collider other)
+    {
+        XuLyGayDame(other.gameObject);
+    }
+    private void OnTriggerStay(Collider other)
     {
         XuLyGayDame(other.gameObject);
     }
