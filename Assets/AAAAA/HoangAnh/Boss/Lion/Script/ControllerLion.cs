@@ -37,14 +37,14 @@ public class ControllerLion : MonoBehaviour
 
         float healthRatio = bossHealth.CurrentHealth / bossHealth.MaxHealth;
 
-        if (healthRatio <= 0.9f && !triggered70)
+        if (healthRatio <= 0.6f && !triggered70)
         {
             triggered70 = true;
             menuSkill.enabled = false;
             ani.SetTrigger("Skill2");
             ani.SetTrigger("GongSkill2");
         }
-        else if (healthRatio <= 0.3f && !triggered30)
+        else if (healthRatio <= 0.2f && !triggered30)
         {
             triggered30 = true;
             menuSkill.enabled = false;
@@ -162,7 +162,7 @@ public class ControllerLion : MonoBehaviour
         if (playerHeal != null)
         {
             // Tính toán lượng sát thương bằng 30% máu tối đa của Player
-            float satThuongPlayer = playerHeal.MaxHealth * 0.3f;
+            float satThuongPlayer = playerHeal.MaxHealth * 0.2f;
 
             // Cách 2: Trừ thẳng vào biến CurrentHealth
             playerHeal.CurrentHealth -= satThuongPlayer;
