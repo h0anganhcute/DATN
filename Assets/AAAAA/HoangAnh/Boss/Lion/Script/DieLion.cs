@@ -8,6 +8,7 @@ public class DieLion : MonoBehaviour
     ControllerLion controllerLion;
     MenuSkill skill;
     bool isDead = false;
+    LionStart lionStart;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,6 +17,7 @@ public class DieLion : MonoBehaviour
         ani = GetComponent<Animator>();
         controllerLion = GetComponent<ControllerLion>();
         skill = GetComponent<MenuSkill>();
+        lionStart = GetComponent<LionStart>();
     }
 
     // Update is called once per frame
@@ -25,10 +27,11 @@ public class DieLion : MonoBehaviour
         if (health.CurrentHealth <= 0 && !isDead)
         {
             isDead = true;
+            controllerLion.enabled = false;
+            skill.enabled = false;
+            lionStart.enabled = false;
             ani.SetTrigger("Die");
-
-            if (controllerLion != null) controllerLion.enabled = false;
-            if (skill != null) skill.enabled = false;
+             
         }
     }
 }

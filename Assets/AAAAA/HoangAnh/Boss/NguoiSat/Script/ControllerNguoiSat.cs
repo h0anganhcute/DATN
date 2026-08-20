@@ -20,12 +20,17 @@ public class ControllerNguoiSat : MonoBehaviour
     private bool triggered30 = false;
     private bool triggered20 = false;
     private bool triggered10 = false;
+
+    MenuSkillNguoiSat menuSkillNguoiSat;
+
+
     void Start()
     {
         AI = GetComponent<NavMeshAgent>();
         run = GetComponent<RunNguoiSat>();
         ani = GetComponent<Animator>();
         bossHealth = GetComponent<Health>();
+        menuSkillNguoiSat = GetComponent<MenuSkillNguoiSat>();
     }
 
     void Update()
@@ -37,27 +42,30 @@ public class ControllerNguoiSat : MonoBehaviour
         if (healthRatio <= 0.9f && !triggered90)
         {
             triggered90 = true;
-            ani.SetTrigger("Skill1");
+            
 
         }
         else if (healthRatio <= 0.8f && !triggered80)
         {
             triggered80 = true;
+            menuSkillNguoiSat.enabled = false;
             ani.SetTrigger("Skill2");
         }
         else if (healthRatio <= 0.7f && !triggered70)
         {
             triggered70 = true;
-            ani.SetTrigger("Skill1");
+            
         }
         else if (healthRatio <= 0.6f && !triggered60)
         {
             triggered60 = true;
+            menuSkillNguoiSat.enabled = false;
             ani.SetTrigger("Skill2");
         }
         else if (healthRatio <= 0.5f && !triggered50)
         {
             triggered50 = true;
+            menuSkillNguoiSat.enabled = false;
             AI.speed = 8.5f;
         }
         else if (healthRatio <= 0.4f && !triggered40)
@@ -103,5 +111,9 @@ public class ControllerNguoiSat : MonoBehaviour
     {
         AI.enabled = true;
         run.enabled = true;
-    } 
+    }
+    public void BatMenuSkillNguoiSat()
+    {
+        menuSkillNguoiSat.enabled = true;
+    }
 }

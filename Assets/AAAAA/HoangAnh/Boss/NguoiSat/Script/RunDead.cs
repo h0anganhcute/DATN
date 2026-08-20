@@ -2,18 +2,18 @@ using Unity.FPS.Game;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RunLion : MonoBehaviour
+public class RunDead : MonoBehaviour
 {
     private NavMeshAgent agent;
     private Transform player;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
         agent = GetComponent<NavMeshAgent>();
-        
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+
+        GameObject playerObj = GameObject.FindGameObjectWithTag("LionClone");
         if (playerObj != null)
         {
             player = playerObj.transform;

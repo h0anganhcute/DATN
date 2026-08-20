@@ -15,6 +15,9 @@ public class AttackEnemy : MonoBehaviour
     [Tooltip("Tích vào nếu muốn vật thể này biến mất sau khi gây dame (ví dụ: viên đạn). Bỏ tích nếu là bãi chông (gây dame liên tục).")]
     public bool bienMatKhiCham = true;
 
+    [Tooltip("Tích vào để cho phép xử lý va chạm vật lý (OnCollisionEnter/Stay). Mặc định là Tắt.")]
+    public bool choPhepVaChamVatLy = false;
+
     // --- TRƯỜNG HỢP 1: VA CHẠM XUYÊN QUA (Collider được tích Is Trigger) ---
     // Ví dụ: Lửa, Khí độc, Vùng nổ, hoặc Đạn bay xuyên mục tiêu
     private void OnTriggerEnter(Collider other)
@@ -23,14 +26,10 @@ public class AttackEnemy : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        XuLyGayDame(other.gameObject);
-    }
-
-    // --- TRƯỜNG HỢP 2: VA CHẠM VẬT LÝ NẢY RA (Collider KHÔNG tích Is Trigger) ---
-    // Ví dụ: Búa tạ, Thiên thạch rơi trúng, Mũi tên cắm vào tường
-    private void OnCollisionEnter(Collision collision)
-    {
-        XuLyGayDame(collision.gameObject);
+        if (choPhepVaChamVatLy)
+        {
+            XuLyGayDame(other.gameObject);
+        }
     }
 
     // --- HÀM XỬ LÝ CHÍNH ---
