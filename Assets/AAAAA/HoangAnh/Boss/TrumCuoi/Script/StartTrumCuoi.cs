@@ -14,13 +14,14 @@ public class StartTrumCuoi : MonoBehaviour
     public Health healthLion;
     private bool choPhepChayAnimation = false;
     public float TimeDelayAni = 3f;
+    BoxCollider box;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ani = GetComponent<Animator>();
         ani.SetTrigger("Start");
         menuSkillTrum = GetComponent<MenuSkillTrum>();
-        
+        box = GetComponent<BoxCollider>();
         
         
     }
@@ -68,5 +69,9 @@ public class StartTrumCuoi : MonoBehaviour
         {
             transform.position = diemTele.transform.position;
         }
+    }
+    public void TatBoxCollider()
+    {
+        box.enabled=false;
     }
 }
