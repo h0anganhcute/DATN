@@ -162,12 +162,12 @@ public class ControllerLion : MonoBehaviour
         if (playerHeal != null)
         {
             // Tính toán lượng sát thương bằng 30% máu tối đa của Player
-            float satThuongPlayer = playerHeal.MaxHealth * 0.2f;
+            float satThuongPlayer = playerHeal.MaxHealth * 0.25f;
 
             // Cách 2: Trừ thẳng vào biến CurrentHealth
             playerHeal.CurrentHealth -= satThuongPlayer;
 
-            Debug.Log("=> Hết thời gian mà pha lê chưa vỡ! Player bị trừ 30% máu.");
+            Debug.Log("=> Hết thời gian mà pha lê chưa vỡ! Player bị trừ 25% máu.");
         }
         // -----------------------------------------------
     }

@@ -31,7 +31,7 @@ public class DieLion : MonoBehaviour
             skill.enabled = false;
             lionStart.enabled = false;
             ani.SetTrigger("Die");
-             
+            Destroy(gameObject,8f);    
         }
     }
 }
