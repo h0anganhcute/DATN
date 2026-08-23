@@ -5,7 +5,7 @@ public class ControllerTrum : MonoBehaviour
     public GameObject Aoe1Skill2;
     public GameObject Aoe2Skill2;
     public GameObject Aoe3Skill2;
-    
+    public GameObject Skill3;
     void Start()
     {
         
@@ -41,5 +41,13 @@ public class ControllerTrum : MonoBehaviour
     public void TatAoe3Skill2()
     {
         Aoe3Skill2.SetActive(false);
+    }
+    public void OnSkill3()
+    {
+        Skill3.SetActive(true);
+    }
+    public void StopSKill3()
+    {
+        Skill3.SetActive(false);
     }
 }
