@@ -3,6 +3,7 @@
 public class BatAoe : MonoBehaviour
 {
     public GameObject batAoe;
+    public GameObject AnhSang;
 
     private void OnEnable()
     {
@@ -19,9 +20,11 @@ public class BatAoe : MonoBehaviour
     public void NhanDame()
     {
         batAoe.SetActive(true);
+        AnhSang.SetActive(true);
     }
     public void TatNhamDame()
     {
         batAoe.SetActive(false);
+        AnhSang.SetActive(false);
     }
 }

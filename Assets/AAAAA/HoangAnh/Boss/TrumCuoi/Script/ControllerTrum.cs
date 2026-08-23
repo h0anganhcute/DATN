@@ -5,6 +5,7 @@ public class ControllerTrum : MonoBehaviour
     public GameObject Aoe1Skill2;
     public GameObject Aoe2Skill2;
     public GameObject Aoe3Skill2;
+    
     void Start()
     {
         
