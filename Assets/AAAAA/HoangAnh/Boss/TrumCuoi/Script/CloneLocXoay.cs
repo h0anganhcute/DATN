@@ -7,6 +7,10 @@ public class CloneLocXoay : MonoBehaviour
     public GameObject ViTriClone2;
     public GameObject ViTriClone3;
     public GameObject ViTriClone4;
+    public GameObject CanhBao1;
+    public GameObject CanhBao2;
+    public GameObject CanhBao3;
+    public GameObject CanhBao4;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,6 +53,20 @@ public class CloneLocXoay : MonoBehaviour
                 Debug.LogWarning($"Chưa gán GameObject ViTriClone{i + 1} trong Inspector!");
             }
         }
+    }
+    public void OnCanhBao()
+    {
+        CanhBao1.SetActive(true);
+        CanhBao2.SetActive(true);
+        CanhBao3.SetActive(true);   
+        CanhBao4.SetActive(true);
+    }
+    public void TatCanhBao()
+    {
+        CanhBao1.SetActive(false);
+        CanhBao2.SetActive(false);
+        CanhBao3.SetActive(false);
+        CanhBao4.SetActive(false);
     }
 
     // Update is called once per frame
