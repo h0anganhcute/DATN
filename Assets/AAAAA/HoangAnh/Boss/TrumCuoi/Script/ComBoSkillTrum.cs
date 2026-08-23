@@ -61,6 +61,12 @@ public class ComBoSkillTrum : MonoBehaviour
             isAnimationDone = false;
             ani.SetTrigger("Skill3");
             yield return new WaitUntil(() => isAnimationDone == true);
+            // ===================================
+            yield return new WaitForSeconds(cooldownBetweenSkills);
+
+            isAnimationDone = false;
+            ani.SetTrigger("Skill4");
+            yield return new WaitUntil(() => isAnimationDone == true);
         }
     }
 

@@ -10,7 +10,7 @@ public class BulletNguoiSat : MonoBehaviour
     public float thoiGianDesTroy = 5f; // Thời gian hủy đạn
     public float SoLuongDan = 10f;   // Số lượng đạn bắn ra trong 1 lần dùng skill
 
-    public void Skill1()
+    public void BanBullet()
     {
         // Bắt đầu chạy Coroutine bắn đạn
         StartCoroutine(FireBulletsRoutine());
