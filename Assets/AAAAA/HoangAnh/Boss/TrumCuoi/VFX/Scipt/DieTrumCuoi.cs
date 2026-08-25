@@ -11,6 +11,7 @@ public class DieTrumCuoi : MonoBehaviour
     ComBoSkillTrum comBoSkillTrum;
     ControllerTrum controllerTrum;
     Animator ani;
+    public GameObject DestroySkill;
     void Start()
     {
         healBoss = GetComponent<Health>();
@@ -29,7 +30,7 @@ public class DieTrumCuoi : MonoBehaviour
         if (healBoss.CurrentHealth <= 0 && !isDead)
         {
             isDead = true;
-
+            Destroy(DestroySkill);
             if (navMeshAgent != null) navMeshAgent.enabled = false;
             if (target != null) target.enabled = false;
             if (comBoSkillTrum != null) comBoSkillTrum.enabled = false;

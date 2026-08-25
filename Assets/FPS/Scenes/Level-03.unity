@@ -5682,7 +5682,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4000010940229156, guid: 88fa0caf66ee2a24b914c92e4d94c898,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1176384870}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88fa0caf66ee2a24b914c92e4d94c898, type: 3}
 --- !u!4 &590227649 stripped
@@ -9001,7 +9005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4801e0943037544eb795f0ab914b97f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tungSkill3: {fileID: 893779858}
+  tungSkill3: {fileID: 1168451837}
   speed: 0.5
 --- !u!1 &1175819729
 GameObject:
@@ -9114,14 +9118,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176384869}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2390633, y: 96.34384, z: -20.282745}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.0058721444, y: 0.11336964, z: -0.002377033, w: -0.99353266}
+  m_LocalPosition: {x: 15.259652, y: 1.2837127, z: 3.9353442}
+  m_LocalScale: {x: 1.0700114, y: 1.0003343, z: 15.146691}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1400569117}
   - {fileID: 394436316}
-  m_Father: {fileID: 1421398870}
+  m_Father: {fileID: 590227649}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1217938451
 PrefabInstance:
@@ -10411,7 +10415,6 @@ Transform:
   - {fileID: 1168451838}
   - {fileID: 1113169970}
   - {fileID: 2050949452}
-  - {fileID: 1176384870}
   - {fileID: 511305348}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14750,6 +14753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LightTim: {fileID: 511305347}
+  DestroySkill: {fileID: 796716101}
 --- !u!4 &1918427092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2323304968535191447, guid: 5a8f8458a3f88ab4497bfe3cfd289f4a,
@@ -18480,6 +18484,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7384592911832636210, guid: 09edc157df80b1147908f5dc21994b01,
+        type: 3}
+      propertyPath: m_TagString
+      value: BossCuoi
       objectReference: {fileID: 0}
     - target: {fileID: 7389745615898348222, guid: 09edc157df80b1147908f5dc21994b01,
         type: 3}
