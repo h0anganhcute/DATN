@@ -16,6 +16,9 @@ public class StartTrumCuoi : MonoBehaviour
     public float TimeDelayAni = 3f;
     BoxCollider box;
     ComBoSkillTrum comb;
+    private Health TrumCuoi;
+
+    private bool triggered50 = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,22 +27,33 @@ public class StartTrumCuoi : MonoBehaviour
         menuSkillTrum = GetComponent<MenuSkillTrum>();
         box = GetComponent<BoxCollider>();
         comb = GetComponent<ComBoSkillTrum>();
-        
+        TrumCuoi=GetComponent<Health>();
         
     }
      void Update()
     {
 
+        if (TrumCuoi == null) return;
+
+        float healthRatio = TrumCuoi.CurrentHealth / TrumCuoi.MaxHealth;
+
+        if (healthRatio <= 0.5f && !triggered50)
+        {
+            triggered50 = true;
+            menuSkillTrum.enabled = false;
+            ani.SetTrigger("StartTele");
+            ani.SetTrigger("Tele");
+        }
         if (healthLion != null && healthLion.CurrentHealth <= 0)
         {
-            menuSkillTrum.enabled = false;
+
+            
         }
 
         if (LionBoss == null && !choPhepChayAnimation)
         {
             choPhepChayAnimation |= true;
-            ani.SetTrigger("StartTele");
-            ani.SetTrigger("Tele");
+            TatBoxCollider();
         }
     }
     public void ThamChieuMoMenu()
@@ -67,6 +81,7 @@ public class StartTrumCuoi : MonoBehaviour
     
     public void TatBoxCollider()
     {
+        menuSkillTrum.enabled = true;
         box.enabled=false;
     }
     public void BatComBoSkill()
