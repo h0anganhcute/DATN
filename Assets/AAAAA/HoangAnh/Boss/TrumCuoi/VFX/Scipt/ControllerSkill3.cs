@@ -8,6 +8,8 @@ public class ControllerSkill3 : MonoBehaviour
     private bool isScaling = false;
     public float timeToScale = 2f;
 
+
+
     void Start()
     {
         
@@ -42,6 +44,7 @@ public class ControllerSkill3 : MonoBehaviour
 
     private void OnEnable()
     {
+
         // Khi được bật, đặt lại Scale X về 0 và bắt đầu quá trình tăng Scale
         if (GongSkill3 != null)
         {
@@ -61,7 +64,6 @@ public class ControllerSkill3 : MonoBehaviour
     
     private void OnDisable()
     {
-        // Khi bị tắt, đặt lại Scale X về 0
         isScaling = false;
         if (GongSkill3 != null)
         {

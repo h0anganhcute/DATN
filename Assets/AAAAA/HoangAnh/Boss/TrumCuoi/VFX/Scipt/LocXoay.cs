@@ -14,7 +14,6 @@ public class LocXoay : MonoBehaviour
 
     void Update()
     {
-
     }
 
     private void OnTriggerStay(Collider other)
