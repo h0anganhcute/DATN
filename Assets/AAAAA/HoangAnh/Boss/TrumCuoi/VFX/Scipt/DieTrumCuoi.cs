@@ -39,7 +39,7 @@ public class DieTrumCuoi : MonoBehaviour
             if (controllerTrum != null) controllerTrum.enabled = false;
 
             if (ani != null) ani.SetTrigger("Die");
-            LightTim.SetActive(true);
+            LightTim.SetActive(false);
         }
     }
 }

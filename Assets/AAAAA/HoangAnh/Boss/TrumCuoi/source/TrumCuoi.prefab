@@ -7137,10 +7137,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 080832d7f178a454f8bd6f51b9e33341,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8884222722454111541}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 080832d7f178a454f8bd6f51b9e33341,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 24025278930433928}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 080832d7f178a454f8bd6f51b9e33341,
         type: 3}
@@ -7414,20 +7410,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 8.698466, y: 14.424441, z: 6.6641397}
   m_Center: {x: 0.08596155, y: 6.7121687, z: -0.12549886}
---- !u!114 &8884222722454111541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7384592911832636210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9b0ce1bb69c96b49a7ac1098a7f5796, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DamageMultiplier: 0
-  SensibilityToSelfdamage: 0.5
 --- !u!95 &24025278930433928
 Animator:
   serializedVersion: 7
@@ -7468,6 +7450,7 @@ MonoBehaviour:
   LionBoss: {fileID: 0}
   healthLion: {fileID: 0}
   TimeDelayAni: 3
+  LightTim: {fileID: 0}
 --- !u!114 &727486382166118590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7480,7 +7463,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc500514f1c830d4fbdc4a861853b6b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CauLua: {fileID: 0}
+  boxAOE: {fileID: 0}
   cooldownBetweenSkills: 3
+  soLuongCauLua: 5
+  khoangCachToiThieu: 3
+  tocDoCauLua: 15
 --- !u!114 &4457491734229918893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7577,10 +7565,7 @@ MonoBehaviour:
   ViTriClone2: {fileID: 0}
   ViTriClone3: {fileID: 0}
   ViTriClone4: {fileID: 0}
-  CanhBao1: {fileID: 0}
-  CanhBao2: {fileID: 0}
-  CanhBao3: {fileID: 0}
-  CanhBao4: {fileID: 0}
+  CanhBao: {fileID: 0}
 --- !u!195 &2129170672471806978
 NavMeshAgent:
   m_ObjectHideFlags: 0

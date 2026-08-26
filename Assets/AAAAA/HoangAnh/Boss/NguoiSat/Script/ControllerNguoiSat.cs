@@ -42,25 +42,25 @@ public class ControllerNguoiSat : MonoBehaviour
         if (healthRatio <= 0.9f && !triggered90)
         {
             triggered90 = true;
-            
+            menuSkillNguoiSat.enabled = false;
+            ani.SetTrigger("Luot");
 
         }
         else if (healthRatio <= 0.8f && !triggered80)
         {
             triggered80 = true;
-            menuSkillNguoiSat.enabled = false;
-            ani.SetTrigger("Skill2");
+            
         }
         else if (healthRatio <= 0.7f && !triggered70)
         {
             triggered70 = true;
-            
+            menuSkillNguoiSat.enabled = false;
+            ani.SetTrigger("Luot");
         }
         else if (healthRatio <= 0.6f && !triggered60)
         {
             triggered60 = true;
-            menuSkillNguoiSat.enabled = false;
-            ani.SetTrigger("Skill2");
+            
         }
         else if (healthRatio <= 0.5f && !triggered50)
         {

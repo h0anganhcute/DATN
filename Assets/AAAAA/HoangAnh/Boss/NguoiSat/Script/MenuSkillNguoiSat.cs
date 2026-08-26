@@ -56,13 +56,12 @@ public class MenuSkillNguoiSat : MonoBehaviour
             yield return new WaitUntil(() => isAnimationDone == true);
 
             // ===================================
-            //yield return new WaitForSeconds(cooldownBetweenSkills);
+            yield return new WaitForSeconds(cooldownBetweenSkills);
 
-            //isAnimationDone = false;
-            //ani.SetTrigger("DonTho");
-            //ani.SetTrigger("ChuiLen");
+            isAnimationDone = false;
+            ani.SetTrigger("Skill2");
 
-            //yield return new WaitUntil(() => isAnimationDone == true);
+            yield return new WaitUntil(() => isAnimationDone == true);
             // ===================================
         }
     }

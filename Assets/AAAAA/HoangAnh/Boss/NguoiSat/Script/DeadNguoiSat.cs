@@ -9,6 +9,7 @@ public class DeadNguoiSat : MonoBehaviour
     public GameObject Lion;
     public GameObject viTriXuatHien;
     BoxCollider box;
+    AudioSource nhacNen;
     // Thêm cờ đánh dấu đã chết để không chạy lặp lại logic trong Update
     private bool isDead = false;
 
@@ -18,6 +19,7 @@ public class DeadNguoiSat : MonoBehaviour
         controller = GetComponent<ControllerNguoiSat>();
         ani = GetComponent<Animator>();
         box = GetComponent<BoxCollider>();
+        nhacNen = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class DeadNguoiSat : MonoBehaviour
         // Ở đây mình ví dụ dùng thuộc tính CurrentHealth.
         if (health.CurrentHealth <= 0f)
         {
+            nhacNen.enabled = false;
             HandleDeath();
         }
     }

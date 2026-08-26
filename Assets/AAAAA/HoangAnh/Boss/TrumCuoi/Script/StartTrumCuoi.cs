@@ -17,6 +17,8 @@ public class StartTrumCuoi : MonoBehaviour
     BoxCollider box;
     ComBoSkillTrum comb;
     private Health TrumCuoi;
+    public GameObject LightTim;
+    AudioSource nhacNen;
 
     private bool triggered50 = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,6 +30,7 @@ public class StartTrumCuoi : MonoBehaviour
         box = GetComponent<BoxCollider>();
         comb = GetComponent<ComBoSkillTrum>();
         TrumCuoi=GetComponent<Health>();
+        nhacNen = GetComponent<AudioSource>();
         
     }
      void Update()
@@ -43,10 +46,12 @@ public class StartTrumCuoi : MonoBehaviour
             menuSkillTrum.enabled = false;
             ani.SetTrigger("StartTele");
             ani.SetTrigger("Tele");
+            LightTim.SetActive(true);
         }
         if (healthLion != null && healthLion.CurrentHealth <= 0)
         {
-
+            nhacNen.enabled = true;
+            
             
         }
 
