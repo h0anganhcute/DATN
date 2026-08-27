@@ -19,7 +19,7 @@ public class StartTrumCuoi : MonoBehaviour
     private Health TrumCuoi;
     public GameObject LightTim;
     AudioSource nhacNen;
-
+    public GameObject PanelHealBossCuoi;
     private bool triggered50 = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -50,9 +50,11 @@ public class StartTrumCuoi : MonoBehaviour
         }
         if (healthLion != null && healthLion.CurrentHealth <= 0)
         {
-            nhacNen.enabled = true;
-            
-            
+            nhacNen.enabled = true;  
+        }
+        else
+        {
+            PanelHealBossCuoi.SetActive(false);
         }
 
         if (LionBoss == null && !choPhepChayAnimation)

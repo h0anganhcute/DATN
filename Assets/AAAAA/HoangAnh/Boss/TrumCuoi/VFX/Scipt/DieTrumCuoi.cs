@@ -40,6 +40,7 @@ public class DieTrumCuoi : MonoBehaviour
 
             if (ani != null) ani.SetTrigger("Die");
             LightTim.SetActive(false);
+            Destroy(gameObject,6f);
         }
     }
 }

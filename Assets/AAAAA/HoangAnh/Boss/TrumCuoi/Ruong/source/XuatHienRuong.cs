@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class XuatHienRuong : MonoBehaviour
 {
-    public GameObject TrumCuoi;
     public GameObject LoadScene;
     [Tooltip("Tốc độ xoay của kỹ năng")]
     public float speed = 5f;
@@ -15,13 +14,10 @@ public class XuatHienRuong : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( TrumCuoi == null)
-        {
-            gameObject.SetActive(true);
-        }
         
-            transform.Rotate(0, -speed * 60f * Time.deltaTime, 0);
-        
+
+        transform.Rotate(0, -speed * 60f * Time.deltaTime, 0);
+
     }
     private void OnTriggerEnter(Collider other)
     {
