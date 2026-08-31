@@ -10,7 +10,12 @@ public class StartNguoiSat : MonoBehaviour
     public GameObject panelLuot;
     public float tocDoLuot = 20f;
     public GameObject VFXLuot;
+    public AudioSource start;
 
+    public void audioStart()
+    {
+        start.Play();
+    }
     void Start()
     {
         ani = GetComponent<Animator>();
@@ -63,7 +68,7 @@ public class StartNguoiSat : MonoBehaviour
 
             yield return null;
         }
-
+ 
         // Đảm bảo boss đến đúng vị trí đích
         Vector3 finalPanelPos = panelLuot.transform.position;
         Quaternion finalPanelRot = panelLuot.transform.rotation;

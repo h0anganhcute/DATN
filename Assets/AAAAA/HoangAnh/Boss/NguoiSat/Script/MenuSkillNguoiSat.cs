@@ -11,6 +11,10 @@ public class MenuSkillNguoiSat : MonoBehaviour
 
     [SerializeField] private float cooldownBetweenSkills = 3f;
 
+    public AudioSource audioSkill1;
+    public AudioSource audioSkill2;
+    public AudioSource audioLuot;
+
     void Start()
     {
         ani = GetComponent<Animator>();
@@ -70,5 +74,17 @@ public class MenuSkillNguoiSat : MonoBehaviour
     public void OnSkillAnimationFinished()
     {
         isAnimationDone = true;
+    }
+    public void AudioSkill1()
+    {
+        audioSkill1.Play();
+    }
+    public void AudioSkill2()
+    {
+        audioSkill2.Play();
+    }
+    public void AudioLuot()
+    {
+        audioLuot.Play();
     }
 }
