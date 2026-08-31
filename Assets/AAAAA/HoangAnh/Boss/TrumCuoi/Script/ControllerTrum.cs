@@ -6,9 +6,10 @@ public class ControllerTrum : MonoBehaviour
     public GameObject Aoe2Skill2;
     public GameObject Aoe3Skill2;
     public GameObject Skill3;
-    void Start()
+    public AudioSource audioStart;
+    public void AudioStart()
     {
-        
+        audioStart.Play();
     }
 
     // Update is called once per frame

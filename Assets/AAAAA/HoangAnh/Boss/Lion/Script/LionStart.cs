@@ -6,7 +6,23 @@ public class LionStart : MonoBehaviour
     public GameObject Trum;
     public GameObject caMera;
     MenuSkill menuSkill;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public AudioSource audioStart;
+    public AudioSource audioDapDat;
+    public AudioSource audioDonTho;
+    public AudioSource audioChoang;
+    
+    public void AudioChoang()
+    {
+        audioChoang.Play();
+    }
+    public void AudioDonTho()
+    {
+        audioDonTho.Play();
+    }
+    public void AudioDapDat()
+    {
+        audioDapDat.Play();
+    }
     void Start()
     {
         ani = GetComponent<Animator>();
@@ -39,5 +55,8 @@ public class LionStart : MonoBehaviour
     {
         menuSkill.enabled = true;
     }
-    
+    public void AudioStart()
+    {
+        audioStart.Play();
+    }
 }
