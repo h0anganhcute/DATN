@@ -6449,6 +6449,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4848457818930824664, guid: dcfca2ce0c0ef8c4c9f969dec7cdde2a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848457818930824664, guid: dcfca2ce0c0ef8c4c9f969dec7cdde2a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.9429533
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848457818930824664, guid: dcfca2ce0c0ef8c4c9f969dec7cdde2a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7979048734740868045, guid: dcfca2ce0c0ef8c4c9f969dec7cdde2a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -6549,6 +6564,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8109216037520308049, guid: dcfca2ce0c0ef8c4c9f969dec7cdde2a,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109216037520308049, guid: dcfca2ce0c0ef8c4c9f969dec7cdde2a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109216037520308049, guid: dcfca2ce0c0ef8c4c9f969dec7cdde2a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.8441622
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109216037520308049, guid: dcfca2ce0c0ef8c4c9f969dec7cdde2a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8306116959945353937, guid: dcfca2ce0c0ef8c4c9f969dec7cdde2a,
         type: 3}
       propertyPath: m_Text
@@ -6573,12 +6608,6 @@ RectTransform:
 --- !u!1 &594246170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5245656888622937125, guid: dcfca2ce0c0ef8c4c9f969dec7cdde2a,
-    type: 3}
-  m_PrefabInstance: {fileID: 594246168}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &594246171 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7177821302798436250, guid: dcfca2ce0c0ef8c4c9f969dec7cdde2a,
     type: 3}
   m_PrefabInstance: {fileID: 594246168}
   m_PrefabAsset: {fileID: 0}
@@ -13389,7 +13418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27364eefd6dd0341ba72a3bfc0d9727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 10000
+  MaxHealth: 100
   CriticalHealthRatio: 0.3
 --- !u!195 &1434940538
 NavMeshAgent:
@@ -13763,6 +13792,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212935648689958350, guid: dcfca2ce0c0ef8c4c9f969dec7cdde2a,
+        type: 3}
+      propertyPath: m_Name
+      value: LionHealth
       objectReference: {fileID: 0}
     - target: {fileID: 7979048734740868045, guid: dcfca2ce0c0ef8c4c9f969dec7cdde2a,
         type: 3}
@@ -19126,7 +19160,7 @@ PrefabInstance:
         type: 3}
       propertyPath: HealthBarPivot
       value: 
-      objectReference: {fileID: 594246171}
+      objectReference: {fileID: 594246169}
     - target: {fileID: 690700704679860272, guid: 09edc157df80b1147908f5dc21994b01,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

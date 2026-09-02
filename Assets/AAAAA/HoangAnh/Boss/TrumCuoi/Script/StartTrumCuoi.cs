@@ -11,7 +11,7 @@ public class StartTrumCuoi : MonoBehaviour
     MenuSkillTrum menuSkillTrum;
     public GameObject diemTele;
     public GameObject LionBoss;
-    public Health healthLion;
+    
     private bool choPhepChayAnimation = false;
     public float TimeDelayAni = 3f;
     BoxCollider box;
@@ -48,17 +48,11 @@ public class StartTrumCuoi : MonoBehaviour
             ani.SetTrigger("Tele");
             LightTim.SetActive(true);
         }
-        if (healthLion != null && healthLion.CurrentHealth <= 0)
-        {
-            nhacNen.enabled = true;  
-        }
-        else
-        {
-            PanelHealBossCuoi.SetActive(false);
-        }
+        
 
         if (LionBoss == null && !choPhepChayAnimation)
         {
+            nhacNen.enabled = true;
             choPhepChayAnimation |= true;
             TatBoxCollider();
         }
