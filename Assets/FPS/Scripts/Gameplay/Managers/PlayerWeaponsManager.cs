@@ -335,6 +335,13 @@ namespace Unity.FPS.Gameplay
                 }
                 else
                 {
+                    // Ẩn súng cũ ngay lập tức khi bắt đầu chuyển súng
+                    // để tránh model súng cũ đè lên súng mới trong phase PutUpNew
+                    WeaponController currentWeapon = GetActiveWeapon();
+                    if (currentWeapon != null)
+                    {
+                        currentWeapon.ShowWeapon(false);
+                    }
                     m_WeaponSwitchState = WeaponSwitchState.PutDownPrevious;
                 }
             }
