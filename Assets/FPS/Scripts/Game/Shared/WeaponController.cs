@@ -342,9 +342,19 @@ namespace Unity.FPS.Game
             }
         }
 
+
         public void ShowWeapon(bool show)
         {
-            WeaponRoot.SetActive(show);
+            // Luôn set active/inactive cả gameObject gốc để đảm bảo ẩn hoàn toàn,
+            // tránh lỗi khi WeaponRoot là external reference hoặc trỏ sai object.
+            // Sau đó mới set WeaponRoot nếu nó khác gameObject (ví dụ GunRoot là child).
+            if (WeaponRoot != null && WeaponRoot != gameObject)
+            {
+                // WeaponRoot là child object (ví dụ GunRoot) - set nó
+                WeaponRoot.SetActive(show);
+            }
+            // Luôn set gameObject gốc để đảm bảo ẩn/hiện hoàn toàn
+            gameObject.SetActive(show);
 
             if (show && ChangeWeaponSfx)
             {
@@ -353,6 +363,7 @@ namespace Unity.FPS.Game
 
             IsWeaponActive = show;
         }
+
 
         public void UseAmmo(float amount)
         {
