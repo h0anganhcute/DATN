@@ -3,6 +3,7 @@ using UnityEngine;
 public class ThoaiController : MonoBehaviour
 {
     public GameObject thoaiCon1;
+    public GameObject ChuongBao;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,6 +13,15 @@ public class ThoaiController : MonoBehaviour
     // Update is called once per frame
     public void ThoaiCon1()
     {
-               thoaiCon1.SetActive(true);
+        thoaiCon1.SetActive(true);
+        Invoke("BatChuongBao", 3f);
+    }
+
+    private void BatChuongBao()
+    {
+        if (ChuongBao != null)
+        {
+            ChuongBao.SetActive(true);
+        }
     }
 }
