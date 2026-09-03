@@ -8,15 +8,12 @@ public class MenuBoss : MonoBehaviour
     public GameObject Boss;
     public GameObject panelCanhBao;
     public GameObject VuKhi;
+
     bool isBossDead = false;
-    // Biến cờ (flag) để đảm bảo người chơi chỉ được chọn Boss ở menu 1 lần duy nhất
+
+    // Biến cờ (flag) để đảm bảo người chơi chỉ được chọn ở menu 1 lần duy nhất
     private bool daChonBoss = false;
 
-    // --- CÁC BIẾN MỚI THÊM ---
-    // Biến lưu lại xem người chơi đã chọn Boss nào lúc đầu (1: Quái vật, 2: Rồng)
-    private int bossDaChon = 0;
-    // Biến cờ để đảm bảo việc bật boss thứ 2 chỉ diễn ra 1 lần duy nhất, không lặp lại
-    private bool bossThuHaiDaDuocGoi = false;
     // Biến cờ để đảm bảo việc bật Boss cuối cùng chỉ diễn ra 1 lần
     private bool bossCuoiCungDaDuocGoi = false;
 
@@ -26,8 +23,6 @@ public class MenuBoss : MonoBehaviour
         if (QuaiVat != null) QuaiVat.SetActive(false);
         if (Dragon != null) Dragon.SetActive(false);
 
-      
-
         // Gọi hàm HienMenuBoss sau 3 giây
         Invoke("HienMenuBoss", 3f);
     }
@@ -35,49 +30,25 @@ public class MenuBoss : MonoBehaviour
     void Update()
     {
         // ---------------------------------------------------------
-        // PHẦN 1: CHỌN BOSS TỪ MENU
-        // Chỉ nhận nút bấm khi MenuBoss đang hiển thị VÀ chưa chọn Boss lần nào
+        // PHẦN 1: CHỌN TỪ MENU
+        // Chỉ nhận nút bấm khi MenuBoss đang hiển thị VÀ chưa chọn lần nào
         if (menuBoss.activeInHierarchy && !daChonBoss)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            // Gộp chung điều kiện bấm Q hoặc E vì kết quả giống nhau
+            if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E))
             {
                 daChonBoss = true;       // Khóa chọn menu
-                bossDaChon = 1;          // Ghi nhớ là đã chọn Quái Vật
 
-                if (QuaiVat != null) QuaiVat.SetActive(true); // Bật Quái Vật
-                menuBoss.SetActive(false);
-            }
-            else if (Input.GetKeyDown(KeyCode.E))
-            {
-                daChonBoss = true;       // Khóa chọn menu
-                bossDaChon = 2;          // Ghi nhớ là đã chọn Rồng
+                // Bật cả 2 Boss cùng lúc
+                if (QuaiVat != null) QuaiVat.SetActive(true);
+                if (Dragon != null) Dragon.SetActive(true);
 
-                if (Dragon != null) Dragon.SetActive(true);  // Bật Rồng
                 menuBoss.SetActive(false);
             }
         }
 
         // ---------------------------------------------------------
-        // PHẦN 2: KIỂM TRA BOSS CHẾT ĐỂ GỌI BOSS CÒN LẠI SAU 5 GIÂY
-        // Chỉ chạy nếu đã chọn boss đầu tiên rồi VÀ boss thứ 2 chưa được gọi
-        if (daChonBoss == true && bossThuHaiDaDuocGoi == false)
-        {
-            // Trường hợp 1: Ban đầu chọn Quái Vật (Q), và Quái Vật đã bị Destroy
-            if (bossDaChon == 1 && QuaiVat == null)
-            {
-                bossThuHaiDaDuocGoi = true; // Lập tức khóa cờ lại để Frame sau không chạy nữa
-                Invoke("BatRong", 5f);      // Chờ 5 giây rồi gọi hàm Bật Rồng
-            }
-            // Trường hợp 2: Ban đầu chọn Rồng (E), và Rồng đã bị Destroy
-            else if (bossDaChon == 2 && Dragon == null)
-            {
-                bossThuHaiDaDuocGoi = true; // Lập tức khóa cờ lại để Frame sau không chạy nữa
-                Invoke("BatQuaiVat", 5f);   // Chờ 5 giây rồi gọi hàm Bật Quái Vật
-            }
-        }
-
-        // ---------------------------------------------------------
-        // PHẦN 3: KIỂM TRA NẾU CẢ 2 BOSS ĐỀU BỊ DESTROY ĐỂ GỌI BOSS CUỐI
+        // PHẦN 2: KIỂM TRA NẾU CẢ 2 BOSS ĐỀU BỊ DESTROY ĐỂ GỌI BOSS CUỐI
         if (daChonBoss == true && bossCuoiCungDaDuocGoi == false)
         {
             if (QuaiVat == null && Dragon == null)
@@ -87,35 +58,19 @@ public class MenuBoss : MonoBehaviour
                 Invoke("BatBossCuoi", 7f);    // 5 giây bật panel + 2 giây sau đó bật boss = 7 giây
             }
         }
+
+        // ---------------------------------------------------------
+        // PHẦN 3: BẬT VŨ KHÍ KHI BOSS CUỐI BỊ TIÊU DIỆT
         if (Boss == null && !isBossDead)
         {
             isBossDead = true; // Đánh dấu là Boss cuối đã chết
-            VuKhi.SetActive(true);
+            if (VuKhi != null) VuKhi.SetActive(true);
         }
     }
 
     void HienMenuBoss()
     {
-        menuBoss.SetActive(true);
-    }
-
-    // --- CÁC HÀM MỚI THÊM ĐỂ INVOKE SAU 5 GIÂY ---
-    void BatRong()
-    {
-        // Chắc chắn Rồng chưa bị ai Destroy mất trước khi bật
-        if (Dragon != null)
-        {
-            Dragon.SetActive(true);
-        }
-    }
-
-    void BatQuaiVat()
-    {
-        // Chắc chắn Quái Vật chưa bị ai Destroy mất trước khi bật
-        if (QuaiVat != null)
-        {
-            QuaiVat.SetActive(true);
-        }
+        if (menuBoss != null) menuBoss.SetActive(true);
     }
 
     void BatPanelCanhBao()

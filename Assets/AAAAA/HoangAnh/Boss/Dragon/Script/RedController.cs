@@ -15,6 +15,7 @@ public class RedController : MonoBehaviour
     private bool triggered40 = false;
     private bool triggered20 = false;
     public AudioSource sTart;
+    
 
     void Start()
     {
@@ -26,31 +27,31 @@ public class RedController : MonoBehaviour
 
     void Update()
     {
-        if (health == null) return;
+        //if (health == null) return;
 
-        float healthRatio = health.CurrentHealth / health.MaxHealth;
+        //float healthRatio = health.CurrentHealth / health.MaxHealth;
 
-        if (healthRatio <= 0.8f && !triggered80)
-        {
-            triggered80 = true;
-            ExecuteSkill1();
-        }
-        else if (healthRatio <= 0.6f && !triggered60)
-        {
-            triggered60 = true;
-            ExecuteSkill1();
-        }
-        // Giả sử mốc 40% bạn muốn xài Skill 2 (Ví dụ)
-        else if (healthRatio <= 0.4f && !triggered40)
-        {
-            triggered40 = true;
-            ExecuteSkill1(); // Đổi sang xài Skill 2
-        }
-        else if (healthRatio <= 0.2f && !triggered20)
-        {
-            triggered20 = true;
-            ExecuteSkill1();
-        }
+        //if (healthRatio <= 0.8f && !triggered80)
+        //{
+        //    triggered80 = true;
+        //    ExecuteSkill1();
+        //}
+        //else if (healthRatio <= 0.6f && !triggered60)
+        //{
+        //    triggered60 = true;
+        //    ExecuteSkill1();
+        //}
+        //// Giả sử mốc 40% bạn muốn xài Skill 2 (Ví dụ)
+        //else if (healthRatio <= 0.4f && !triggered40)
+        //{
+        //    triggered40 = true;
+        //    ExecuteSkill1(); // Đổi sang xài Skill 2
+        //}
+        //else if (healthRatio <= 0.2f && !triggered20)
+        //{
+        //    triggered20 = true;
+        //    ExecuteSkill1();
+        //}
     }
 
     // ==========================================
@@ -120,6 +121,10 @@ public class RedController : MonoBehaviour
     public void BatLaiDiChuyen()
     {
         runRedDragon.enabled = true;
+    }
+    public void TatDiChuyen()
+    {
+        runRedDragon.enabled = false;
     }
     public void TatCamera()
     {
