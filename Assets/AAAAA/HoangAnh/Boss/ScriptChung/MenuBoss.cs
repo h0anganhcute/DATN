@@ -7,7 +7,8 @@ public class MenuBoss : MonoBehaviour
     public GameObject Dragon;
     public GameObject Boss;
     public GameObject panelCanhBao;
-
+    public GameObject VuKhi;
+    bool isBossDead = false;
     // Biến cờ (flag) để đảm bảo người chơi chỉ được chọn Boss ở menu 1 lần duy nhất
     private bool daChonBoss = false;
 
@@ -24,6 +25,8 @@ public class MenuBoss : MonoBehaviour
         // Ẩn quái vật và rồng lúc mới vào game để chắc chắn chúng chưa xuất hiện
         if (QuaiVat != null) QuaiVat.SetActive(false);
         if (Dragon != null) Dragon.SetActive(false);
+
+      
 
         // Gọi hàm HienMenuBoss sau 3 giây
         Invoke("HienMenuBoss", 3f);
@@ -83,6 +86,11 @@ public class MenuBoss : MonoBehaviour
                 Invoke("BatPanelCanhBao", 5f);
                 Invoke("BatBossCuoi", 7f);    // 5 giây bật panel + 2 giây sau đó bật boss = 7 giây
             }
+        }
+        if (Boss == null && !isBossDead)
+        {
+            isBossDead = true; // Đánh dấu là Boss cuối đã chết
+            VuKhi.SetActive(true);
         }
     }
 
