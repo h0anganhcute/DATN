@@ -31,6 +31,7 @@ public class DieRongBang : MonoBehaviour
 
             // Chạy animation Die
             if (ani != null) ani.SetTrigger("Die");
+            Destroy(gameObject, 10f); // Hủy đối tượng sau 2 giây
         }
     }
     public void MoCong()

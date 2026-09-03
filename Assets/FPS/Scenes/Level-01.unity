@@ -1296,18 +1296,33 @@ PrefabInstance:
       objectReference: {fileID: 1828319887}
     - target: {fileID: 7671270577186476433, guid: 013cc3eecfab40b44ae04b13787a0592,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7671270577186476433, guid: 013cc3eecfab40b44ae04b13787a0592,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7671270577186476433, guid: 013cc3eecfab40b44ae04b13787a0592,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7671270577186476433, guid: 013cc3eecfab40b44ae04b13787a0592,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 28.355053
       objectReference: {fileID: 0}
     - target: {fileID: 7671270577186476433, guid: 013cc3eecfab40b44ae04b13787a0592,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 7671270577186476433, guid: 013cc3eecfab40b44ae04b13787a0592,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -67.313385
+      value: -109.8
       objectReference: {fileID: 0}
     - target: {fileID: 7671270577186476433, guid: 013cc3eecfab40b44ae04b13787a0592,
         type: 3}
@@ -1354,11 +1369,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pickup_Launcher 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7671270577186476446, guid: 013cc3eecfab40b44ae04b13787a0592,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 013cc3eecfab40b44ae04b13787a0592, type: 3}
+--- !u!1 &357147308 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7671270577186476446, guid: 013cc3eecfab40b44ae04b13787a0592,
+    type: 3}
+  m_PrefabInstance: {fileID: 357147307}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &382317228
 GameObject:
   m_ObjectHideFlags: 0
@@ -4977,6 +5003,11 @@ PrefabInstance:
       propertyPath: Boss
       value: 
       objectReference: {fileID: 1657822198}
+    - target: {fileID: 8187767955128943244, guid: 0bc7ae9ea91487541af02b3e5d3f68ca,
+        type: 3}
+      propertyPath: VuKhi
+      value: 
+      objectReference: {fileID: 357147308}
     - target: {fileID: 8187767955128943244, guid: 0bc7ae9ea91487541af02b3e5d3f68ca,
         type: 3}
       propertyPath: Dragon
@@ -10005,6 +10036,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 13.473648
+      objectReference: {fileID: 0}
+    - target: {fileID: 6454673073108667782, guid: 67e01d0e9fa63304ba410304a77284d3,
+        type: 3}
+      propertyPath: MaxHealth
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 6508160434251897821, guid: 67e01d0e9fa63304ba410304a77284d3,
         type: 3}
