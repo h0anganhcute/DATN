@@ -16,6 +16,8 @@ public class ControllPhone : MonoBehaviour
     private float initialFbTop;
     private float initialFbBottom;
     public GameObject Iphone;
+    public RectTransform TinTuc;
+    private Coroutine scaleTinTucCoroutine;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -50,16 +52,23 @@ public class ControllPhone : MonoBehaviour
                 StartCoroutine(TogglePhone(false, initialPosY, moveDuration));
             }
         }
-
-        // Bật / tắt GameObject Facebook bằng phím 1
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (Facebook != null)
             {
-                Facebook.SetActive(!Facebook.activeSelf);
+                bool isActive = !Facebook.activeSelf;
+                Facebook.SetActive(isActive);
+
+                if (TinTuc != null)
+                {
+                    if (scaleTinTucCoroutine != null)
+                    {
+                        StopCoroutine(scaleTinTucCoroutine);
+                    }
+                    scaleTinTucCoroutine = StartCoroutine(ScaleTinTuc(isActive ? 1f : 0f, 0.5f));
+                }
             }
         }
-
         // Điều khiển faceBookPanel bằng phím 2 khi Facebook đang được bật
         if (Input.GetKeyDown(KeyCode.Alpha2) && !isFbPanelMoving)
         {
@@ -67,14 +76,17 @@ public class ControllPhone : MonoBehaviour
             {
                 if (!isFbPanelOpen)
                 {
-                    StartCoroutine(ToggleFacebookPanel(true, 102.581f, -0.0009994507f, 1.5f));
+                    StartCoroutine(ToggleFacebookPanel(true, 102.581f, -0.0009994507f, 0.5f));
                 }
                 else
                 {
-                    StartCoroutine(ToggleFacebookPanel(false, initialFbTop, initialFbBottom, 1.5f));
+                    StartCoroutine(ToggleFacebookPanel(false, initialFbTop, initialFbBottom, 0.5f));
                 }
             }
         }
+
+        // Bật / tắt GameObject Facebook bằng phím 1
+
     }
 
     private IEnumerator TogglePhone(bool open, float targetY, float duration)
@@ -140,4 +152,24 @@ public class ControllPhone : MonoBehaviour
         isFbPanelOpen = open;
         isFbPanelMoving = false;
     }
+
+    private IEnumerator ScaleTinTuc(float targetScaleX, float duration)
+    {
+        if (TinTuc != null)
+        {
+            Vector3 startScale = TinTuc.localScale;
+            Vector3 targetScale = new Vector3(targetScaleX, startScale.y, startScale.z);
+            float timeElapsed = 0f;
+
+            while (timeElapsed < duration)
+            {
+                TinTuc.localScale = Vector3.Lerp(startScale, targetScale, timeElapsed / duration);
+                timeElapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            TinTuc.localScale = targetScale;
+        }
+    }
+
 }

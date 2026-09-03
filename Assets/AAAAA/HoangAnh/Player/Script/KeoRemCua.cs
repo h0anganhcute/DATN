@@ -4,9 +4,11 @@ using UnityEngine;
 public class KeoRemCua : MonoBehaviour
 {
     public GameObject RemCua;
+    public GameObject Camera;
 
     void Start()
     {
+        Camera.SetActive(true);
         // Kiểm tra xem đã gán RemCua chưa để tránh lỗi NullReferenceException
         if (RemCua != null)
         {
