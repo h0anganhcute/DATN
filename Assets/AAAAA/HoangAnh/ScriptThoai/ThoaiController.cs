@@ -22,6 +22,15 @@ public class ThoaiController : MonoBehaviour
         if (ChuongBao != null)
         {
             ChuongBao.SetActive(true);
+            Invoke("TatChuongBao", 3f);
+        }
+    }
+
+    private void TatChuongBao()
+    {
+        if (ChuongBao != null)
+        {
+            ChuongBao.SetActive(false);
         }
     }
 }
