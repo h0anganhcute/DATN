@@ -16,6 +16,7 @@ namespace Unity.FPS.Game
         public static AmmoPickupEvent AmmoPickupEvent = new AmmoPickupEvent();
         public static DamageEvent DamageEvent = new DamageEvent();
         public static DisplayMessageEvent DisplayMessageEvent = new DisplayMessageEvent();
+        public static PlayerReviveEvent PlayerReviveEvent = new PlayerReviveEvent();
     }
 
     public class ObjectiveUpdateEvent : GameEvent
@@ -35,6 +36,8 @@ namespace Unity.FPS.Game
     }
 
     public class PlayerDeathEvent : GameEvent { }
+
+    public class PlayerReviveEvent : GameEvent { }
 
     public class EnemyKillEvent : GameEvent
     {

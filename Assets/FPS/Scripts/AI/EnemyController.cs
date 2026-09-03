@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Unity.FPS.Game;
 using UnityEngine;
 using UnityEngine.AI;
@@ -406,7 +406,7 @@ namespace Unity.FPS.AI
 
         public bool TryAtack(Vector3 enemyPosition)
         {
-            if (m_GameFlowManager.GameIsEnding)
+            if (m_GameFlowManager.GameIsEnding || m_GameFlowManager.IsRespawning)
                 return false;
 
             OrientWeaponsTowards(enemyPosition);

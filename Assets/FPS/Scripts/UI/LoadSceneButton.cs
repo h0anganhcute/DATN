@@ -1,4 +1,4 @@
-﻿using Unity.FPS.Game;
+using Unity.FPS.Game;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -14,6 +14,12 @@ namespace Unity.FPS.UI
         
         void Start()
         {
+            string currentScene = SceneManager.GetActiveScene().name;
+            if (currentScene == "IntroMenu" || currentScene == "WinScene")
+            {
+                PlayerRespawnManager.ResetRespawnData();
+            }
+
             m_SubmitAction = InputSystem.actions.FindAction("UI/Submit");
             m_SubmitAction.Enable();
         }
@@ -29,7 +35,18 @@ namespace Unity.FPS.UI
 
         public void LoadTargetScene()
         {
-            SceneManager.LoadScene(SceneName);
+            string target = SceneName;
+
+            if (PlayerRespawnManager.HasRespawnData && !string.IsNullOrEmpty(PlayerRespawnManager.DeathSceneName))
+            {
+                target = PlayerRespawnManager.DeathSceneName;
+            }
+            else if (target == "MainScene")
+            {
+                target = "Level-01";
+            }
+
+            SceneManager.LoadScene(target);
         }
     }
 }

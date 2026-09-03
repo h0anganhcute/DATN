@@ -1,6 +1,7 @@
 using Unity.FPS.Game;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Unity.FPS.Gameplay
@@ -169,6 +170,7 @@ namespace Unity.FPS.Gameplay
 
         Vector3 m_GroundNormal;
         Vector3 m_LatestImpactSpeed;
+        Vector3 m_LastGroundedPosition;
 
         float m_LastTimeJumped = 0f;
         float m_CameraVerticalAngle = 0f;
@@ -274,6 +276,44 @@ namespace Unity.FPS.Gameplay
             m_Controller.enableOverlapRecovery = true;
 
             m_Health.OnDie += OnDie;
+            EventManager.AddListener<PlayerReviveEvent>(OnPlayerRevive);
+
+            m_LastGroundedPosition = transform.position;
+
+            if (PlayerRespawnManager.HasRespawnData)
+            {
+                if (m_Controller != null)
+                {
+                    m_Controller.enabled = false;
+                }
+
+                transform.position = PlayerRespawnManager.DeathPosition;
+                transform.rotation = PlayerRespawnManager.DeathRotation;
+                Physics.SyncTransforms();
+
+                if (m_Controller != null)
+                {
+                    m_Controller.enabled = true;
+                }
+
+                CharacterVelocity = Vector3.zero;
+                m_CameraVerticalAngle = PlayerRespawnManager.DeathCameraVerticalAngle;
+                m_LastGroundedPosition = transform.position;
+
+                if (m_Health != null)
+                {
+                    m_Health.ResetHealth();
+                }
+
+                PlayerRespawnManager.ConsumeRespawnData();
+            }
+            else
+            {
+                if (m_Health != null)
+                {
+                    m_Health.ResetHealth();
+                }
+            }
 
             SetCrouchingState(false, true);
 
@@ -288,7 +328,13 @@ namespace Unity.FPS.Gameplay
 
         void Update()
         {
-            if (!IsDead && transform.position.y < KillHeight)
+            if (IsDead)
+            {
+                CharacterVelocity = Vector3.zero;
+                return;
+            }
+
+            if (transform.position.y < KillHeight)
             {
                 m_Health.Kill();
             }
@@ -298,6 +344,11 @@ namespace Unity.FPS.Gameplay
             bool wasGrounded = IsGrounded;
 
             GroundCheck();
+
+            if (IsGrounded && transform.position.y >= KillHeight)
+            {
+                m_LastGroundedPosition = transform.position;
+            }
 
             // ========================================================
             // LANDING
@@ -362,10 +413,67 @@ namespace Unity.FPS.Gameplay
             IsDead = true;
             IsDashing = false;
 
+            Vector3 deathPos = transform.position;
+            if (deathPos.y < KillHeight)
+            {
+                deathPos = m_LastGroundedPosition;
+            }
+
+            PlayerRespawnManager.SaveDeathState(
+                SceneManager.GetActiveScene().name,
+                deathPos,
+                transform.rotation,
+                m_CameraVerticalAngle);
+
             m_WeaponsManager.SwitchToWeaponIndex(-1, true);
 
             EventManager.Broadcast(
                 Events.PlayerDeathEvent);
+        }
+
+        // ============================================================
+        // REVIVE
+        // ============================================================
+
+        public void Revive()
+        {
+            IsDead = false;
+            IsDashing = false;
+
+            // Nếu rơi vực thì kéo lại vị trí mặt đất an toàn gần nhất
+            if (transform.position.y < KillHeight)
+            {
+                if (m_Controller != null)
+                {
+                    m_Controller.enabled = false;
+                }
+                transform.position = m_LastGroundedPosition;
+                Physics.SyncTransforms();
+                if (m_Controller != null)
+                {
+                    m_Controller.enabled = true;
+                }
+            }
+
+            CharacterVelocity = Vector3.zero;
+
+            if (m_Health != null)
+            {
+                m_Health.ResetHealth();
+            }
+
+            // Trang bị lại vũ khí
+            if (m_WeaponsManager != null)
+            {
+                m_WeaponsManager.SwitchToWeaponIndex(0, true);
+            }
+        }
+
+        void OnPlayerRevive(PlayerReviveEvent evt) => Revive();
+
+        void OnDestroy()
+        {
+            EventManager.RemoveListener<PlayerReviveEvent>(OnPlayerRevive);
         }
 
         // ============================================================

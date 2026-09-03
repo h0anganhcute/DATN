@@ -1,4 +1,4 @@
-﻿using Unity.FPS.Game;
+using Unity.FPS.Game;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -74,7 +74,7 @@ namespace Unity.FPS.Gameplay
 
         public bool CanProcessInput()
         {
-            return Cursor.lockState == CursorLockMode.Locked && !m_GameFlowManager.GameIsEnding;
+            return Cursor.lockState == CursorLockMode.Locked && !m_GameFlowManager.GameIsEnding && !m_GameFlowManager.IsRespawning;
         }
 
         public Vector3 GetMoveInput()
