@@ -15,6 +15,7 @@ public class ControllPhone : MonoBehaviour
     private bool isFbPanelOpen = false;
     private float initialFbTop;
     private float initialFbBottom;
+    public GameObject Iphone;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -84,7 +85,7 @@ public class ControllPhone : MonoBehaviour
             // Nếu là mở thì bật gameObject lên trước khi di chuyển
             if (open)
             {
-                Phone.gameObject.SetActive(true);
+                Iphone.SetActive(true);
             }
 
             Vector2 startPos = Phone.anchoredPosition;
@@ -103,7 +104,7 @@ public class ControllPhone : MonoBehaviour
             // Nếu là tắt thì chờ di chuyển xong mới tắt gameObject
             if (!open)
             {
-                Phone.gameObject.SetActive(false);
+               Iphone.SetActive(false);
             }
         }
         isOpen = open;
