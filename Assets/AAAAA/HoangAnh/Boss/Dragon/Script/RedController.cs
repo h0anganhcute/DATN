@@ -8,7 +8,7 @@ public class RedController : MonoBehaviour
     Health health;
     Animator ani;
     public Transform player;
-    public GameObject cameraBoss;
+    
     public float turnSpeed = 10f;
     private bool triggered80 = false;
     private bool triggered60 = false;
@@ -126,10 +126,7 @@ public class RedController : MonoBehaviour
     {
         runRedDragon.enabled = false;
     }
-    public void TatCamera()
-    {
-        cameraBoss.SetActive(false); 
-    }
+    
     public void AudioStart()
     {
         sTart.Play();
