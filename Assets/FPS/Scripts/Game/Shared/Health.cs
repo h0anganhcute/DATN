@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Unity.FPS.Game
@@ -25,7 +25,14 @@ namespace Unity.FPS.Game
 
         void Start()
         {
+            ResetHealth();
+        }
+
+        public void ResetHealth()
+        {
+            m_IsDead = false;
             CurrentHealth = MaxHealth;
+            OnHealed?.Invoke(MaxHealth);
         }
 
         public void Heal(float healAmount)

@@ -1,4 +1,4 @@
-﻿using Unity.FPS.Game;
+using Unity.FPS.Game;
 using Unity.FPS.Gameplay;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,6 +22,11 @@ namespace Unity.FPS.UI
             m_PlayerHealth = playerCharacterController.GetComponent<Health>();
             DebugUtility.HandleErrorIfNullGetComponent<Health, PlayerHealthBar>(m_PlayerHealth, this,
                 playerCharacterController.gameObject);
+
+            if (HealthFillImage != null && m_PlayerHealth != null && m_PlayerHealth.MaxHealth > 0f)
+            {
+                HealthFillImage.fillAmount = m_PlayerHealth.CurrentHealth / m_PlayerHealth.MaxHealth;
+            }
         }
 
         void Update()
