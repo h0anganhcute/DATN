@@ -1,4 +1,5 @@
 using Unity.FPS.Game;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DeadNguoiSat : MonoBehaviour
@@ -10,6 +11,7 @@ public class DeadNguoiSat : MonoBehaviour
     public GameObject viTriXuatHien;
     BoxCollider box;
     AudioSource nhacNen;
+    public GameObject ThanhMau;
     // Thêm cờ đánh dấu đã chết để không chạy lặp lại logic trong Update
     private bool isDead = false;
 
@@ -47,6 +49,7 @@ public class DeadNguoiSat : MonoBehaviour
         {
             ani.SetTrigger("Die");
             box.enabled = false;
+            Destroy(ThanhMau);
         }
 
         // Tắt component controller
