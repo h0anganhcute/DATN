@@ -37,14 +37,14 @@ namespace Unity.FPS.UI
         {
             string target = SceneName;
 
-            if (PlayerRespawnManager.HasRespawnData && !string.IsNullOrEmpty(PlayerRespawnManager.DeathSceneName))
-            {
-                target = PlayerRespawnManager.DeathSceneName;
-            }
-            else if (target == "MainScene")
-            {
-                target = "Level-01";
-            }
+            //if (PlayerRespawnManager.HasRespawnData && !string.IsNullOrEmpty(PlayerRespawnManager.DeathSceneName))
+            //{
+            //    target = PlayerRespawnManager.DeathSceneName;
+            //}
+            //else if (target == "MainScene")
+            //{
+            //    target = "Level-01";
+            //}
 
             SceneManager.LoadScene(target);
         }

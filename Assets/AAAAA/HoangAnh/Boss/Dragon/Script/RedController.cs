@@ -58,66 +58,66 @@ public class RedController : MonoBehaviour
     // CÁC HÀM KÍCH HOẠT SKILL CỤ THỂ
     // ==========================================
 
-    private void ExecuteSkill1()
-    {
-        if (runRedDragon != null) runRedDragon.enabled = false;
-        // Bắt đầu quy trình truyền vào tên trigger là "Skill1"
-        StartCoroutine(TurnAndCast("Attack1"));
-    }
+    //private void ExecuteSkill1()
+    //{
+    //    if (runRedDragon != null) runRedDragon.enabled = false;
+    //    // Bắt đầu quy trình truyền vào tên trigger là "Skill1"
+    //    StartCoroutine(TurnAndCast("Attack1"));
+    //}
 
-    // Mẫu Skill 2 để bạn dễ copy xài luôn
-    private void ExecuteSkill2()
-    {
-        if (runRedDragon != null) runRedDragon.enabled = false;
-        StartCoroutine(TurnAndCast("Skill2"));
-    }
+    //// Mẫu Skill 2 để bạn dễ copy xài luôn
+    //private void ExecuteSkill2()
+    //{
+    //    if (runRedDragon != null) runRedDragon.enabled = false;
+    //    StartCoroutine(TurnAndCast("Skill2"));
+    //}
 
 
-    // ==========================================
-    // KỊCH BẢN CHUNG (ĐỢI XOAY MẶT -> TUNG CHIÊU)
-    // ==========================================
-    private IEnumerator TurnAndCast(string triggerName)
-    {
-        // 1. Dùng YIELD RETURN để ép code phải ĐỨNG ĐỢI Coroutine RotateTowardsPlayer xoay mặt xong
-        yield return StartCoroutine(RotateTowardsPlayer());
+    //// ==========================================
+    //// KỊCH BẢN CHUNG (ĐỢI XOAY MẶT -> TUNG CHIÊU)
+    //// ==========================================
+    //private IEnumerator TurnAndCast(string triggerName)
+    //{
+    //    // 1. Dùng YIELD RETURN để ép code phải ĐỨNG ĐỢI Coroutine RotateTowardsPlayer xoay mặt xong
+    //    yield return StartCoroutine(RotateTowardsPlayer());
 
-        // 2. Chờ xoay xong xuôi rồi thì mới chạy lệnh gọi Animator dưới đây
-        if (ani != null)
-        {
-            ani.SetTrigger(triggerName);
-        }
-    }
+    //    // 2. Chờ xoay xong xuôi rồi thì mới chạy lệnh gọi Animator dưới đây
+    //    if (ani != null)
+    //    {
+    //        ani.SetTrigger(triggerName);
+    //    }
+    //}
 
-    // ==========================================
-    // HÀM ĐỘC LẬP: CHUYÊN XỬ LÝ VIỆC XOAY MẶT
-    // ==========================================
-    private IEnumerator RotateTowardsPlayer()
-    {
-        if (player == null) yield break; // Dừng nếu chưa có dữ liệu player
+    //// ==========================================
+    //// HÀM ĐỘC LẬP: CHUYÊN XỬ LÝ VIỆC XOAY MẶT
+    //// ==========================================
+    //private IEnumerator RotateTowardsPlayer()
+    //{
+    //    if (player == null) yield break; // Dừng nếu chưa có dữ liệu player
 
-        Vector3 directionToPlayer = player.position - transform.position;
-        directionToPlayer.y = 0;
+    //    Vector3 directionToPlayer = player.position - transform.position;
+    //    directionToPlayer.y = 0;
 
-        if (directionToPlayer != Vector3.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+    //    if (directionToPlayer != Vector3.zero)
+    //    {
+    //        Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
 
-            while (Quaternion.Angle(transform.rotation, targetRotation) > 5f)
-            {
-                directionToPlayer = player.position - transform.position;
-                directionToPlayer.y = 0;
+    //        while (Quaternion.Angle(transform.rotation, targetRotation) > 5f)
+    //        {
+    //            directionToPlayer = player.position - transform.position;
+    //            directionToPlayer.y = 0;
 
-                if (directionToPlayer != Vector3.zero)
-                {
-                    targetRotation = Quaternion.LookRotation(directionToPlayer);
-                }
+    //            if (directionToPlayer != Vector3.zero)
+    //            {
+    //                targetRotation = Quaternion.LookRotation(directionToPlayer);
+    //            }
 
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
+    //            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
 
-                yield return null;
-            }
-        }
-    }
+    //            yield return null;
+    //        }
+    //    }
+    //}
     public void BatLaiDiChuyen()
     {
         runRedDragon.enabled = true;

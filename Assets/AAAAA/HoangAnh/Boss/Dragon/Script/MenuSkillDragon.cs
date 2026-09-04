@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
 public class MenuSkillDragon : MonoBehaviour
@@ -9,12 +9,14 @@ public class MenuSkillDragon : MonoBehaviour
     public float turnSpeed = 10f;
     // Biến cờ để tránh spam liên tục trong Update
     private bool TranhSpamLienTucTrongUpdate = false;
+    public RunRedDragon run;
 
     [SerializeField] private float cooldownBetweenSkills = 3f;
 
     void Start()
     {
         ani = GetComponent<Animator>();
+        run = GetComponent<RunRedDragon>();
     }
 
     void OnEnable()
@@ -36,7 +38,11 @@ public class MenuSkillDragon : MonoBehaviour
 
     void Update()
     {
-        // Nếu cờ đang hạ (false), nghĩa là chưa chạy Coroutine
+        if (run != null && !run.enabled)
+        {
+            TurnTowardsPlayer();
+        }
+
         if (!TranhSpamLienTucTrongUpdate)
         {
             // LẬP TỨC dựng cờ lên (true) để chặn spam
@@ -52,7 +58,7 @@ public class MenuSkillDragon : MonoBehaviour
             yield return new WaitForSeconds(cooldownBetweenSkills);
 
             isAnimationDone = false;
-            StartCoroutine(TurnAndCast("Attack1"));
+            ani.SetTrigger("Attack1");
 
             yield return new WaitUntil(() => isAnimationDone == true);  
         }
@@ -63,51 +69,15 @@ public class MenuSkillDragon : MonoBehaviour
     {
         isAnimationDone = true;
     }
-
-
-    // ==========================================
-    // KỊCH BẢN CHUNG (ĐỢI XOAY MẶT -> TUNG CHIÊU)
-    // ==========================================
-    private IEnumerator TurnAndCast(string triggerName)
+    public void TurnTowardsPlayer()
     {
-        // 1. Dùng YIELD RETURN để ép code phải ĐỨNG ĐỢI Coroutine RotateTowardsPlayer xoay mặt xong
-        yield return StartCoroutine(RotateTowardsPlayer());
-
-        // 2. Chờ xoay xong xuôi rồi thì mới chạy lệnh gọi Animator dưới đây
-        if (ani != null)
-        {
-            ani.SetTrigger(triggerName);
-        }
-    }
-
-    // ==========================================
-    // HÀM ĐỘC LẬP: CHUYÊN XỬ LÝ VIỆC XOAY MẶT
-    // ==========================================
-    private IEnumerator RotateTowardsPlayer()
-    {
-        if (player == null) yield break; // Dừng nếu chưa có dữ liệu player
-
+        if (player == null) return;
         Vector3 directionToPlayer = player.position - transform.position;
-        directionToPlayer.y = 0;
-
-        if (directionToPlayer != Vector3.zero)
+        directionToPlayer.y = 0f; // Giữ nguyên trục Y để tránh xoay lên/xuống
+        if (directionToPlayer.sqrMagnitude > 0.01f) // Kiểm tra nếu khoảng cách đủ lớn
         {
             Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
-
-            while (Quaternion.Angle(transform.rotation, targetRotation) > 5f)
-            {
-                directionToPlayer = player.position - transform.position;
-                directionToPlayer.y = 0;
-
-                if (directionToPlayer != Vector3.zero)
-                {
-                    targetRotation = Quaternion.LookRotation(directionToPlayer);
-                }
-
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
-
-                yield return null;
-            }
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
         }
     }
 }

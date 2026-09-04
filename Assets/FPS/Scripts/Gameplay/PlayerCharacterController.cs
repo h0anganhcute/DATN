@@ -280,40 +280,11 @@ namespace Unity.FPS.Gameplay
 
             m_LastGroundedPosition = transform.position;
 
-            if (PlayerRespawnManager.HasRespawnData)
+            if (m_Health != null)
             {
-                if (m_Controller != null)
-                {
-                    m_Controller.enabled = false;
-                }
-
-                transform.position = PlayerRespawnManager.DeathPosition;
-                transform.rotation = PlayerRespawnManager.DeathRotation;
-                Physics.SyncTransforms();
-
-                if (m_Controller != null)
-                {
-                    m_Controller.enabled = true;
-                }
-
-                CharacterVelocity = Vector3.zero;
-                m_CameraVerticalAngle = PlayerRespawnManager.DeathCameraVerticalAngle;
-                m_LastGroundedPosition = transform.position;
-
-                if (m_Health != null)
-                {
-                    m_Health.ResetHealth();
-                }
-
-                PlayerRespawnManager.ConsumeRespawnData();
+                m_Health.ResetHealth();
             }
-            else
-            {
-                if (m_Health != null)
-                {
-                    m_Health.ResetHealth();
-                }
-            }
+
 
             SetCrouchingState(false, true);
 
@@ -420,7 +391,6 @@ namespace Unity.FPS.Gameplay
             }
 
             PlayerRespawnManager.SaveDeathState(
-                SceneManager.GetActiveScene().name,
                 deathPos,
                 transform.rotation,
                 m_CameraVerticalAngle);
@@ -439,6 +409,9 @@ namespace Unity.FPS.Gameplay
         {
             IsDead = false;
             IsDashing = false;
+
+            // Xóa dữ liệu tử trận cũ để tránh bị clone sang scene mới
+            PlayerRespawnManager.ConsumeRespawnData();
 
             // Nếu rơi vực thì kéo lại vị trí mặt đất an toàn gần nhất
             if (transform.position.y < KillHeight)

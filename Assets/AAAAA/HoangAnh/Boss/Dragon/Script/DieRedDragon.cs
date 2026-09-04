@@ -8,6 +8,7 @@ public class DieRedDragon : MonoBehaviour
     Health health;
     Animator ani;
     Rigidbody rb;
+    MenuSkillDragon menu;
 
     // Biến cờ để đánh dấu Boss đã chết, ngăn code chạy nhiều lần
     private bool isDead = false;
@@ -19,6 +20,7 @@ public class DieRedDragon : MonoBehaviour
         health = GetComponent<Health>();
         ani = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        menu = GetComponent<MenuSkillDragon>();
     }
 
     void Update()
@@ -31,7 +33,7 @@ public class DieRedDragon : MonoBehaviour
             // Bật cờ "Đã chết" ngay lập tức để khoá đoạn code này lại, 
             // các frame sau sẽ không bị lọt vào đây nữa.
             isDead = true;
-
+            menu.enabled = false;  // Tắt menu skill của Boss
             // 1. Tắt các kịch bản di chuyển và tấn công để Boss nằm im
             if (runRedDragon != null) runRedDragon.enabled = false;
             if (redController != null) redController.enabled = false;
